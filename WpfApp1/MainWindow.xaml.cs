@@ -80,7 +80,7 @@ namespace WpfApp1
        
         bool dop_1 = false;
         bool dop_2 = false;
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        private void CheckBox_Click(object sender, RoutedEventArgs e) 
         {
             if (dop_1)
             { dop_1 = false; }
