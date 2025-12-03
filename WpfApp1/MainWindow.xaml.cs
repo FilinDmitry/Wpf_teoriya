@@ -73,7 +73,7 @@ namespace WpfApp1
         string name;
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
-            TextBox s = sender as TextBox;
+            TextBox s = sender as TextBox; 
             name = s.Text;
         }
 
