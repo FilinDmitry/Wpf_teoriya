@@ -26,7 +26,7 @@ namespace WpfApp1
             InitializeComponent();
             
         }
-        double finalValue;
+        double finalValue = 1;
         private void Thumb_OnDragCompleted(object sender, DragCompletedEventArgs e)
         {
             Slider slider = (Slider)sender;
