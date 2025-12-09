@@ -24,10 +24,12 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
-
+        
         private void B_click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new SecondPage());
+            MainWindow obj = (MainWindow)Window.GetWindow(this);
+            obj.AddGoida();
         }
     }
 }

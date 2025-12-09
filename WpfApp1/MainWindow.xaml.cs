@@ -24,7 +24,7 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
 
         private void Return_click(object sender, RoutedEventArgs e)
@@ -32,6 +32,7 @@ namespace WpfApp1
             if (MainFrame.CanGoBack)
             {
                 MainFrame.GoBack();
+                ReduceGoida();
             }
         }
 
@@ -40,7 +41,16 @@ namespace WpfApp1
             if (MainFrame.CanGoForward)
             {
                 MainFrame.GoForward();
+                AddGoida();
             }
+        }
+        public void AddGoida()
+        {
+            GoidaProgress.Value += 1;
+        }
+        public void ReduceGoida()
+        {
+            GoidaProgress.Value -= 1;
         }
     }
 }
