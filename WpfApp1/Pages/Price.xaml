@@ -10,5 +10,8 @@
 
     <Grid>
         <Button Content="Далее" Click="B_click" Margin="350,247,350,63"/>
+        <Label FontSize="20" Content="Проверьте выбранные опции и конфигурацию"  Margin="250,27,250,283"/>
+        <TextBlock Text="Опции" Margin="430,75,170,175"></TextBlock>
+        <TextBlock Text="Конфигурация" Margin="170,75,430,175"></TextBlock>
     </Grid>
 </Page>

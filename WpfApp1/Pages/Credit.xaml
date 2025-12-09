@@ -10,5 +10,6 @@
 
     <Grid>
         <Button Content="Далее" Click="B_click" Margin="350,247,350,63"/>
+        <Slider></Slider>
     </Grid>
 </Page>
