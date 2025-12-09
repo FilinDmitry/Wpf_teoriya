@@ -25,9 +25,15 @@ namespace WpfApp1.Pages
             InitializeComponent();
         }
 
+        private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.Text[0]);
+
+        }
         private void B_click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Отправка успешно выполнена");
         }
+
     }
 }

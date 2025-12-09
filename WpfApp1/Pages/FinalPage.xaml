@@ -9,6 +9,20 @@
       Title="FinalPage">
 
     <Grid>
+        <StackPanel Margin="0, 30, 0, 0">
+            <StackPanel Orientation="Horizontal" Margin="200, 10">
+                <Label Content="Имя"></Label>
+                <TextBox Text="Первоначальный взнос" Width="324"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="200, 10">
+                <Label Content="Телефон"></Label>
+                <TextBox PreviewTextInput="TextBox_OnPreviewTextInput" Text="Первоначальный взнос" Width="299"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="200, 10">
+                <Label Content="Адрес электронной почты"></Label>
+                <TextBox Text="Первоначальный взнос" Width="200"></TextBox>
+            </StackPanel>
+        </StackPanel>
         <Button Content="Оформить заказ" Click="B_click" Margin="340,247,340,63"/>
     </Grid>
 </Page>
