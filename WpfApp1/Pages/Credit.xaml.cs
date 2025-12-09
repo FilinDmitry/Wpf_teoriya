@@ -24,10 +24,27 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
-
+        double finalValue = 12;
         private void B_click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new FinalPage());
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (Shtuk != null)
+            {
+                Slider slider = (Slider)sender;
+                finalValue = slider.Value;
+
+                Shtuk.Text = $"{finalValue} месяцев";
+            }
+        }
+
+        private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.Text[0]);
+
         }
     }
 }

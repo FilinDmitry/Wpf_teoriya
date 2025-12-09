@@ -10,6 +10,24 @@
 
     <Grid>
         <Button Content="Далее" Click="B_click" Margin="350,247,350,63"/>
-        <Slider></Slider>
+        <StackPanel Margin="200, 0">
+
+                <Label Content="Введите параметры кредита"></Label>
+
+            <StackPanel Orientation="Horizontal" Margin="0, 15, 0, 15">
+                <Label Content="Процент первоначального взноса"></Label>
+                <TextBox x:Name="Procent" PreviewTextInput="TextBox_OnPreviewTextInput" Text="30" Margin="20, 0, 0, 0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+            <Label Content="Срок кредита"/>
+            <Slider Width="130" Value="12" Minimum="12" Maximum="96" TickFrequency="6" IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged"/>
+            <TextBlock Text="12 месяцев" Name="Shtuk"/>
+        </StackPanel>
+            <StackPanel Margin="0, 30, 0, 0">
+                <TextBlock Text="Первоначальный взнос"></TextBlock>
+                <TextBlock Text="Cумма в кредит" Margin="0, 10, 0, 10"></TextBlock>
+                <TextBlock Text="Ориентировочный ежемесячный платеж"></TextBlock>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
