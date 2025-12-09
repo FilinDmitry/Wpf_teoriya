@@ -5,37 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="270">
-    <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Имя"/>
-                <TextBox Width="140" TextChanged="TextBox_TextChanged_1"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Телефон"/>
-                <TextBox Width="116" PreviewTextInput="TextBox_OnPreviewTextInput" TextChanged="TextBox_TextChanged"/>
-            </StackPanel>
-                <Label Content="Способ оплаты"/>
-            <StackPanel Orientation="Horizontal">
-                <RadioButton GroupName="Oplata" Checked="ToggleButton_OnChecked">Наличные</RadioButton>
-                <RadioButton GroupName="Oplata" Checked="ToggleButton_OnChecked" Margin="15, 0, 15, 0">Карта</RadioButton>
-                <RadioButton GroupName="Oplata" Checked="ToggleButton_OnChecked">Онлайн</RadioButton>
-            </StackPanel>
-            <Label Content="Дополнительно"/>
-            <CheckBox Click="CheckBox_Click" IsChecked="False">Подарочная упаковка (+100Р)</CheckBox>
-            <CheckBox Click="CheckBox_Click_2">Срочная доставка (+200Р)</CheckBox>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Количество"/>
-                <Slider Width="130" Value="1" Minimum="1" Maximum="5" TickFrequency="1" IsSnapToTickEnabled="True" Thumb.DragCompleted="Thumb_OnDragCompleted" ValueChanged="Slider_ValueChanged"/>
-                <TextBlock Name="Shtuk"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Итого"/>
-                <TextBlock Name="Sun" Text="500"/>
-            </StackPanel>
-            <Button Content="Отправить заказ" Width="140" HorizontalAlignment="Left" Margin="30, 0, 0, 0" Click="Button_Click"></Button>
-        </StackPanel>
+        Title="GoidaWindow" Height="550" Width="800">
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+            
+        <Frame x:Name="MainFrame" Grid.Row="0" Source="Pages/FirstPage.xaml" NavigationUIVisibility="Hidden"/>
+        <Button Content="Вернуться вперед" Grid.Row="1" Click="Next_click" Margin="450,30,200,30"/>
+        <Button Content="Вернуться назад" Grid.Row="1" Click="Return_click" Margin="200,30,450,30"/>
         
     </Grid>
 </Window>
