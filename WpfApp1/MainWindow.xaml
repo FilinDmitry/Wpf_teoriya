@@ -12,10 +12,10 @@
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-            
-        <Frame x:Name="MainFrame" Grid.Row="0" Source="Pages/FirstPage.xaml" NavigationUIVisibility="Hidden"/>
-        <Button Content="Вернуться вперед" Grid.Row="1" Click="Next_click" Margin="450,30,200,30"/>
+
+        <Frame x:Name="MainFrame" Grid.Row="0" Source="Pages/FirstPage.xaml" NavigationUIVisibility="Hidden" Navigating="OnNavigating" NavigationStopped="MainFrame_NavigationStopped"/>
+        <TextBlock FontSize="18" Text="Стоимость:" Grid.Row="1" Margin="450,30,200,30" x:Name="Itog"/>
         <Button Content="Вернуться назад" Grid.Row="1" Click="Return_click" Margin="200,30,450,30"/>
-        <ProgressBar x:Name="GoidaProgress" Grid.Row="2" Height="30" Minimum="1" Maximum="5" Value="1"></ProgressBar>
+        <ProgressBar x:Name="GoidaProgress" Grid.Row="2" Height="30" Minimum="1" Maximum="6" Value="1"></ProgressBar>
     </Grid>
 </Window>

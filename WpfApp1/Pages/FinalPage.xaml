@@ -13,17 +13,17 @@
             <Label Content="Заполните личные данные" HorizontalAlignment="Center"></Label>
             <StackPanel Orientation="Horizontal" Margin="200, 10">
                 <Label Content="Имя"></Label>
-                <TextBox Text="Первоначальный взнос" Width="324"></TextBox>
+                <TextBox x:Name="Name" Width="324" TextChanged="Name_TextChanged"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="200, 10">
                 <Label Content="Телефон"></Label>
-                <TextBox PreviewTextInput="TextBox_OnPreviewTextInput" Text="Первоначальный взнос" Width="299"></TextBox>
+                <TextBox x:Name="Phone" PreviewTextInput="TextBox_OnPreviewTextInput" TextChanged="Name_TextChanged" Width="299"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="200, 10">
                 <Label Content="Адрес электронной почты"></Label>
-                <TextBox Text="Первоначальный взнос" Width="200"></TextBox>
+                <TextBox x:Name="email" Width="200" TextChanged="Name_TextChanged"></TextBox>
             </StackPanel>
         </StackPanel>
-        <Button Content="Оформить заказ" Click="B_click" Margin="340,247,340,63"/>
+        <Button x:Name="Btn" Content="Оформить заказ" Click="B_click" Margin="340,247,340,63" IsEnabled="False"/>
     </Grid>
 </Page>

@@ -10,16 +10,30 @@ namespace WpfApp1
     static class Info
     {
         static public MainWindow MVobj { get; set; }
-        static public string model {  get; set; }
-        static public string engine { get; set; }
-        static public string color { get; set; }
-        static public string options { get; set; }
-        static public string fio { get; set; }
-        static public int phone { get; set; }
-        static public string email { get; set; }
+        static public string model { get; set; } = null;
+        static public string engine { get; set; } = null;
+        static public string color { get; set; } = null;
+        static public string options { get; set; } = null;
+        static public string fio { get; set; } = null;
+        static public int phone { get; set; } = 0;
+        static public string email { get; set; } = null;
         static public void show()
         {
             MessageBox.Show($"model = {model} {engine} color = {color}\n options = {options}\n fio = {fio}\n phone = {phone} \n email = {email}");
+        }
+        static public void newprice()
+        {
+            MVobj.Itog.Text = price();
+        }
+        static private string price()
+        {
+            int price_ = 0;
+            return "Стоимость" + price_.ToString();
+        }
+
+        static public bool all_complited()
+        {
+            return model!= null && engine != null && color != null && options != null;
         }
     }
 }

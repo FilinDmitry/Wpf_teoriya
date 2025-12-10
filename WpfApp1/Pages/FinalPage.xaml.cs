@@ -32,9 +32,22 @@ namespace WpfApp1.Pages
         }
         private void B_click(object sender, RoutedEventArgs e)
         {
+
             Info.show();
             Application.Current.Shutdown();
         }
 
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox TxtBox = (TextBox)sender;
+            if (Info.all_complited())
+            {
+                if (Name.Text.Length > 0 && Phone.Text.Length > 0 && email.Text.Length > 0)
+                {
+                    Btn.IsEnabled = true;
+                }
+                else { Btn.IsEnabled = false; }
+            }
+        }
     }
 }

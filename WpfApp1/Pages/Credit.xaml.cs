@@ -27,15 +27,10 @@ namespace WpfApp1.Pages
         double finalValue = 12;
         private void B_click(object sender, RoutedEventArgs e)
         {
-            Info.MVobj.AddGoida();
-            Frame MF = Info.MVobj.MainFrame;
-            if (MF.CanGoForward)
-            {
-                MF.GoForward();
-                return;
-            }
-            NavigationService.Navigate(new FinalPage());
             
+            
+            NavigationService.Navigate(new FinalPage());
+            Info.MVobj.AddGoida();
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
