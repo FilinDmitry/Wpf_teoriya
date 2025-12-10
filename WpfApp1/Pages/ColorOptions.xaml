@@ -12,19 +12,19 @@
         <StackPanel Orientation="Horizontal">
             <StackPanel Margin="230, 0, 0, 0">
                 <Label Content="Цвет" Margin="0, 40, 0, 0"></Label>
-                <RadioButton Content="Зеленый" GroupName="Color" Margin="0, 20, 0, 0"/>
-                <RadioButton Content="Green" GroupName="Color" Margin="0, 10, 0, 0"/>
-                <RadioButton Content="HEX #00FF00" GroupName="Color" Margin="0, 10, 0, 0"/>
-                <RadioButton Content="RGB (0, 255, 0)" GroupName="Color" Margin="0, 10, 0, 0"/>
-                <RadioButton Content="HSV (120°, 100%, 50%)" GroupName="Color" Margin="0, 10, 0, 0"/>
+                <RadioButton Checked="ToggleButton_OnChecked" Content="Зеленый" GroupName="Color" Margin="0, 20, 0, 0"/>
+                <RadioButton Checked="ToggleButton_OnChecked" Content="Green" GroupName="Color" Margin="0, 10, 0, 0"/>
+                <RadioButton Checked="ToggleButton_OnChecked" Content="HEX #00FF00" GroupName="Color" Margin="0, 10, 0, 0"/>
+                <RadioButton Checked="ToggleButton_OnChecked" Content="RGB (0, 255, 0)" GroupName="Color" Margin="0, 10, 0, 0"/>
+                <RadioButton Checked="ToggleButton_OnChecked" Content="HSV (120°, 100%, 50%)" GroupName="Color" Margin="0, 10, 0, 0"/>
             </StackPanel>
             <StackPanel Margin="100, 0, 0, 0">
                 <Label Content="Доп. опции" Margin="0, 40, 0, 0"></Label>
-                <CheckBox Content="Подогрев (+ 100 000)" Margin="0, 20, 0, 0"/>
-                <CheckBox Content="Кондиционер (+ 1 000 000)" Margin="0, 10, 0, 0"/>
-                <CheckBox Content="Возможность ездить (+ 300 000)" Margin="0, 10, 0, 0"/>
-                <CheckBox Content="Возможность летать (x 3)" Margin="0, 10, 0, 0"/>
-                <CheckBox Content="Возможность плавать (x 1.5)" Margin="0, 10, 0, 0"/>
+                <CheckBox x:Name="cb1" Content="Подогрев (+ 100 000)" Margin="0, 20, 0, 0"/>
+                <CheckBox x:Name="cb2"  Content="Кондиционер (+ 1 000 000)" Margin="0, 10, 0, 0"/>
+                <CheckBox x:Name="cb3"  Content="Возможность ездить (+ 300 000)" Margin="0, 10, 0, 0"/>
+                <CheckBox x:Name="cb4"  Content="Возможность летать (x 3)" Margin="0, 10, 0, 0"/>
+                <CheckBox x:Name="cb5"  Content="Возможность плавать (x 2)" Margin="0, 10, 0, 0"/>
             </StackPanel>
         </StackPanel>
         <Button Content="Далее" Click="B_click" Margin="350,247,350,63"/>
