@@ -30,7 +30,7 @@ namespace WpfApp1.Pages
             
             Info.MVobj.AddGoida();
             Frame MF = Info.MVobj.MainFrame;
-            options();
+            Info.options = options();
             if (MF.CanGoForward)
             {
                 MF.GoForward();
@@ -47,14 +47,14 @@ namespace WpfApp1.Pages
 
         private string options()
         {
-            string s = "";
+            string s = "Выбранные опции:\n";
             
             List<CheckBox> lst = new List<CheckBox> { cb1, cb2, cb3, cb4, cb5 };
             foreach (CheckBox cb in lst)
             {
                 if (cb.IsChecked == true)
                 {
-                    s += cb.ToString();
+                    s += cb.Content.ToString() + "\n";
                     if (cb == cb1)
                     {
                         Info.Price += 100000;

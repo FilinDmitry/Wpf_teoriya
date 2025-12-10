@@ -23,6 +23,7 @@ namespace WpfApp1.Pages
         public Third()
         {
             InitializeComponent();
+            
         }
 
         private void B_click(object sender, RoutedEventArgs e)
@@ -38,5 +39,13 @@ namespace WpfApp1.Pages
             }
             NavigationService.Navigate(new Credit());
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            konf.Text = $"{Info.model}\n{Info.engine}\n{Info.color}";
+            Opt.Text = $"{Info.options}";
+        }
+
+        
     }
 }
