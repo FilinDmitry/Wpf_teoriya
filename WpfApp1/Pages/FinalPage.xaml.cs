@@ -32,7 +32,7 @@ namespace WpfApp1.Pages
         }
         private void B_click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Отправка успешно выполнена");
+            Info.show();
             Application.Current.Shutdown();
         }
 

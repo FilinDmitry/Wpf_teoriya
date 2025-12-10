@@ -27,9 +27,18 @@ namespace WpfApp1.Pages
         
         private void B_click(object sender, RoutedEventArgs e)
         {
+            MainWindow MVobj = (MainWindow)Window.GetWindow(this);
+            Info.MVobj = MVobj;
+            Info.MVobj.AddGoida();
+            Frame MF = Info.MVobj.MainFrame;
+            
+                if (MF.CanGoForward)
+                {
+                    MF.GoForward();
+                    return;
+                }
             NavigationService.Navigate(new SecondPage());
-            MainWindow obj = (MainWindow)Window.GetWindow(this);
-            obj.AddGoida();
+            
         }
     }
 }

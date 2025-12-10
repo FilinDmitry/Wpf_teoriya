@@ -10,6 +10,7 @@
 
     <Grid>
         <StackPanel Margin="0, 30, 0, 0">
+            <Label Content="Заполните личные данные" HorizontalAlignment="Center"></Label>
             <StackPanel Orientation="Horizontal" Margin="200, 10">
                 <Label Content="Имя"></Label>
                 <TextBox Text="Первоначальный взнос" Width="324"></TextBox>
