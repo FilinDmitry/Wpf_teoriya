@@ -27,10 +27,11 @@ namespace WpfApp1.Pages
 
         private void B_click(object sender, RoutedEventArgs e)
         {
-            
+            PriceCore.lst = new List<CheckBox> { cb1, cb2, cb3, cb4, cb5 };
+
             Info.MVobj.AddGoida();
             Frame MF = Info.MVobj.MainFrame;
-            Info.options = options();
+            Info.options = PriceCore.options();
             if (MF.CanGoForward)
             {
                 MF.GoForward();
@@ -45,40 +46,6 @@ namespace WpfApp1.Pages
         }
         
 
-        private string options()
-        {
-            string s = "Выбранные опции:\n";
-            
-            List<CheckBox> lst = new List<CheckBox> { cb1, cb2, cb3, cb4, cb5 };
-            foreach (CheckBox cb in lst)
-            {
-                if (cb.IsChecked == true)
-                {
-                    s += cb.Content.ToString() + "\n";
-                    if (cb == cb1)
-                    {
-                        Info.Price += 100000;
-                    }
-                    if (cb == cb2)
-                    {
-                        Info.Price += 1000000;
-                    }
-                    if (cb == cb3)
-                    {
-                        Info.Price += 300000;
-                    }
-                    if (cb == cb4)
-                    {
-                        Info.Price *= 3;
-                    }
-                    if (cb == cb5)
-                    {
-                        Info.Price *= 2;
-                    }
-                }
-            }
-            
-            return s;
-        }
+        
     }
 }
