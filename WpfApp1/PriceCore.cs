@@ -91,11 +91,11 @@ namespace WpfApp1
             int S = Price - P;
             double i = r / 100 / 12;
             double A = S * (i * Math.Pow((1 + i), n)) / (Math.Pow((1 + i), n) - 1);
-            A = S * (i * Math.Pow((1 + i), n)) / Math.Pow((1 + i), n) - 1; //Сохраню эту шедевро формулу
+            //A = S * (i * Math.Pow((1 + i), n)) / Math.Pow((1 + i), n) - 1; //Сохраню эту шедевро формулу
             //S*(i*(1+i)^n)/(1+i)^n - 1
             vznos.Text = P.ToString();
             sum_cred.Text = S.ToString();
-            month_cred.Text = A.ToString(); 
+            month_cred.Text = Math.Round(A, 2).ToString(); 
         }
 
     }

@@ -48,11 +48,16 @@ namespace WpfApp1.Pages
         private void TextBox_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !char.IsDigit(e.Text[0]);
-
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (int.Parse(Procent.Text) > 100)
+            {
+                MessageBox.Show("Введен не корректный процент");
+                return;
+            }
             PriceCore.n = (int)Sl.Value;
             PriceCore.procent = int.Parse(Procent.Text);
             PriceCore.credit(TBVznos, Credit_sum, Month);
