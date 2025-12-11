@@ -22,7 +22,7 @@ namespace WpfApp1
         
         static public void show()
         {
-            MessageBox.Show($"model = {model} {engine} color = {color}\n options = {options}\n fio = {fio}\n phone = {phone} \n email = {email}");
+            MessageBox.Show($"model = {model} {engine} color = {color}\n{options}\n fio = {fio}\n phone = {phone} \n email = {email}");
         }
         
         

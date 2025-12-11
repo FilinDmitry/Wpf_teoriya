@@ -31,6 +31,7 @@ namespace WpfApp1.Pages
             
             NavigationService.Navigate(new FinalPage());
             Info.MVobj.AddGoida();
+            
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -48,6 +49,13 @@ namespace WpfApp1.Pages
         {
             e.Handled = !char.IsDigit(e.Text[0]);
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PriceCore.n = (int)Sl.Value;
+            PriceCore.procent = int.Parse(Procent.Text);
+            PriceCore.credit(TBVznos, Credit_sum, Month);
         }
     }
 }
