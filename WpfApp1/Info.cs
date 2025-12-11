@@ -15,14 +15,14 @@ namespace WpfApp1
         static public string color { get; set; } = null;
         static public string options { get; set; } = "";
         static public string fio { get; set; } = null;
-        static public int phone { get; set; } = 0;
+        static public string phone { get; set; } = null;
         static public string email { get; set; } = null;
         
         
         
         static public void show()
         {
-            MessageBox.Show($"model = {model} {engine} color = {color}\n{options}\n fio = {fio}\n phone = {phone} \n email = {email}");
+            MessageBox.Show($"model = {model} {engine} color = {color}\n{options}\n fio = {fio}\n phone = {phone} \n email = {email} {PriceCore.info()}");
         }
         
         

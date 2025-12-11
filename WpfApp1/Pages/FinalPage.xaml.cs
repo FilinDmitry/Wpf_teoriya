@@ -45,7 +45,7 @@ namespace WpfApp1.Pages
                 if (Name.Text.Length > 0 && Phone.Text.Length > 0 && email.Text.Length > 0)
                 {
                     Info.email = email.Text;
-                    Info.phone = int.Parse(Phone.Text);
+                    Info.phone = Phone.Text;
                     Info.fio = Name.Text;
                     Btn.IsEnabled = true;
                 }
