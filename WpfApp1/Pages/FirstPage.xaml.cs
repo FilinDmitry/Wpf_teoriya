@@ -18,39 +18,68 @@ namespace WpfApp1.Pages
     /// <summary>
     /// Логика взаимодействия для FirstPage.xaml
     /// </summary>
+    public class Pizza_l
+    {
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public string Description { get; set; }
+    }
     public partial class FirstPage : Page
     {
         public FirstPage()
         {
             InitializeComponent();
+            List<Pizza_l> pizzas = new List<Pizza_l>
+            {
+                new Pizza_l
+                {
+                    Name = "4 сыра",
+                    Price = 450,
+                    Description = "Пицца с 4 сырами"
+                },
+                new Pizza_l
+                {
+                    Name = "2 сыра",
+                    Price = 350,
+                    Description = "Пицца с 4 сырами но дешевле"
+                },
+                new Pizza_l
+                {
+                    Name = "Пепперони",
+                    Price = 400,
+                    Description = "Пицца с колбасой"
+                },
+                new Pizza_l
+                {
+                    Name = "Гойда пицца",
+                    Price = 650,
+                    Description = "Пицца с дорогой колбасой"
+                },
+                new Pizza_l
+                {
+                    Name = "4 мяса",
+                    Price = 600,
+                    Description = "Пицца с 4 видами мяса"
+                }
+            };
+            PizzaListBox.ItemsSource = pizzas;
+
         }
         
         private void B_click(object sender, RoutedEventArgs e)
         {
-            MainWindow MVobj = (MainWindow)Window.GetWindow(this);
-            Info.MVobj = MVobj;
-            Info.MVobj.AddGoida();
-            Frame MF = Info.MVobj.MainFrame;
-            PriceCore.price();
-                if (MF.CanGoForward)
-                {
-                    MF.GoForward();
-                    return;
-                }
-            NavigationService.Navigate(new SecondPage());
             
+            NavigationService.Navigate(new SecondPage());
+            Pizza_l p = PizzaListBox.SelectedItem as Pizza_l;
+            Pizza.price = p.Price;
+            Pizza.name = p.Name;
+            MainWindow MVobj = (MainWindow)Window.GetWindow(this);
+            MVobj.Cena.Text = Pizza.summa_1().ToString();
         }
 
-        private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
+        private void PizzaListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            RadioButton rb = (RadioButton)sender;
-            Info.model = rb.Content.ToString();
-        }
-
-        private void ToggleButton_OnChecked_2(object sender, RoutedEventArgs e)
-        {
-            RadioButton rb = (RadioButton)sender;
-            Info.engine = rb.Content.ToString();
+            Goida.IsEnabled = true;
         }
     }
 }

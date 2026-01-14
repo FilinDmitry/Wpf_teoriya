@@ -1,0 +1,21 @@
+﻿<Page x:Class="WpfApp1.Pages.SecondPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="800"
+      Title="SecondPage">
+
+    <Grid>
+        <StackPanel>
+            <RadioButton Margin="10" GroupName="Size" Content="Маленькая * 1" IsChecked="True" Checked="RadioButton_Checked"></RadioButton>
+            <RadioButton Margin="10" GroupName="Size" Content="Средняя * 1.2" Checked="RadioButton_Checked"></RadioButton>
+            <RadioButton Margin="10" GroupName="Size" Content="Большая * 1.4" Checked="RadioButton_Checked"></RadioButton>
+        </StackPanel>
+        <ComboBox Name="Dop" Margin="600,0,20,300" SelectionChanged="Dop_SelectionChanged"></ComboBox>
+        <Button Content="Добавить" Margin="618,82,38,230" Click="Button_Click"></Button>
+        <Button Content="Далее" Click="B_click" Margin="350,250,350,50"/>
+    </Grid>
+</Page>

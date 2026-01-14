@@ -13,9 +13,8 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Frame x:Name="MainFrame" Grid.Row="0" Source="Pages/FirstPage.xaml" NavigationUIVisibility="Hidden" Navigating="OnNavigating" NavigationStopped="MainFrame_NavigationStopped"/>
-        <TextBlock FontSize="18" Text="Стоимость:" Grid.Row="1" Margin="450,30,100,30" x:Name="Itog"/>
+        <Frame x:Name="MainFrame" Grid.Row="0" Source="Pages/FirstPage.xaml" NavigationUIVisibility="Hidden" Navigating="OnNavigating"/>
         <Button Content="Вернуться назад" Grid.Row="1" Click="Return_click" Margin="200,30,450,30"/>
-        <ProgressBar x:Name="GoidaProgress" Grid.Row="2" Height="30" Minimum="1" Maximum="6" Value="1"></ProgressBar>
+        <TextBlock x:Name="Cena"  Grid.Row="1" Margin="460, 30, 100, 30" Text=""></TextBlock>
     </Grid>
 </Window>
