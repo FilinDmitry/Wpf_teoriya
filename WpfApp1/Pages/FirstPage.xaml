@@ -9,17 +9,22 @@
       Title="FirstPage">
 
     <Grid>
-        <ListBox x:Name="PizzaListBox" SelectionChanged="PizzaListBox_SelectionChanged" Margin="0,0,0,55">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name, StringFormat=Наименование: {0}}"/>
-                        <TextBlock Text="{Binding Price, StringFormat=Цена: {0}}"/>
-                        <TextBlock Text="{Binding Description}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ScrollViewer>
+            <ListBox x:Name="PizzaListBox" SelectionChanged="PizzaListBox_SelectionChanged" Margin="0,0,0,55">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            
+                        <StackPanel>
+                            <TextBlock Text="{Binding Price, StringFormat=Цена: {0}}"/>
+                            <TextBlock Text="{Binding Description}"/>
+                        </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                        
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
         <Button x:Name="Goida" IsEnabled="False" Content="Далее" Click="B_click" Margin="350,300,350,10"/>
     </Grid>
 </Page>
