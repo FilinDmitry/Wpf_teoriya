@@ -9,22 +9,29 @@
       Title="FirstPage">
 
     <Grid>
-        <ScrollViewer>
-            <ListBox x:Name="PizzaListBox" SelectionChanged="PizzaListBox_SelectionChanged" Margin="0,0,0,55">
+
+        <ListBox x:Name="PizzaListBox" SelectionChanged="PizzaListBox_SelectionChanged" Margin="0,0,0,55" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            
-                        <StackPanel>
-                            <TextBlock Text="{Binding Price, StringFormat=Цена: {0}}"/>
-                            <TextBlock Text="{Binding Description}"/>
-                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center">
+                            <Image Height="100" Width="160"  Source="{Binding Directory}"/>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}}"/>
+                            <TextBlock Padding="15" Text="{Binding Name}"/>
+                            </StackPanel>
+                            <Button Height="40" Content="Добавить в корзину" Click="Button_Click"></Button>
                         </StackPanel>
                     </DataTemplate>
+                       
                         
                 </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
             </ListBox>
-        </ScrollViewer>
+
         <Button x:Name="Goida" IsEnabled="False" Content="Далее" Click="B_click" Margin="350,300,350,10"/>
     </Grid>
 </Page>

@@ -23,6 +23,8 @@ namespace WpfApp1.Pages
         public string Name { get; set; }
         public int Price { get; set; }
         public string Description { get; set; }
+
+        public string Directory { get; set; }
     }
     public partial class FirstPage : Page
     {
@@ -35,7 +37,8 @@ namespace WpfApp1.Pages
                 {
                     Name = "4 сыра",
                     Price = 450,
-                    Description = "Пицца с 4 сырами"
+                    Description = "Пицца с 4 сырами",
+                    Directory = "/Images/p1.jpg"
                 },
                 new Pizza_l
                 {
@@ -80,6 +83,12 @@ namespace WpfApp1.Pages
         private void PizzaListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Goida.IsEnabled = true;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            var select_item = button.DataContext as Pizza_l; 
         }
     }
 }
