@@ -17,10 +17,12 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <TextBlock Name="Zakaz"></TextBlock>
-        <TextBox Grid.Row="1" Margin="230,10,400,20" TextChanged="TextBox_TextChanged"></TextBox>
+        <TextBox x:Name="TB_fio" Grid.Row="1" Margin="230,10,400,20" TextChanged="TextBox_TextChanged"></TextBox>
         <TextBlock Text="Введите ФИО" Grid.Row="1" Margin="30,20,600,20"></TextBlock>
-        <TextBlock Text="Способ оплаты" Grid.Row="2" Margin="30,20,600,20"></TextBlock>
-        <ComboBox Grid.Row="2" Name="Oplata" SelectedIndex="1" Margin="230,10,400,20"></ComboBox>
+        <TextBox x:Name="TB_pochta" Grid.Row="2" Margin="230,10,400,20" TextChanged="TextBox_TextChanged"></TextBox>
+        <TextBlock Text="Введите почту" Grid.Row="2" Margin="30,20,600,20"></TextBlock>
+        <TextBox x:Name="TB_adres" Grid.Row="3" Margin="230,10,400,20" TextChanged="TextBox_TextChanged"></TextBox>
+        <TextBlock Text="Введите адрес" Grid.Row="3" Margin="30,20,600,20"></TextBlock>
         <Button Name="Final" Grid.Row="4" Content="Оформить заказ" Margin="200,0,200,0" Click="Button_Click" IsEnabled="False"></Button>
     </Grid>
 </Page>

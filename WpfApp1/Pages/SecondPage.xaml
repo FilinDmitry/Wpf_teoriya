@@ -9,13 +9,27 @@
       Title="SecondPage">
 
     <Grid>
-        <StackPanel>
-            <RadioButton Margin="10" GroupName="Size" Content="Маленькая * 1" IsChecked="True" Checked="RadioButton_Checked"></RadioButton>
-            <RadioButton Margin="10" GroupName="Size" Content="Средняя * 1.2" Checked="RadioButton_Checked"></RadioButton>
-            <RadioButton Margin="10" GroupName="Size" Content="Большая * 1.4" Checked="RadioButton_Checked"></RadioButton>
-        </StackPanel>
-        <ComboBox Name="Dop" Margin="600,0,20,300" SelectionChanged="Dop_SelectionChanged"></ComboBox>
-        <Button Content="Добавить" Margin="618,82,38,230" Click="Button_Click"></Button>
-        <Button Content="Далее" Click="B_click" Margin="350,250,350,50"/>
+        <ListBox x:Name="PizzaListBox" Margin="0,0,0,55" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Center">
+                        <Image Height="100" Width="160"  Source="{Binding Directory}"/>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}}"/>
+                            <TextBlock Padding="15" Text="{Binding Name}"/>
+                        </StackPanel>
+                        <Button Height="40" Content="Удалить из корзины" Click="Button_Click"></Button>
+                    </StackPanel>
+                </DataTemplate>
+
+
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+        <Button Content="Оформить заказ" Click="B_click" Height="50" Width="120" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

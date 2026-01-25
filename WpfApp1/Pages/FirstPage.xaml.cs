@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,7 +31,8 @@ namespace WpfApp1.Pages
     {
         public FirstPage()
         {
-            InitializeComponent();
+            //InitializeComponent();
+            //List<Tovar> lst = { };
             List<Pizza_l> pizzas = new List<Pizza_l>
             {
                 new Pizza_l
@@ -62,16 +64,17 @@ namespace WpfApp1.Pages
                 {
                     Name = "4 мяса",
                     Price = 600,
-                    Description = "Пицца с 4 видами мяса"
+                    Description = "Пицца с 4 видами мяса",
+                    Directory = "/Images/p1.jpg"
                 }
             };
             PizzaListBox.ItemsSource = pizzas;
 
         }
-        
+
         private void B_click(object sender, RoutedEventArgs e)
         {
-            
+
             NavigationService.Navigate(new SecondPage());
             Pizza_l p = PizzaListBox.SelectedItem as Pizza_l;
             Pizza.price = p.Price;
@@ -88,7 +91,7 @@ namespace WpfApp1.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            var select_item = button.DataContext as Pizza_l; 
+            var select_item = button.DataContext as Pizza_l;
         }
     }
 }

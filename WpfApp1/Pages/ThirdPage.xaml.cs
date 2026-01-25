@@ -20,8 +20,8 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class ThirdPage : Page
     {
-         
-        
+
+
         public ThirdPage()
         {
             InitializeComponent();
@@ -29,9 +29,8 @@ namespace WpfApp1.Pages
             {
                 "карта", "наличные"
             };
-            Oplata.ItemsSource = list;
             Zakaz.Text = Pizza.zakaz();
-            
+
         }
 
         private void Dop_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,10 +46,13 @@ namespace WpfApp1.Pages
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox t = (TextBox)sender;
-            if (t.Text.Length > 10)
+            if (TB_adres.Text.Length > 10 && TB_pochta.Text.Length > 10 && TB_fio.Text.Length > 10)
             {
                 Final.IsEnabled = true;
+            }
+            else
+            {
+                Final.IsEnabled = false;
             }
         }
     }
