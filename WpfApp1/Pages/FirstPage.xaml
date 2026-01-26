@@ -21,7 +21,7 @@
                     <StackPanel HorizontalAlignment="Center">
                         <Image Height="100" Width="160"  Source="{Binding Directory}"/>
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}}"/>
+                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}}"/> 
                             <TextBlock Padding="15" Text="{Binding Name}"/>
                         </StackPanel>
                         <Button Height="40" Content="Добавить в корзину" Click="Button_Click"></Button>

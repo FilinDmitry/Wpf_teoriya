@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <Frame x:Name="MainFrame" Grid.Row="0" Source="Pages/FirstPage.xaml" NavigationUIVisibility="Hidden" Navigating="OnNavigating"/>
-        <Button Content="Вернуться назад" Grid.Row="1" Click="Return_click" Margin="200,30,450,30"/>
-        <TextBlock x:Name="Cena"  Grid.Row="1" Margin="460, 30, 100, 30" Text=""></TextBlock>
+        <Button Content="Вернуться назад" Grid.Row="1" Click="Return_click" Height="40" Width="200" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+        <TextBlock x:Name="Cena"  Grid.Row="1" Margin="300, 0, 0, 0" Height="50" Width="300"  Text=""></TextBlock>
     </Grid>
 </Window>
