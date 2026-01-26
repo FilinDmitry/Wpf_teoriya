@@ -31,8 +31,8 @@ namespace WpfApp1.Pages
     {
         public FirstPage()
         {
-            //InitializeComponent();
-            //List<Tovar> lst = { };
+            InitializeComponent();
+            List<Tovar> lst = Core.Context.Tovar.ToList();
             List<Pizza_l> pizzas = new List<Pizza_l>
             {
                 new Pizza_l
@@ -68,7 +68,7 @@ namespace WpfApp1.Pages
                     Directory = "/Images/p1.jpg"
                 }
             };
-            PizzaListBox.ItemsSource = pizzas;
+            PizzaListBox.ItemsSource = lst;
 
         }
 
