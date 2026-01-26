@@ -25,10 +25,14 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
 
-            //PizzaListBox.ItemsSource = pizzas;
-
+            WTF();
         }
 
+        private void WTF()
+        {
+            CartListBox.ItemsSource = null;
+            CartListBox.ItemsSource = Info.cart;
+        }
         private void B_click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ThirdPage());
@@ -36,7 +40,13 @@ namespace WpfApp1.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            var select_item = button.DataContext as Pizza_l;
+            Tovar select_item = button.DataContext as Tovar;
+
+            Info.cart.Remove(select_item);
+            
+            Info.summa();
+            
+            WTF();
         }
 
 

@@ -9,14 +9,14 @@
       Title="SecondPage">
 
     <Grid>
-        <ListBox x:Name="PizzaListBox" Margin="0,0,0,55" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListBox x:Name="CartListBox" Margin="0,0,0,55" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5} ">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel HorizontalAlignment="Center">
-                        <Image Height="100" Width="160"  Source="{Binding Directory}"/>
+                        <Image Height="100" Width="160"  Source="{Binding Directory, UpdateSourceTrigger=PropertyChanged}"/>
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}}"/>
-                            <TextBlock Padding="15" Text="{Binding Name}"/>
+                            <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Padding="15" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                         <Button Height="40" Content="Удалить из корзины" Click="Button_Click"></Button>
                     </StackPanel>

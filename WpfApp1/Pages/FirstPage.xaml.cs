@@ -33,41 +33,7 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             List<Tovar> lst = Core.Context.Tovar.ToList();
-            List<Pizza_l> pizzas = new List<Pizza_l>
-            {
-                new Pizza_l
-                {
-                    Name = "4 сыра",
-                    Price = 450,
-                    Description = "Пицца с 4 сырами",
-                    Directory = "/Images/p1.jpg"
-                },
-                new Pizza_l
-                {
-                    Name = "2 сыра",
-                    Price = 350,
-                    Description = "Пицца с 4 сырами но дешевле"
-                },
-                new Pizza_l
-                {
-                    Name = "Пепперони",
-                    Price = 400,
-                    Description = "Пицца с колбасой"
-                },
-                new Pizza_l
-                {
-                    Name = "Гойда пицца",
-                    Price = 650,
-                    Description = "Пицца с дорогой колбасой"
-                },
-                new Pizza_l
-                {
-                    Name = "4 мяса",
-                    Price = 600,
-                    Description = "Пицца с 4 видами мяса",
-                    Directory = "/Images/p1.jpg"
-                }
-            };
+
             PizzaListBox.ItemsSource = lst;
 
         }
@@ -76,11 +42,9 @@ namespace WpfApp1.Pages
         {
 
             NavigationService.Navigate(new SecondPage());
-            Pizza_l p = PizzaListBox.SelectedItem as Pizza_l;
-            Pizza.price = p.Price;
-            Pizza.name = p.Name;
             MainWindow MVobj = (MainWindow)Window.GetWindow(this);
-            MVobj.Cena.Text = Pizza.summa_1().ToString();
+            Info.MW = MVobj;
+            Info.summa();
         }
 
         private void PizzaListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -91,7 +55,9 @@ namespace WpfApp1.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            var select_item = button.DataContext as Pizza_l;
+            Tovar select_item = button.DataContext as Tovar;
+
+            Info.cart.Add(select_item);
         }
     }
 }

@@ -25,11 +25,7 @@ namespace WpfApp1.Pages
         public ThirdPage()
         {
             InitializeComponent();
-            List<string> list = new List<string>
-            {
-                "карта", "наличные"
-            };
-            Zakaz.Text = Pizza.zakaz();
+
 
         }
 
