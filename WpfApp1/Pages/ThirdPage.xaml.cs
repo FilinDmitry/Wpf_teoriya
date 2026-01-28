@@ -25,18 +25,14 @@ namespace WpfApp1.Pages
         public ThirdPage()
         {
             InitializeComponent();
-
-
-        }
-
-        private void Dop_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            Zakaz.Text = Info.text_info();
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Благодарим за заказ");
+            Info.write_data(TB_fio.Text, TB_adres.Text, TB_pochta.Text);
             Application.Current.Shutdown();
         }
 

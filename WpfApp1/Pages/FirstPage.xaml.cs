@@ -19,14 +19,7 @@ namespace WpfApp1.Pages
     /// <summary>
     /// Логика взаимодействия для FirstPage.xaml
     /// </summary>
-    public class Pizza_l
-    {
-        public string Name { get; set; }
-        public int Price { get; set; }
-        public string Description { get; set; }
 
-        public string Directory { get; set; }
-    }
     public partial class FirstPage : Page
     {
         public FirstPage()

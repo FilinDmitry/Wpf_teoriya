@@ -35,7 +35,14 @@ namespace WpfApp1.Pages
         }
         private void B_click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ThirdPage());
+            if (Info.cart.Count > 0)
+            {
+                NavigationService.Navigate(new ThirdPage());
+            }
+            else
+            {
+                MessageBox.Show("Необходжимо добавить товар в корзину");
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
