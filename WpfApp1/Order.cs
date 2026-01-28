@@ -23,7 +23,7 @@ namespace WpfApp1
         public int ID { get; set; }
         public string FIO { get; set; }
         public string Adres { get; set; }
-        public string email { get; set; }
+        public string email { get; set; } 
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Tovar> Order_Tovar { get; set; }
