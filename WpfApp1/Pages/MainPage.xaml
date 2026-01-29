@@ -32,8 +32,8 @@
              ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="200">
-                        <Image Source="{Binding Image_path}" MaxWidth="200" MaxHeight="200"/>
+                    <StackPanel Width="205">
+                        <Image Source="{Binding Image_path}" Width="150" Height="200" />
                         <TextBlock Text="{Binding Name}" FontSize="18"/>
                         <TextBlock Text="{Binding Rating, StringFormat=Рейтинг: {0}}"/>
                         <TextBlock Text="{Binding Age_Rating.Min_Age}"/>

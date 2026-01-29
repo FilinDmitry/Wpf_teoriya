@@ -21,7 +21,7 @@ namespace WpfApp1.Pages
     public partial class MainPage : Page
     {
         public static List<Film> Film_lst = Core.Context.Film.ToList();
-        public static List<string> Sorting = new List<string> { "НАЗВАНИЮ", "РЕЙТИНГУ" };
+        public static List<string> Sorting = new List<string> { "Названию", "Рейтингу" };
         public MainPage()
         {
             InitializeComponent();
@@ -44,10 +44,10 @@ namespace WpfApp1.Pages
         {
             switch (ComboBox_Sort.SelectedItem as string)
             {
-                case "НАЗВАНИЮ":
+                case "Названию":
                     ListBox_FilmsCatalog.ItemsSource = Film_lst.OrderBy(i => i.Name);
                     break;
-                case "РЕЙТИНГУ":
+                case "Рейтингу":
                     ListBox_FilmsCatalog.ItemsSource = Film_lst.OrderByDescending(i => i.Rating);
                     break;
                 default:
@@ -64,7 +64,14 @@ namespace WpfApp1.Pages
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ProfilePage());
+            if (User_reg.is_reg)
+            {
+                NavigationService.Navigate(new ProfilePage());
+            }
+            else 
+            {
+                NavigationService.Navigate(new EnterPage());
+            }
         }
     }
 }

@@ -89,6 +89,12 @@
     <Compile Include="Kinozal_Rating.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EnterPage.xaml.cs">
+      <DependentUpon>EnterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegestrationPage.xaml.cs">
+      <DependentUpon>RegestrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Seans.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -134,6 +140,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\EnterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\FirstPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RegestrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -216,8 +230,8 @@
     </Content>
     <Content Include="EntityFramework.dll" />
     <Content Include="EntityFramework.SqlServer.dll" />
-    <Resource Include="Images\p2.jpg" />
-    <Resource Include="Images\p3.jpg" />
+    <Resource Include="Images\jocker.jpg" />
+    <Resource Include="Images\jocker_1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\p1.jpg" />
