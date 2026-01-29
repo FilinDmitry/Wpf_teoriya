@@ -12,20 +12,22 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class Tovar
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tovar()
+        public Users()
         {
-            this.Order_Tovar = new HashSet<Order_Tovar>();
+            this.Ticket = new HashSet<Ticket>();
         }
     
         public int ID { get; set; }
+        public string Login { get; set; }
+        public string Passworg { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Directory { get; set; }
+        public string email { get; set; }
+        public System.DateTime birthday { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order_Tovar> Order_Tovar { get; set; }
+        public virtual ICollection<Ticket> Ticket { get; set; }
     }
 }

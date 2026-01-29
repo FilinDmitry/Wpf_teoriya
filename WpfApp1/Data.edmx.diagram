@@ -4,13 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4bf27660edb64f5986775dd997077695" Name="Diagram1">
-        <EntityTypeShape EntityType="PR13_MarketplaceModel.Order" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PR13_MarketplaceModel.Order_Tovar" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PR13_MarketplaceModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PR13_MarketplaceModel.Tovar" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <AssociationConnector Association="PR13_MarketplaceModel.FK_Order_Tovar_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="PR13_MarketplaceModel.FK_Order_Tovar_Tovar" ManuallyRouted="false" />
+      <Diagram DiagramId="3b8f13b0ea044ff29853d54d7e7cdaa5" Name="Diagram1">
+        <EntityTypeShape EntityType="PR14_CinemaModel.Age_Rating" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Film" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Film_Genre" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Genre" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Kinozal" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Kinozal_Rating" Width="1.5" PointX="3.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Seans" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Seans_Seat" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Seat" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Ticket" Width="1.5" PointX="13.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Users" Width="1.5" PointX="11.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Film_Age_Rating" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Film_Genre_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Film_Genre_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Kinozal_Kinozal_Rating" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Kinozal" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Seat_Kinozal2" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Seat_Seans" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Ticket_Seans" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Seat_Seat" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Ticket_Seat" ManuallyRouted="false" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Ticket_Users" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

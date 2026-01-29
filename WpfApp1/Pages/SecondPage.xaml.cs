@@ -25,9 +25,9 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
 
-            WTF();
+           
         }
-
+/*
         private void WTF()
         {
             CartListBox.ItemsSource = null;
@@ -56,6 +56,6 @@ namespace WpfApp1.Pages
             WTF();
         }
 
-
+        */
     }
 }

@@ -25,14 +25,14 @@ namespace WpfApp1.Pages
         public ThirdPage()
         {
             InitializeComponent();
-            Zakaz.Text = Info.text_info();
+            //Zakaz.Text = Info.text_info();
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Благодарим за заказ");
-            Info.write_data(TB_fio.Text, TB_adres.Text, TB_pochta.Text);
+            //Info.write_data(TB_fio.Text, TB_adres.Text, TB_pochta.Text);
             Application.Current.Shutdown();
         }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="GoidaWindow" Height="550" Width="800">
+        Title="GoidaWindow" Height="650" Width="800">
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="350"></RowDefinition>
@@ -13,7 +13,7 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Frame x:Name="MainFrame" Grid.Row="0" Source="Pages/FirstPage.xaml" NavigationUIVisibility="Hidden" Navigating="OnNavigating"/>
+        <Frame x:Name="MainFrame" Grid.Row="0" Source="Pages/MainPage.xaml" NavigationUIVisibility="Hidden" Navigating="OnNavigating"/>
         <Button Content="Вернуться назад" Grid.Row="1" Click="Return_click" Height="40" Width="200" HorizontalAlignment="Left" Margin="100,0,0,0"/>
         <TextBlock x:Name="Cena"  Grid.Row="1" Margin="300, 0, 0, 0" Height="50" Width="300"  Text=""></TextBlock>
     </Grid>

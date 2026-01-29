@@ -8,7 +8,7 @@ namespace WpfApp1
 {
     static internal class Info
     {
-        public static List<Tovar> cart = new List<Tovar>();
+        /*public static List<Tovar> cart = new List<Tovar>();
         public static MainWindow MW;
 
         public static void summa()
@@ -54,8 +54,8 @@ namespace WpfApp1
             }
             Core.Context.SaveChanges();
         }
-        
+        */
     };
-
+        
     
 }

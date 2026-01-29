@@ -25,9 +25,9 @@ namespace WpfApp1.Pages
         public FirstPage()
         {
             InitializeComponent();
-            List<Tovar> lst = Core.Context.Tovar.ToList();
+            //List<Tovar> lst = Core.Context.Tovar.ToList();
 
-            PizzaListBox.ItemsSource = lst;
+           // PizzaListBox.ItemsSource = lst;
 
         }
 
@@ -36,8 +36,8 @@ namespace WpfApp1.Pages
 
             NavigationService.Navigate(new SecondPage());
             MainWindow MVobj = (MainWindow)Window.GetWindow(this);
-            Info.MW = MVobj;
-            Info.summa();
+            //Info.MW = MVobj;
+            //Info.summa();
         }
 
         private void PizzaListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -48,9 +48,9 @@ namespace WpfApp1.Pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            Tovar select_item = button.DataContext as Tovar;
+            //Tovar select_item = button.DataContext as Tovar;
 
-            Info.cart.Add(select_item);
+            //Info.cart.Add(select_item);
         }
     }
 }

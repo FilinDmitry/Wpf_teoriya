@@ -12,13 +12,16 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class Order_Tovar
+    public partial class Ticket
     {
         public int ID { get; set; }
-        public int Order { get; set; }
-        public int Tovar { get; set; }
+        public int Seat_ID { get; set; }
+        public int User_ID { get; set; }
+        public int Seans_ID { get; set; }
+        public decimal Ticket_Price { get; set; }
     
-        public virtual Order Order1 { get; set; }
-        public virtual Tovar Tovar1 { get; set; }
+        public virtual Seans Seans { get; set; }
+        public virtual Seat Seat { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

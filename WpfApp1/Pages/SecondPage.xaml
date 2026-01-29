@@ -18,7 +18,7 @@
                             <TextBlock Padding="15" Text="{Binding Price, StringFormat=Цена: {0}, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Padding="15" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
-                        <Button Height="40" Content="Удалить из корзины" Click="Button_Click"></Button>
+                        <Button Height="40" Content="Удалить из корзины"></Button>
                     </StackPanel>
                 </DataTemplate>
 
@@ -30,6 +30,6 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
-        <Button Content="Оформить заказ" Click="B_click" Height="50" Width="120" VerticalAlignment="Bottom"/>
+        <Button Content="Оформить заказ"  Height="50" Width="120" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

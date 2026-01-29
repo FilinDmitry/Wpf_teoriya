@@ -12,20 +12,14 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class Order
+    public partial class Seans_Seat
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            this.Order_Tovar = new HashSet<Order_Tovar>();
-        }
-    
         public int ID { get; set; }
-        public string FIO { get; set; }
-        public string Adres { get; set; }
-        public string email { get; set; } 
+        public int Seans_ID { get; set; }
+        public int Seat_ID { get; set; }
+        public bool Status { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order_Tovar> Order_Tovar { get; set; }
+        public virtual Seans Seans { get; set; }
+        public virtual Seat Seat { get; set; }
     }
 }

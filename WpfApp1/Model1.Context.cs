@@ -13,10 +13,10 @@ namespace WpfApp1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PR14_CinemaEntities : DbContext
+    public partial class PR13_MarketplaceEntities1 : DbContext
     {
-        public PR14_CinemaEntities()
-            : base("name=PR14_CinemaEntities")
+        public PR13_MarketplaceEntities1()
+            : base("name=PR13_MarketplaceEntities1")
         {
         }
     
@@ -25,17 +25,9 @@ namespace WpfApp1
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Age_Rating> Age_Rating { get; set; }
-        public virtual DbSet<Film> Film { get; set; }
-        public virtual DbSet<Film_Genre> Film_Genre { get; set; }
-        public virtual DbSet<Genre> Genre { get; set; }
-        public virtual DbSet<Kinozal> Kinozal { get; set; }
-        public virtual DbSet<Kinozal_Rating> Kinozal_Rating { get; set; }
-        public virtual DbSet<Seans> Seans { get; set; }
-        public virtual DbSet<Seans_Seat> Seans_Seat { get; set; }
-        public virtual DbSet<Seat> Seat { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<Order_Tovar> Order_Tovar { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Ticket> Ticket { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Tovar> Tovar { get; set; }
     }
 }
