@@ -107,6 +107,7 @@
     <Compile Include="Users.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="User_reg.cs" />
     <Page Include="Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,7 +171,6 @@
     <Compile Include="Pages\ThirdPage.xaml.cs">
       <DependentUpon>ThirdPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Info.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -216,6 +216,8 @@
     </Content>
     <Content Include="EntityFramework.dll" />
     <Content Include="EntityFramework.SqlServer.dll" />
+    <Resource Include="Images\p2.jpg" />
+    <Resource Include="Images\p3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\p1.jpg" />

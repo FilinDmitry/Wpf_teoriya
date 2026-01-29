@@ -33,10 +33,10 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="200">
-                        <Image Source="{Binding ImagePath}" MaxWidth="200" MaxHeight="200"/>
-                        <TextBlock Text="{Binding FilmName}" FontSize="18"/>
-                        <TextBlock Text="{Binding FilmRate, StringFormat=Рейтинг: {0}}"/>
-                        <TextBlock Text="{Binding AgeRates.AgeRateName}"/>
+                        <Image Source="{Binding Image_path}" MaxWidth="200" MaxHeight="200"/>
+                        <TextBlock Text="{Binding Name}" FontSize="18"/>
+                        <TextBlock Text="{Binding Rating, StringFormat=Рейтинг: {0}}"/>
+                        <TextBlock Text="{Binding Age_Rating.Min_Age}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
