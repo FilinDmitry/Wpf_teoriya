@@ -21,14 +21,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Button Content="Назад" Height="30" Width="60" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Back"></Button>
+        
         <TextBlock Text="Войти в аккаунт" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontSize="20" VerticalAlignment="Center"></TextBlock>
         <TextBlock Grid.Row="1" Text="Введите логин:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"></TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left"/>
+        <TextBox x:Name="lg" Grid.Row="1" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left"/>
         <TextBlock Grid.Row="2" Text="Введите пароль:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"></TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left" />
+        <TextBox x:Name="ps" Grid.Row="2" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left" />
 
 
-        <Button Grid.ColumnSpan="2" Content="Войти" Height="50" Width="300" VerticalAlignment="Bottom" Grid.Row="3" Margin="15"></Button>
+        <Button Grid.ColumnSpan="2" Content="Войти" Height="50" Width="300" VerticalAlignment="Bottom" Grid.Row="3" Margin="15" Click="Button_Click"></Button>
         <TextBlock Text="Нет аккаунта? Создать" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="4" PreviewMouseDown="TextBlock_PreviewMouseDown" FontSize="16" TextDecorations="Underline"/>
     </Grid>
     

@@ -24,5 +24,23 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+
+        private void Back_click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            bool reg = User_reg.New_user(lg.Text, imia.Text, ps.Text, pocht.Text, birth.SelectedDate);
+            if (reg)
+            {
+                NavigationService.GoBack();
+                NavigationService.GoBack();
+            }
+
+            
+        }
     }
 }

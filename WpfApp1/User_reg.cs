@@ -16,8 +16,14 @@ namespace WpfApp1
         static public string name;
         private static List<Users> lst_users = Core.Context.Users.ToList();
 
-        static public bool New_user(string login, string name, string password, string email, DateTime birthday)
+        static public bool New_user(string login, string name, string password, string email, DateTime? birthday)
         {
+            
+            if (login == null || name == null || password == null || email == null || birthday == null)
+            {
+                MessageBox.Show("Заполните все поля");
+                return false;
+            }
             Users u = lst_users.Where(i => i.Login == login).FirstOrDefault();
             if (u != null)
             {
@@ -31,20 +37,20 @@ namespace WpfApp1
                 Name = name,
                 Passworg = password,
                 email = email,
-                birthday = birthday
+                birthday = birthday ?? DateTime.Today
             };
-
-            Core.Context.Users.Add(user);
+            Update(user);
+            Check_user(login, password);
             return true;
         }
 
-        static public void Check_user(string login, string password)
+        static public bool Check_user(string login_, string password)
         {
-            Users u = lst_users.Where(i => i.Login == login && i.Passworg == password).FirstOrDefault();
+            Users u = lst_users.Where(i => i.Login == login_ && i.Passworg == password).FirstOrDefault();
             if (u == null)
             {
                 MessageBox.Show("Введен неверный логин или пароль");
-                return;
+                return false;
             }
             else
             {
@@ -53,7 +59,16 @@ namespace WpfApp1
                 login = u.Login;
                 id = u.ID; 
                 name = u.Name;
+                Goool.MW.User_information.Text = login_;
+                return true;
             }
+        }
+
+        static private void Update(Users user)
+        {
+            Core.Context.Users.Add(user);
+            Core.Context.SaveChanges();
+            lst_users = Core.Context.Users.ToList();
         }
     }
 }

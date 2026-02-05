@@ -24,5 +24,10 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
         }
+
+        private void Back_click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

@@ -29,5 +29,19 @@ namespace WpfApp1.Pages
         {
             NavigationService.Navigate(new RegestrationPage());
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            bool vhod = User_reg.Check_user(lg.Text, ps.Text);
+            if (vhod)
+            {
+                NavigationService.GoBack();
+            }
+        }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

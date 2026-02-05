@@ -83,6 +83,7 @@
     <Compile Include="Genre.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Goool.cs" />
     <Compile Include="Kinozal.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>

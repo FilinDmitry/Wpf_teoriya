@@ -24,17 +24,19 @@
             <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
+        <Button Content="Назад" Height="30" Width="60" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Back_click"></Button>
+        
         <TextBlock Grid.Row="1" Text="Укажите логин:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"></TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left"/>
+        <TextBox x:Name="lg" Grid.Row="1" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left"/>
         <TextBlock Grid.Row="2" Text="Укажите пароль:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"></TextBlock>
-        <TextBox Grid.Row="2" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left" />
+        <TextBox x:Name="ps" Grid.Row="2" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left" />
         <TextBlock Grid.Row="3" Text="Укажите почту" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"></TextBlock>
-        <TextBox Grid.Row="3" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left"/>
+        <TextBox x:Name="pocht" Grid.Row="3" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left"/>
         <TextBlock Grid.Row="4" Text="Укажите имя:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"></TextBlock>
-        <TextBox Grid.Row="4" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left"/>
+        <TextBox x:Name="imia" Grid.Row="4" Grid.Column="1" Height="50" Width="230" HorizontalAlignment="Left"/>
         <TextBlock Grid.Row="5" Text="Укажите дату рождения:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"></TextBlock>
-        <DatePicker Grid.Row="5" Grid.Column="1" Width="230" VerticalAlignment="Center" HorizontalAlignment="Left"></DatePicker>
-        <Button Grid.Row="6" Content="Зарегестрироваться" Grid.ColumnSpan="2" Height="50" Width="300"></Button>
+        <DatePicker x:Name="birth" Grid.Row="5" Grid.Column="1" Width="230" VerticalAlignment="Center" HorizontalAlignment="Left"></DatePicker>
+        <Button Grid.Row="6" Content="Зарегестрироваться" Grid.ColumnSpan="2" Height="50" Width="300" Click="Button_Click"></Button>
 
 
     </Grid>

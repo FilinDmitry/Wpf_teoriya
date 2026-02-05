@@ -9,6 +9,6 @@
       Title="ProfilePage">
 
     <Grid>
-        
+        <Button Content="Назад" Height="30" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Back_click" Margin="0,0,0,420"></Button>
     </Grid>
 </Page>
