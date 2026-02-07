@@ -77,11 +77,11 @@ namespace WpfApp1.Pages
         private void ListBox_FilmsCatalog_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Film item = ListBox_FilmsCatalog.SelectedItem as Film;
+            
             if (item != null)
             {
-                Goool.film = item;
-                //Goool.img = item.Image_path;
-                NavigationService.Navigate(new FilmPage());
+                
+                NavigationService.Navigate(new FilmPage(item));
             }
         }
     }

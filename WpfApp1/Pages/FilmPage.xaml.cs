@@ -20,11 +20,18 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class FilmPage : Page
     {
-        public FilmPage()
+        public FilmPage(Film movie)
         {
-            Film film = Goool.film;
-            InitializeComponent();
             
+            DataContext = movie;
+            InitializeComponent();
+
+            var genre = Core.Context.Film_Genre.Where(i => i.Film_ID == movie.ID).Join(
+                Core.Context.Genre,
+                i => i.Genre_ID,
+                j => j.ID,
+                (i, j) => j.Name).ToList();
+            Genre.Text = String.Join("\n", genre);
         }
 
         private void Back_click(object sender, RoutedEventArgs e)

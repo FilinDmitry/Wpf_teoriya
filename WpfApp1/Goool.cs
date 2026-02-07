@@ -11,7 +11,6 @@ namespace WpfApp1
     static internal class Goool
     {
         public static MainWindow MW;
-        public static Film film;
-        public static ImageSource img;
+        
     }
 }
