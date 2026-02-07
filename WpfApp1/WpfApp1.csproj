@@ -80,6 +80,7 @@
     <Compile Include="Film_Genre.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Film_info.cs" />
     <Compile Include="Genre.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -90,11 +91,26 @@
     <Compile Include="Kinozal_Rating.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ConfirmPage.xaml.cs">
+      <DependentUpon>ConfirmPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EnterPage.xaml.cs">
       <DependentUpon>EnterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FilmPage.xaml.cs">
+      <DependentUpon>FilmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FirstZalPage.xaml.cs">
+      <DependentUpon>FirstZalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RegestrationPage.xaml.cs">
       <DependentUpon>RegestrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SecondZalPage.xaml.cs">
+      <DependentUpon>SecondZalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ThirdZalPage.xaml.cs">
+      <DependentUpon>ThirdZalPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Seans.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -141,11 +157,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\ConfirmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EnterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\FilmPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\FirstPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\FirstZalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,7 +193,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SecondZalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ThirdPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ThirdZalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

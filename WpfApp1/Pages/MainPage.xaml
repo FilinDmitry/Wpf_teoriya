@@ -29,10 +29,10 @@
 
         <ListBox x:Name="ListBox_FilmsCatalog" SelectionChanged="FilmsLB_SelectionChanged"
              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
-             ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}" MouseDoubleClick="ListBox_FilmsCatalog_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="205">
+                    <StackPanel Width="205" >
                         <Image Source="{Binding Image_path}" Width="150" Height="200" />
                         <TextBlock Text="{Binding Name}" FontSize="18"/>
                         <TextBlock Text="{Binding Rating, StringFormat=Рейтинг: {0}}"/>
