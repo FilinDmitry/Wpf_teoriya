@@ -17,8 +17,8 @@ namespace WpfApp1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Kinozal()
         {
-            this.Seans = new HashSet<Seans>();
             this.Seat = new HashSet<Seat>();
+            this.Seans = new HashSet<Seans>();
         }
     
         public int ID { get; set; }
@@ -27,8 +27,8 @@ namespace WpfApp1
     
         public virtual Kinozal_Rating Kinozal_Rating { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Seans> Seans { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Seat> Seat { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Seans> Seans { get; set; }
     }
 }

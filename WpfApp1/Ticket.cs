@@ -20,8 +20,8 @@ namespace WpfApp1
         public int Seans_ID { get; set; }
         public decimal Ticket_Price { get; set; }
     
-        public virtual Seans Seans { get; set; }
         public virtual Seat Seat { get; set; }
         public virtual Users Users { get; set; }
+        public virtual Seans Seans { get; set; }
     }
 }

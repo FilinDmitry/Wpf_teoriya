@@ -53,7 +53,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="nvarchar" MaxLength="70" Nullable="false" />
-          <Property Name="Ticket_Price" Type="int" Nullable="false" />
+          <Property Name="Ticket_Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Seans">
           <Key>
@@ -63,7 +63,7 @@
           <Property Name="Kinozal_ID" Type="int" Nullable="false" />
           <Property Name="Film_ID" Type="int" Nullable="false" />
           <Property Name="StartTime" Type="datetime" Nullable="false" />
-          <Property Name="Lenght" Type="datetime" Nullable="false" />
+          <Property Name="Lenght" Type="time" Precision="7" Nullable="false" />
         </EntityType>
         <EntityType Name="Seans_Seat">
           <Key>
@@ -331,7 +331,6 @@
           <EntitySet Name="Genre" EntityType="PR14_CinemaModel.Genre" />
           <EntitySet Name="Kinozal" EntityType="PR14_CinemaModel.Kinozal" />
           <EntitySet Name="Kinozal_Rating" EntityType="PR14_CinemaModel.Kinozal_Rating" />
-          <EntitySet Name="Seans" EntityType="PR14_CinemaModel.Seans" />
           <EntitySet Name="Seans_Seat" EntityType="PR14_CinemaModel.Seans_Seat" />
           <EntitySet Name="Seat" EntityType="PR14_CinemaModel.Seat" />
           <EntitySet Name="sysdiagrams" EntityType="PR14_CinemaModel.sysdiagrams" />
@@ -345,10 +344,6 @@
             <End Role="Film" EntitySet="Film" />
             <End Role="Film_Genre" EntitySet="Film_Genre" />
           </AssociationSet>
-          <AssociationSet Name="FK_Seans_Film" Association="PR14_CinemaModel.FK_Seans_Film">
-            <End Role="Film" EntitySet="Film" />
-            <End Role="Seans" EntitySet="Seans" />
-          </AssociationSet>
           <AssociationSet Name="FK_Film_Genre_Genre" Association="PR14_CinemaModel.FK_Film_Genre_Genre">
             <End Role="Genre" EntitySet="Genre" />
             <End Role="Film_Genre" EntitySet="Film_Genre" />
@@ -357,21 +352,9 @@
             <End Role="Kinozal_Rating" EntitySet="Kinozal_Rating" />
             <End Role="Kinozal" EntitySet="Kinozal" />
           </AssociationSet>
-          <AssociationSet Name="FK_Seans_Kinozal" Association="PR14_CinemaModel.FK_Seans_Kinozal">
-            <End Role="Kinozal" EntitySet="Kinozal" />
-            <End Role="Seans" EntitySet="Seans" />
-          </AssociationSet>
           <AssociationSet Name="FK_Seat_Kinozal2" Association="PR14_CinemaModel.FK_Seat_Kinozal2">
             <End Role="Kinozal" EntitySet="Kinozal" />
             <End Role="Seat" EntitySet="Seat" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Seans_Seat_Seans" Association="PR14_CinemaModel.FK_Seans_Seat_Seans">
-            <End Role="Seans" EntitySet="Seans" />
-            <End Role="Seans_Seat" EntitySet="Seans_Seat" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ticket_Seans" Association="PR14_CinemaModel.FK_Ticket_Seans">
-            <End Role="Seans" EntitySet="Seans" />
-            <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
           <AssociationSet Name="FK_Seans_Seat_Seat" Association="PR14_CinemaModel.FK_Seans_Seat_Seat">
             <End Role="Seat" EntitySet="Seat" />
@@ -383,6 +366,23 @@
           </AssociationSet>
           <AssociationSet Name="FK_Ticket_Users" Association="PR14_CinemaModel.FK_Ticket_Users">
             <End Role="Users" EntitySet="Users" />
+            <End Role="Ticket" EntitySet="Ticket" />
+          </AssociationSet>
+          <EntitySet Name="Seans" EntityType="PR14_CinemaModel.Seans" />
+          <AssociationSet Name="FK_Seans_Film" Association="PR14_CinemaModel.FK_Seans_Film">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Seans" EntitySet="Seans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seans_Kinozal" Association="PR14_CinemaModel.FK_Seans_Kinozal">
+            <End Role="Kinozal" EntitySet="Kinozal" />
+            <End Role="Seans" EntitySet="Seans" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seans_Seat_Seans" Association="PR14_CinemaModel.FK_Seans_Seat_Seans">
+            <End Role="Seans" EntitySet="Seans" />
+            <End Role="Seans_Seat" EntitySet="Seans_Seat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ticket_Seans" Association="PR14_CinemaModel.FK_Ticket_Seans">
+            <End Role="Seans" EntitySet="Seans" />
             <End Role="Ticket" EntitySet="Ticket" />
           </AssociationSet>
         </EntityContainer>
@@ -435,8 +435,8 @@
           <Property Name="Rating_ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Kinozal_Rating" Relationship="PR14_CinemaModel.FK_Kinozal_Kinozal_Rating" FromRole="Kinozal" ToRole="Kinozal_Rating" />
-          <NavigationProperty Name="Seans" Relationship="PR14_CinemaModel.FK_Seans_Kinozal" FromRole="Kinozal" ToRole="Seans" />
           <NavigationProperty Name="Seat" Relationship="PR14_CinemaModel.FK_Seat_Kinozal2" FromRole="Kinozal" ToRole="Seat" />
+          <NavigationProperty Name="Seans" Relationship="PR14_CinemaModel.FK_Seans_Kinozal" FromRole="Kinozal" ToRole="Seans" />
         </EntityType>
         <EntityType Name="Kinozal_Rating">
           <Key>
@@ -447,20 +447,6 @@
           <Property Name="Ticket_Price" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Kinozal" Relationship="PR14_CinemaModel.FK_Kinozal_Kinozal_Rating" FromRole="Kinozal_Rating" ToRole="Kinozal" />
         </EntityType>
-        <EntityType Name="Seans">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Kinozal_ID" Type="Int32" Nullable="false" />
-          <Property Name="Film_ID" Type="Int32" Nullable="false" />
-          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Lenght" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Film" Relationship="PR14_CinemaModel.FK_Seans_Film" FromRole="Seans" ToRole="Film" />
-          <NavigationProperty Name="Kinozal" Relationship="PR14_CinemaModel.FK_Seans_Kinozal" FromRole="Seans" ToRole="Kinozal" />
-          <NavigationProperty Name="Seans_Seat" Relationship="PR14_CinemaModel.FK_Seans_Seat_Seans" FromRole="Seans" ToRole="Seans_Seat" />
-          <NavigationProperty Name="Ticket" Relationship="PR14_CinemaModel.FK_Ticket_Seans" FromRole="Seans" ToRole="Ticket" />
-        </EntityType>
         <EntityType Name="Seans_Seat">
           <Key>
             <PropertyRef Name="ID" />
@@ -469,8 +455,8 @@
           <Property Name="Seans_ID" Type="Int32" Nullable="false" />
           <Property Name="Seat_ID" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Seans" Relationship="PR14_CinemaModel.FK_Seans_Seat_Seans" FromRole="Seans_Seat" ToRole="Seans" />
           <NavigationProperty Name="Seat" Relationship="PR14_CinemaModel.FK_Seans_Seat_Seat" FromRole="Seans_Seat" ToRole="Seat" />
+          <NavigationProperty Name="Seans" Relationship="PR14_CinemaModel.FK_Seans_Seat_Seans" FromRole="Seans_Seat" ToRole="Seans" />
         </EntityType>
         <EntityType Name="Seat">
           <Key>
@@ -503,9 +489,9 @@
           <Property Name="User_ID" Type="Int32" Nullable="false" />
           <Property Name="Seans_ID" Type="Int32" Nullable="false" />
           <Property Name="Ticket_Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
-          <NavigationProperty Name="Seans" Relationship="PR14_CinemaModel.FK_Ticket_Seans" FromRole="Ticket" ToRole="Seans" />
           <NavigationProperty Name="Seat" Relationship="PR14_CinemaModel.FK_Ticket_Seat" FromRole="Ticket" ToRole="Seat" />
           <NavigationProperty Name="Users" Relationship="PR14_CinemaModel.FK_Ticket_Users" FromRole="Ticket" ToRole="Users" />
+          <NavigationProperty Name="Seans" Relationship="PR14_CinemaModel.FK_Ticket_Seans" FromRole="Ticket" ToRole="Seans" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -543,18 +529,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Seans_Film">
-          <End Type="PR14_CinemaModel.Film" Role="Film" Multiplicity="1" />
-          <End Type="PR14_CinemaModel.Seans" Role="Seans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Film">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Seans">
-              <PropertyRef Name="Film_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Film_Genre_Genre">
           <End Type="PR14_CinemaModel.Genre" Role="Genre" Multiplicity="1" />
           <End Type="PR14_CinemaModel.Film_Genre" Role="Film_Genre" Multiplicity="*" />
@@ -579,18 +553,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Seans_Kinozal">
-          <End Type="PR14_CinemaModel.Kinozal" Role="Kinozal" Multiplicity="1" />
-          <End Type="PR14_CinemaModel.Seans" Role="Seans" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kinozal">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Seans">
-              <PropertyRef Name="Kinozal_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Seat_Kinozal2">
           <End Type="PR14_CinemaModel.Kinozal" Role="Kinozal" Multiplicity="1" />
           <End Type="PR14_CinemaModel.Seat" Role="Seat" Multiplicity="*" />
@@ -600,30 +562,6 @@
             </Principal>
             <Dependent Role="Seat">
               <PropertyRef Name="Kinozal_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Seans_Seat_Seans">
-          <End Type="PR14_CinemaModel.Seans" Role="Seans" Multiplicity="1" />
-          <End Type="PR14_CinemaModel.Seans_Seat" Role="Seans_Seat" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Seans">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Seans_Seat">
-              <PropertyRef Name="Seans_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Ticket_Seans">
-          <End Type="PR14_CinemaModel.Seans" Role="Seans" Multiplicity="1" />
-          <End Type="PR14_CinemaModel.Ticket" Role="Ticket" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Seans">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Ticket">
-              <PropertyRef Name="Seans_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -660,6 +598,68 @@
             </Principal>
             <Dependent Role="Ticket">
               <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Seans">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kinozal_ID" Type="Int32" Nullable="false" />
+          <Property Name="Film_ID" Type="Int32" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Lenght" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Film" Relationship="PR14_CinemaModel.FK_Seans_Film" FromRole="Seans" ToRole="Film" />
+          <NavigationProperty Name="Kinozal" Relationship="PR14_CinemaModel.FK_Seans_Kinozal" FromRole="Seans" ToRole="Kinozal" />
+          <NavigationProperty Name="Seans_Seat" Relationship="PR14_CinemaModel.FK_Seans_Seat_Seans" FromRole="Seans" ToRole="Seans_Seat" />
+          <NavigationProperty Name="Ticket" Relationship="PR14_CinemaModel.FK_Ticket_Seans" FromRole="Seans" ToRole="Ticket" />
+        </EntityType>
+        <Association Name="FK_Seans_Film">
+          <End Type="PR14_CinemaModel.Film" Role="Film" Multiplicity="1" />
+          <End Type="PR14_CinemaModel.Seans" Role="Seans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seans">
+              <PropertyRef Name="Film_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seans_Kinozal">
+          <End Type="PR14_CinemaModel.Kinozal" Role="Kinozal" Multiplicity="1" />
+          <End Type="PR14_CinemaModel.Seans" Role="Seans" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kinozal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seans">
+              <PropertyRef Name="Kinozal_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seans_Seat_Seans">
+          <End Type="PR14_CinemaModel.Seans" Role="Seans" Multiplicity="1" />
+          <End Type="PR14_CinemaModel.Seans_Seat" Role="Seans_Seat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seans">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Seans_Seat">
+              <PropertyRef Name="Seans_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ticket_Seans">
+          <End Type="PR14_CinemaModel.Seans" Role="Seans" Multiplicity="1" />
+          <End Type="PR14_CinemaModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seans">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="Seans_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -725,17 +725,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Seans">
-            <EntityTypeMapping TypeName="PR14_CinemaModel.Seans">
-              <MappingFragment StoreEntitySet="Seans">
-                <ScalarProperty Name="Lenght" ColumnName="Lenght" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
-                <ScalarProperty Name="Kinozal_ID" ColumnName="Kinozal_ID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Seans_Seat">
             <EntityTypeMapping TypeName="PR14_CinemaModel.Seans_Seat">
               <MappingFragment StoreEntitySet="Seans_Seat">
@@ -786,6 +775,17 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Passworg" ColumnName="Passworg" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seans">
+            <EntityTypeMapping TypeName="PR14_CinemaModel.Seans">
+              <MappingFragment StoreEntitySet="Seans">
+                <ScalarProperty Name="Lenght" ColumnName="Lenght" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Film_ID" ColumnName="Film_ID" />
+                <ScalarProperty Name="Kinozal_ID" ColumnName="Kinozal_ID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

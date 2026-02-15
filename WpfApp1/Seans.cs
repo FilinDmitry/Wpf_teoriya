@@ -25,7 +25,7 @@ namespace WpfApp1
         public int Kinozal_ID { get; set; }
         public int Film_ID { get; set; }
         public System.DateTime StartTime { get; set; }
-        public System.DateTime Lenght { get; set; }
+        public System.TimeSpan Lenght { get; set; }
     
         public virtual Film Film { get; set; }
         public virtual Kinozal Kinozal { get; set; }

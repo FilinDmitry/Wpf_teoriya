@@ -31,11 +31,11 @@ namespace WpfApp1
         public virtual DbSet<Genre> Genre { get; set; }
         public virtual DbSet<Kinozal> Kinozal { get; set; }
         public virtual DbSet<Kinozal_Rating> Kinozal_Rating { get; set; }
-        public virtual DbSet<Seans> Seans { get; set; }
         public virtual DbSet<Seans_Seat> Seans_Seat { get; set; }
         public virtual DbSet<Seat> Seat { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Ticket> Ticket { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Seans> Seans { get; set; }
     }
 }

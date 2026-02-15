@@ -9,6 +9,39 @@
       Title="FirstZalPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2" x:Name="gridMesta" HorizontalAlignment="Center">
+        </Grid>
+        <Button Content="Назад" Height="30" Width="60" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Back_click"></Button>
+        <StackPanel Grid.Row="1">
+            <TextBlock x:Name="txt" Text="ЭКРАН" HorizontalAlignment="Center" Margin="0" FontSize="16" Foreground="DarkGray" FontWeight="Medium"/>
+            <Ellipse Width="600" Height="60" Stroke="DarkGray" StrokeThickness="3">
+                
+                <Ellipse.Clip>
+                    <RectangleGeometry Rect="0,0,600,20"/>
+                </Ellipse.Clip>
+            </Ellipse>
+        </StackPanel>
         
+        <StackPanel Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+
+            <Rectangle Width="30" Height="30" Fill="Beige"/>
+            <TextBlock Margin="10" x:Name="Price" FontSize="16"/>
+
+            <Rectangle Width="30" Height="30" Fill="Gray"/>
+            <TextBlock Margin="10" Text="Занято" FontSize="16"/>
+            <Rectangle Width="30" Height="30" Fill="Magenta"/>
+            <TextBlock Margin="10" Text="Выбранное" FontSize="16"/>
+        </StackPanel>
+        <Button Grid.Row="3" Content="Купить" Height="45" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Next_click"></Button>
+        
+
+    
     </Grid>
 </Page>

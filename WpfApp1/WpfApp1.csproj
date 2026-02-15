@@ -80,7 +80,6 @@
     <Compile Include="Film_Genre.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Film_info.cs" />
     <Compile Include="Genre.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -106,12 +105,6 @@
     <Compile Include="Pages\RegestrationPage.xaml.cs">
       <DependentUpon>RegestrationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\SecondZalPage.xaml.cs">
-      <DependentUpon>SecondZalPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ThirdZalPage.xaml.cs">
-      <DependentUpon>ThirdZalPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Seans.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -121,6 +114,8 @@
     <Compile Include="Seat.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Seats.cs" />
+    <Compile Include="SelectedSeans.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -169,10 +164,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\FirstPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\FirstZalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -189,38 +180,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\SecondPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\SecondZalPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ThirdPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\ThirdZalPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\FirstPage.xaml.cs">
-      <DependentUpon>FirstPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SecondPage.xaml.cs">
-      <DependentUpon>SecondPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\ThirdPage.xaml.cs">
-      <DependentUpon>ThirdPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -16,15 +16,45 @@
             <RowDefinition Height="30*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
         <Button Content="Назад" Height="30" Width="60" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Back_click"></Button>
-        <TextBlock Text="{Binding Name}" Margin="10" Grid.Column="2" Grid.Row="1" FontSize="25"></TextBlock>
+        <TextBlock Text="{Binding Name}" Margin="10" Grid.ColumnSpan="2" Grid.Column="2" Grid.Row="1" FontSize="25"></TextBlock>
+        <TextBlock Text="{Binding Description}" Margin="10" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap"></TextBlock>
         <TextBlock x:Name="Genre" Margin="20" FontSize="16" Grid.Row="3" Grid.ColumnSpan="2"></TextBlock>
 
         <Image Source="{Binding Image_path}" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1"></Image>
+
+        <ListBox x:Name="LB_seans"
+     Grid.Row="2" Grid.Column="3" Grid.RowSpan="2"
+     ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=3}" MouseDoubleClick="LB_seans_MouseDoubleClick">
+            <ListBox.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+
+                            <TextBlock HorizontalAlignment="Left" Background="LightBlue" Text="{Binding Name, StringFormat=dd.MM}" FontWeight="Bold"/>
+                            
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListBox.GroupStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Width="100" Height="100" >
+                        <TextBlock Text="{Binding Kinozal_ID, StringFormat=Кинозал: {0}}"></TextBlock>
+                        <TextBlock Text="{Binding Time, StringFormat=Время: {0}}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </Page>

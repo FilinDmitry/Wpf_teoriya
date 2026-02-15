@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3b8f13b0ea044ff29853d54d7e7cdaa5" Name="Diagram1" ZoomLevel="71">
+      <Diagram DiagramId="3b8f13b0ea044ff29853d54d7e7cdaa5" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="PR14_CinemaModel.Age_Rating" Width="1.5" PointX="3.75" PointY="1.375" />
         <EntityTypeShape EntityType="PR14_CinemaModel.Film" Width="1.5" PointX="6" PointY="0.75" />
         <EntityTypeShape EntityType="PR14_CinemaModel.Film_Genre" Width="1.5" PointX="8.25" PointY="1.25" />
         <EntityTypeShape EntityType="PR14_CinemaModel.Genre" Width="1.5" PointX="6" PointY="8.375" />
         <EntityTypeShape EntityType="PR14_CinemaModel.Kinozal" Width="1.5" PointX="3" PointY="5.125" />
         <EntityTypeShape EntityType="PR14_CinemaModel.Kinozal_Rating" Width="1.5" PointX="0.75" PointY="5.375" />
-        <EntityTypeShape EntityType="PR14_CinemaModel.Seans" Width="1.5" PointX="8.25" PointY="4.875" />
         <EntityTypeShape EntityType="PR14_CinemaModel.Seans_Seat" Width="1.5" PointX="10.5" PointY="5.125" />
         <EntityTypeShape EntityType="PR14_CinemaModel.Seat" Width="1.5" PointX="5.25" PointY="5" />
         <EntityTypeShape EntityType="PR14_CinemaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.375" />
@@ -19,16 +18,17 @@
         <EntityTypeShape EntityType="PR14_CinemaModel.Users" Width="1.5" PointX="11.25" PointY="1" />
         <AssociationConnector Association="PR14_CinemaModel.FK_Film_Age_Rating" />
         <AssociationConnector Association="PR14_CinemaModel.FK_Film_Genre_Film" />
-        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Film" />
         <AssociationConnector Association="PR14_CinemaModel.FK_Film_Genre_Genre" />
         <AssociationConnector Association="PR14_CinemaModel.FK_Kinozal_Kinozal_Rating" />
-        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Kinozal" />
         <AssociationConnector Association="PR14_CinemaModel.FK_Seat_Kinozal2" />
-        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Seat_Seans" />
-        <AssociationConnector Association="PR14_CinemaModel.FK_Ticket_Seans" />
         <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Seat_Seat" />
         <AssociationConnector Association="PR14_CinemaModel.FK_Ticket_Seat" />
         <AssociationConnector Association="PR14_CinemaModel.FK_Ticket_Users" />
+        <EntityTypeShape EntityType="PR14_CinemaModel.Seans" Width="1.5" PointX="8.25" PointY="4.625" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Film" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Kinozal" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Seans_Seat_Seans" />
+        <AssociationConnector Association="PR14_CinemaModel.FK_Ticket_Seans" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

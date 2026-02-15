@@ -19,7 +19,7 @@ namespace WpfApp1
         public int Seat_ID { get; set; }
         public bool Status { get; set; }
     
-        public virtual Seans Seans { get; set; }
         public virtual Seat Seat { get; set; }
+        public virtual Seans Seans { get; set; }
     }
 }
