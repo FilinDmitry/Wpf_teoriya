@@ -21,7 +21,6 @@ namespace WpfApp1.Pages
     
     public partial class FirstZalPage : Page
     {
-        public List<Button> buttonsBusy = new List<Button>();
         public List<Button> selected_seats = new List<Button>(); 
         public FirstZalPage()
         {
@@ -66,7 +65,6 @@ namespace WpfApp1.Pages
                         {
                             btn.Background = Brushes.Gray;
                             btn.Foreground = Brushes.Black;
-                            buttonsBusy.Add(btn);
                         }
 
                         Grid.SetColumn(btn, i);
@@ -96,7 +94,7 @@ namespace WpfApp1.Pages
             {
                 btn.Background = Brushes.Beige;
                 Seats.Del(Grid.GetRow(btn), Grid.GetColumn(btn));
-                selected_seats.Add(btn);
+                selected_seats.Remove(btn);
             }
         }
             
