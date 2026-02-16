@@ -9,6 +9,34 @@
       Title="ConfirmPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Content="Назад" Height="30" Width="60" VerticalAlignment="Top" HorizontalAlignment="Left" Click="Back_click"></Button>
+        <StackPanel Grid.Row="1">
+            <TextBlock x:Name="film" FontSize="18"></TextBlock>
+            <TextBlock x:Name="date"></TextBlock>
+            <TextBlock x:Name="time"></TextBlock>
+            <TextBlock x:Name="zal"></TextBlock>
+        </StackPanel>
+
+
+        <ListBox x:Name="ListBox_Tickets" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="5" Text="{Binding Seat.Row, StringFormat=Ряд: {0}  }"/>
+                            <TextBlock Margin="5" Text="{Binding Seat.Number, StringFormat=Место: {0}}"/>
+                            <TextBlock Margin="5" Text="{Binding Seat.Kinozal.Kinozal_Rating.Ticket_Price, StringFormat=Стоимость: {0} ₪}"/>
+                        </StackPanel>
+                      
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="2" Margin="20" Content="Оформить заказ" Height="50" Width="150" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="Next_click"></Button>
     </Grid>
 </Page>

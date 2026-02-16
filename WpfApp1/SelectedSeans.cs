@@ -20,6 +20,12 @@ namespace WpfApp1
             Date = date;
             Start = time;
         }
+
+        public static Film getfilm()
+        {
+            Film f = Core.Context.Seans.First(s => s.ID == seansID).Film;
+            return f;
+        }
     }
     
     
