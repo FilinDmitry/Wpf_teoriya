@@ -73,10 +73,10 @@ namespace WpfApp1.Pages
 
         private void LB_seans_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //if (!User_reg.is_reg)
+            if (!User_reg.is_reg)
             {
-                //MessageBox.Show("Необходимо зарегестрироваться");
-                //return;
+                MessageBox.Show("Необходимо зарегестрироваться");
+                return;
             }
 
             Seans_Info SI = LB_seans.SelectedItem as Seans_Info;

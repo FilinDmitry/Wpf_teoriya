@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace WpfApp1
 {
@@ -36,7 +37,7 @@ namespace WpfApp1
             try
             {
                 Seat sidenie = lst_seat.First(s => s.Number == number && s.Row == row);
-                Seans_Seat s_s = seans_seats.First(s => s.Seat == sidenie);
+                Seans_Seat s_s = seans_seats.First(s => s.Seat == sidenie && s.Seans_ID == SelectedSeans.seansID);
                 return s_s.Status;
             }
             catch
@@ -49,15 +50,15 @@ namespace WpfApp1
         static public void Add(int row, int number)
         {
             Seat sidenie = lst_seat.First(s => s.Number == number && s.Row == row);
-            Seans_Seat s_s = seans_seats.First(s => s.Seat == sidenie);
+            Seans_Seat s_s = seans_seats.First(s => s.Seat == sidenie && s.Seans_ID == SelectedSeans.seansID);
             selected_seats.Add(s_s);
         }
 
         static public void Del(int row, int number)
         {
             Seat sidenie = lst_seat.First(s => s.Number == number && s.Row == row);
-            Seans_Seat s_s = seans_seats.First(s => s.Seat == sidenie);
-            s_s.Status = false;
+            Seans_Seat s_s = seans_seats.First(s => s.Seat == sidenie && s.Seans_ID == SelectedSeans.seansID);
+            
             selected_seats.Remove(s_s);
         }
 

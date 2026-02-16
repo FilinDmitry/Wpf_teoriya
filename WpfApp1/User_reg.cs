@@ -15,6 +15,7 @@ namespace WpfApp1
         static public int id;
         static public string name;
         private static List<Users> lst_users = Core.Context.Users.ToList();
+        
 
         static public bool New_user(string login, string name, string password, string email, DateTime? birthday)
         {

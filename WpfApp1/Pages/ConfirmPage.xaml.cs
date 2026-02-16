@@ -36,12 +36,36 @@ namespace WpfApp1.Pages
 
         private void Back_click(object sender, RoutedEventArgs e)
         {
+            Seats.selected_seats.Clear();
             NavigationService.GoBack();
         }
 
         private void Next_click(object sender, RoutedEventArgs e)
         {
+            foreach (var item in Seats.selected_seats)
+            {
+                var a = Core.Context.Seans_Seat.First(i => i.ID == item.ID);
+                MessageBox.Show((item.Seans_ID).ToString());
+                Core.Context.Seans_Seat.Remove(a);
+                Core.Context.SaveChanges();
+                item.Status = false;
+                Core.Context.Seans_Seat.Add(item);
+                
 
+                Ticket ticket = new Ticket()
+                { 
+                    Seans_ID = item.Seans_ID,
+                    Seat_ID = item.Seat_ID,
+                    Ticket_Price = item.Seat.Kinozal.Kinozal_Rating.Ticket_Price,
+                    User_ID = User_reg.id,
+                };
+                Core.Context.Ticket.Add(ticket);
+                
+            }
+            Core.Context.SaveChanges();
+            Seats.selected_seats.Clear();
+            MessageBox.Show("Заказ успешно оформлен");
+            NavigationService.Navigate(new MainPage());
         }
     }
 }
