@@ -23,6 +23,9 @@ namespace WpfApp1.Pages
         public ProfilePage()
         {
             InitializeComponent();
+            ListBox_Tickets.ItemsSource = Core.Context.Ticket.Where(i => i.User_ID == User_reg.id).ToList();
+            ID.Text = "ID:" + User_reg.id.ToString();
+            Name.Text = User_reg.name;
         }
 
         private void Back_click(object sender, RoutedEventArgs e)

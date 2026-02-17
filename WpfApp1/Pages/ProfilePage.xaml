@@ -9,6 +9,33 @@
       Title="ProfilePage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
         <Button Content="Назад" Height="30" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Back_click" Margin="0,0,0,420"></Button>
+
+        <TextBlock x:Name="ID" Height="50" Width="100" HorizontalAlignment="Center" Margin="0, 0, 100, 0" TextAlignment="Right" Padding="10"></TextBlock>
+        <TextBlock x:Name="Name" Height="50" Width="100" HorizontalAlignment="Center" Margin="100, 0, 0, 0"  Padding="10"></TextBlock>
+        
+        <ListBox x:Name="ListBox_Tickets" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock Margin="5" Text="{Binding Seans.Film.Name}" FontSize="18"/>
+                            <TextBlock Margin="5" Text="{Binding Seans.StartTime, StringFormat=Дата: {0}}"/>
+                            <TextBlock Margin="5" Text="{Binding Seans.Kinozal.ID, StringFormat=Зал: {0}}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock Margin="5" Text="{Binding Seat.Row, StringFormat=Ряд: {0}  }"/>
+                            <TextBlock Margin="5" Text="{Binding Seat.Number, StringFormat=Место: {0}}"/>
+                            <TextBlock Margin="5" Text="{Binding Seat.Kinozal.Kinozal_Rating.Ticket_Price, StringFormat=Стоимость: {0} ₪}"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>
