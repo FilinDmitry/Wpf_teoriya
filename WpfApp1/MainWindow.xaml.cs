@@ -18,36 +18,36 @@ namespace WpfApp1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    public class User
+    {
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public int Age { get; set; }
+    }
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
+            User u = new User()
+            {
+                FirstName = "Максим",
+                MiddleName = "Олегович",
+                LastName = "Гордов",
+                Age = 22
+            };
+            User u_1 = new User()
+            {
+                FirstName = "Владимир",
+                MiddleName = "Владимирович",
+                LastName = "Горланов",
+                Age = 23
+            };
+            List<User> lst = new List<User>() { u, u_1};
             InitializeComponent();
-            
+            LB_names.ItemsSource = lst;
+
         }
 
-        private void RandomButton_Click(object sender, RoutedEventArgs e)
-        {
-            Random random = new Random();
-            int a, b;
-
-            if (!int.TryParse(MinRandTextBox.Text, out a) || !int.TryParse(MaxRandTextBox.Text, out b))
-            {
-                MessageBox.Show("Неправильный ввод", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                MinRandTextBox.Text = ""; // Обращаемся к элементу MinRandTextBox и меняем его Text на пустой
-                MaxRandTextBox.Text = ""; // Обращаемся к элементу MaxRandTextBox и меняем его Text на пустой
-                return;
-            }
-
-            if (a > b)
-            {
-                int x = a;
-                a = b;
-                b = x;
-            }
-
-            // Обращаемся к элементу OutputTextBlock и меняем его Text на результат случайной генерации числа
-            OutputTextBlock.Text = random.Next(a, b).ToString();
-        }
     }
 }

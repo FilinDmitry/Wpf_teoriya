@@ -6,20 +6,33 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <!--Элемент для вывода текста пользователю-->
-            <TextBlock HorizontalAlignment="Center" Text="Введите минимальное значение случайного числа:" Margin="5"/>
-            <!--Элемент для ввода текста-->
-            <TextBox x:Name="MinRandTextBox" Height="20" Width="100" Margin="5"/>
-            <!--Элемент для вывода текста пользователю-->
-            <TextBlock HorizontalAlignment="Center" Text="Введите максимальное значение случайного числа:" Margin="5"/>
-            <!--Элемент для ввода текста-->
-            <TextBox x:Name="MaxRandTextBox" Height="20" Width="100" Margin="5"/>
-            <!--Кнопка-->
-            <Button x:Name="RandomButton" HorizontalAlignment="Center" Content="Нажми на меня!" Click="RandomButton_Click" Margin="5"/>
-            <!--Вывод случайного значения-->
-            <TextBlock x:Name="OutputTextBlock" Margin="5" Height="20" Width="100"/>
-        </StackPanel>
-    </Grid>
+
+
+    <Window.Resources>
+        <Style x:Key="Goida" TargetType="TextBlock">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="15"></Setter>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="30" />
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <ListBox x:Name="LB_names">
+        
+        <TextBlock Style="{StaticResource Goida}">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="ФИО: {0} {1} {2}">
+                    <Binding Path="LastName"/>
+                    <Binding Path="FirstName"/>
+                    <Binding Path="MiddleName"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <TextBlock Text="{Binding Age, StringFormat=Возраст {0}}"></TextBlock>
+    </ListBox>
 </Window>
