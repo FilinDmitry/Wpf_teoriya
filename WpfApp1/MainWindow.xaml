@@ -23,17 +23,21 @@
     </Window.Resources>
 
     <ListBox x:Name="LB_names">
-
-        <TextBlock Style="{StaticResource Goida}">
-            <TextBlock.Text>
-                <MultiBinding StringFormat="ФИО: {0} {1} {2}">
-                    <Binding Path="LastName"/>
-                    <Binding Path="FirstName"/>
-                    <Binding Path="MiddleName"/>
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
-        <TextBlock Text="{Binding Age, StringFormat=Возраст {0}}"></TextBlock>
-
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource Goida}">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="ФИО: {0} {1} {2}">
+                                <Binding Path="LastName"/>
+                                <Binding Path="FirstName"/>
+                                <Binding Path="MiddleName"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <TextBlock Text="{Binding Age, StringFormat=Возраст {0}}"></TextBlock>
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
     </ListBox>
 </Window>
