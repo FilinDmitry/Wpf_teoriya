@@ -45,7 +45,7 @@ namespace WpfApp1
             };
             List<User> lst = new List<User>() { u, u_1};
             InitializeComponent();
-            LB_names.ItemsSource = lst;
+            
 
         }
 
