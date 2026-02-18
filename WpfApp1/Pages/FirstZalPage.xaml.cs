@@ -73,6 +73,20 @@ namespace WpfApp1.Pages
 
                         gridMesta.Children.Add(btn);
                     }
+                    else
+                    {
+                        TextBlock tb = new TextBlock();
+                        tb.Text = j.ToString();
+                        tb.Margin = new Thickness(5);
+
+                        tb.HorizontalAlignment = HorizontalAlignment.Center;
+                        tb.VerticalAlignment = VerticalAlignment.Center;
+                        Grid.SetColumn(tb, i);
+                        Grid.SetRow(tb, j);
+
+
+                        gridMesta.Children.Add(tb);
+                    }
                 }
             }
         }

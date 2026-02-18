@@ -45,7 +45,6 @@ namespace WpfApp1.Pages
             foreach (var item in Seats.selected_seats)
             {
                 var a = Core.Context.Seans_Seat.First(i => i.ID == item.ID);
-                MessageBox.Show((item.Seans_ID).ToString());
                 Core.Context.Seans_Seat.Remove(a);
                 Core.Context.SaveChanges();
                 item.Status = false;
