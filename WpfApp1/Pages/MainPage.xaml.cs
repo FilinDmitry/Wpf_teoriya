@@ -13,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace WpfApp1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public class User
+    public partial class MainPage : Page
     {
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public int Age { get; set; }
-    }
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
+        public MainPage()
         {
-            
             InitializeComponent();
-            
         }
-
     }
 }
