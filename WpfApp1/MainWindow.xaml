@@ -12,7 +12,7 @@
             <RowDefinition Height="450"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Frame Source="Pages\MainPage.xaml"></Frame>
+        <Frame NavigationUIVisibility="Hidden" Source="Pages\MainPage.xaml"></Frame>
     </Grid>
 
     

@@ -28,10 +28,10 @@ namespace WpfApp1.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var a = Core.Context.basepart.ToList();
-            foreach (basepart item in a)
+            List<cpu> a = data.CPU_lst;
+            foreach (cpu i in a)
             {
-                MessageBox.Show(item.info());
+                MessageBox.Show(i.info());
             }
             NavigationService.Navigate(new SelectItem());
         }
