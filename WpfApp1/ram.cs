@@ -12,16 +12,14 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class ram
+    public partial class ram : basepart
     {
-        public int id { get; set; }
         public int memorytypeid { get; set; }
         public int capacity { get; set; }
         public int count { get; set; }
         public int ghz { get; set; }
         public string timings { get; set; }
     
-        public virtual basepart basepart { get; set; }
         public virtual memorytype memorytype { get; set; }
     }
 }

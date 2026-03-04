@@ -137,7 +137,6 @@
     <Compile Include="ram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="ShowInfo.cs" />
     <Compile Include="socket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

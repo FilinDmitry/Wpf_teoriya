@@ -28,32 +28,24 @@ namespace WpfApp1
         public virtual DbSet<assembly> assembly { get; set; }
         public virtual DbSet<basepart> basepart { get; set; }
         public virtual DbSet<boardformfactorcase> boardformfactorcase { get; set; }
-        public virtual DbSet<@case> @case { get; set; }
         public virtual DbSet<casesize> casesize { get; set; }
         public virtual DbSet<certificate> certificate { get; set; }
-        public virtual DbSet<cpu> cpu { get; set; }
         public virtual DbSet<fandimension> fandimension { get; set; }
         public virtual DbSet<formfactor> formfactor { get; set; }
-        public virtual DbSet<gpu> gpu { get; set; }
         public virtual DbSet<gpuinterface> gpuinterface { get; set; }
-        public virtual DbSet<hdd> hdd { get; set; }
         public virtual DbSet<igpu> igpu { get; set; }
         public virtual DbSet<manufacturer> manufacturer { get; set; }
         public virtual DbSet<memorytype> memorytype { get; set; }
-        public virtual DbSet<motherboard> motherboard { get; set; }
         public virtual DbSet<partassembly> partassembly { get; set; }
         public virtual DbSet<parttype> parttype { get; set; }
-        public virtual DbSet<powersupply> powersupply { get; set; }
-        public virtual DbSet<processorcooler> processorcooler { get; set; }
-        public virtual DbSet<ram> ram { get; set; }
         public virtual DbSet<socket> socket { get; set; }
         public virtual DbSet<socketprocessorcooler> socketprocessorcooler { get; set; }
-        public virtual DbSet<ssd> ssd { get; set; }
-        public virtual DbSet<storagedevice> storagedevice { get; set; }
         public virtual DbSet<storagedeviceinterface> storagedeviceinterface { get; set; }
         public virtual DbSet<storagedevicetype> storagedevicetype { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<videoconnector> videoconnector { get; set; }
         public virtual DbSet<videoconnectorgpu> videoconnectorgpu { get; set; }
+        public virtual DbSet<hdd> hdd { get; set; }
+        public virtual DbSet<ssd> ssd { get; set; }
     }
 }

@@ -12,9 +12,8 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class cpu
+    public partial class cpu : basepart
     {
-        public int id { get; set; }
         public int socketid { get; set; }
         public int numberofcores { get; set; }
         public double basecorefrequency { get; set; }
@@ -24,8 +23,12 @@ namespace WpfApp1
         public int thermalpower { get; set; }
         public bool hasigpu { get; set; }
     
-        public virtual basepart basepart { get; set; }
         public virtual igpu igpu { get; set; }
         public virtual socket socket { get; set; }
+
+        public override string info()
+        {
+            return "Это процессор";
+        }
     }
 }

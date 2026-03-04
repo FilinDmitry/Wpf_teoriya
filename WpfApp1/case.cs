@@ -12,7 +12,7 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class @case
+    public partial class @case : basepart
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public @case()
@@ -20,12 +20,10 @@ namespace WpfApp1
             this.boardformfactorcase = new HashSet<boardformfactorcase>();
         }
     
-        public int id { get; set; }
         public int sizeid { get; set; }
         public int expansionslots { get; set; }
         public int fans { get; set; }
     
-        public virtual basepart basepart { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<boardformfactorcase> boardformfactorcase { get; set; }
         public virtual casesize casesize { get; set; }

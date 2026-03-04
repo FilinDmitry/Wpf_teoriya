@@ -12,14 +12,12 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class powersupply
+    public partial class powersupply : basepart
     {
-        public int id { get; set; }
         public int power { get; set; }
         public int fandimensionid { get; set; }
         public int certificationid { get; set; }
     
-        public virtual basepart basepart { get; set; }
         public virtual certificate certificate { get; set; }
         public virtual fandimension fandimension { get; set; }
     }

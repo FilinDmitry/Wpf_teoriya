@@ -23,10 +23,16 @@ namespace WpfApp1.Pages
         public MainPage()
         {
             InitializeComponent();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var a = Core.Context.basepart.ToList();
+            foreach (basepart item in a)
+            {
+                MessageBox.Show(item.info());
+            }
             NavigationService.Navigate(new SelectItem());
         }
     }

@@ -12,9 +12,8 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class motherboard
+    public partial class motherboard : basepart
     {
-        public int id { get; set; }
         public int socketid { get; set; }
         public int formfactorid { get; set; }
         public int memoryslots { get; set; }
@@ -23,7 +22,6 @@ namespace WpfApp1
         public int sataports { get; set; }
         public int usbports { get; set; }
     
-        public virtual basepart basepart { get; set; }
         public virtual formfactor formfactor { get; set; }
         public virtual memorytype memorytype { get; set; }
         public virtual socket socket { get; set; }

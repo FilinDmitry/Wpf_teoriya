@@ -12,7 +12,7 @@ namespace WpfApp1
     using System;
     using System.Collections.Generic;
     
-    public partial class processorcooler
+    public partial class processorcooler : basepart
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public processorcooler()
@@ -20,14 +20,12 @@ namespace WpfApp1
             this.socketprocessorcooler = new HashSet<socketprocessorcooler>();
         }
     
-        public int id { get; set; }
         public int fandimensionid { get; set; }
         public int heatpipes { get; set; }
         public int minspeed { get; set; }
         public int maxspeed { get; set; }
         public double noiselevel { get; set; }
     
-        public virtual basepart basepart { get; set; }
         public virtual fandimension fandimension { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<socketprocessorcooler> socketprocessorcooler { get; set; }

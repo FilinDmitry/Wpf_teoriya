@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище PR15_BuilderPCModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище PR15_BuilderPCModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="assembly">
           <Key>
             <PropertyRef Name="id" />
@@ -818,8 +818,7 @@
             <End Role="videoconnectorgpu" EntitySet="videoconnectorgpu" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PR15_BuilderPCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -844,15 +843,7 @@
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <NavigationProperty Name="manufacturer" Relationship="Self.FK_basepart_manufacturer" FromRole="basepart" ToRole="manufacturer" />
           <NavigationProperty Name="parttype" Relationship="Self.FK_basepart_parttype" FromRole="basepart" ToRole="parttype" />
-          <NavigationProperty Name="case" Relationship="Self.FK_case_basepart" FromRole="basepart" ToRole="case" />
-          <NavigationProperty Name="cpu" Relationship="Self.FK_cpu_basepart" FromRole="basepart" ToRole="cpu" />
-          <NavigationProperty Name="gpu" Relationship="Self.FK_gpu_basepart" FromRole="basepart" ToRole="gpu" />
-          <NavigationProperty Name="motherboard" Relationship="Self.FK_motherboard_basepart" FromRole="basepart" ToRole="motherboard" />
           <NavigationProperty Name="partassembly" Relationship="Self.FK_partassembly_basepart" FromRole="basepart" ToRole="partassembly" />
-          <NavigationProperty Name="powersupply" Relationship="Self.FK_powersupply_basepart" FromRole="basepart" ToRole="powersupply" />
-          <NavigationProperty Name="processorcooler" Relationship="Self.FK_processorcooler_basepart" FromRole="basepart" ToRole="processorcooler" />
-          <NavigationProperty Name="ram" Relationship="Self.FK_ram_basepart" FromRole="basepart" ToRole="ram" />
-          <NavigationProperty Name="storagedevice" Relationship="Self.FK_storagedevice_basepart" FromRole="basepart" ToRole="storagedevice" />
         </EntityType>
         <EntityType Name="boardformfactorcase">
           <Key>
@@ -864,15 +855,10 @@
           <NavigationProperty Name="case" Relationship="Self.FK_boardformfactorcase_case" FromRole="boardformfactorcase" ToRole="case" />
           <NavigationProperty Name="formfactor" Relationship="Self.FK_boardformfactorcase_formfactor" FromRole="boardformfactorcase" ToRole="formfactor" />
         </EntityType>
-        <EntityType Name="case">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+        <EntityType Name="case" BaseType="PR15_BuilderPCModel.basepart">
           <Property Name="sizeid" Type="Int32" Nullable="false" />
           <Property Name="expansionslots" Type="Int32" Nullable="false" />
           <Property Name="fans" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="basepart" Relationship="Self.FK_case_basepart" FromRole="case" ToRole="basepart" />
           <NavigationProperty Name="boardformfactorcase" Relationship="Self.FK_boardformfactorcase_case" FromRole="case" ToRole="boardformfactorcase" />
           <NavigationProperty Name="casesize" Relationship="Self.FK_case_casesize" FromRole="case" ToRole="casesize" />
         </EntityType>
@@ -892,11 +878,7 @@
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="powersupply" Relationship="Self.FK_powersupply_certificate" FromRole="certificate" ToRole="powersupply" />
         </EntityType>
-        <EntityType Name="cpu">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+        <EntityType Name="cpu" BaseType="PR15_BuilderPCModel.basepart">
           <Property Name="socketid" Type="Int32" Nullable="false" />
           <Property Name="numberofcores" Type="Int32" Nullable="false" />
           <Property Name="basecorefrequency" Type="Double" Nullable="false" />
@@ -905,7 +887,6 @@
           <Property Name="igpuid" Type="Int32" />
           <Property Name="thermalpower" Type="Int32" Nullable="false" />
           <Property Name="hasigpu" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="basepart" Relationship="Self.FK_cpu_basepart" FromRole="cpu" ToRole="basepart" />
           <NavigationProperty Name="igpu" Relationship="Self.FK_cpu_igpu" FromRole="cpu" ToRole="igpu" />
           <NavigationProperty Name="socket" Relationship="Self.FK_cpu_socket1" FromRole="cpu" ToRole="socket" />
         </EntityType>
@@ -927,17 +908,12 @@
           <NavigationProperty Name="boardformfactorcase" Relationship="Self.FK_boardformfactorcase_formfactor" FromRole="formfactor" ToRole="boardformfactorcase" />
           <NavigationProperty Name="motherboard" Relationship="Self.FK_motherboard_formfactor" FromRole="formfactor" ToRole="motherboard" />
         </EntityType>
-        <EntityType Name="gpu">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+        <EntityType Name="gpu" BaseType="PR15_BuilderPCModel.basepart">
           <Property Name="gpuinterfaceid" Type="Int32" Nullable="false" />
           <Property Name="chipfrequency" Type="Int32" Nullable="false" />
           <Property Name="videomemory" Type="Int32" Nullable="false" />
           <Property Name="memorybus" Type="Int32" Nullable="false" />
           <Property Name="recommendpower" Type="Int32" />
-          <NavigationProperty Name="basepart" Relationship="Self.FK_gpu_basepart" FromRole="gpu" ToRole="basepart" />
           <NavigationProperty Name="gpuinterface" Relationship="Self.FK_gpu_gpuinterface" FromRole="gpu" ToRole="gpuinterface" />
           <NavigationProperty Name="videoconnectorgpu" Relationship="Self.FK_videoconnectorgpu_gpu" FromRole="gpu" ToRole="videoconnectorgpu" />
         </EntityType>
@@ -948,14 +924,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="gpu" Relationship="Self.FK_gpu_gpuinterface" FromRole="gpuinterface" ToRole="gpu" />
-        </EntityType>
-        <EntityType Name="hdd">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="rotationspeed" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="storagedevice" Relationship="Self.FK_hdd_storagedevice" FromRole="hdd" ToRole="storagedevice" />
         </EntityType>
         <EntityType Name="igpu">
           <Key>
@@ -982,11 +950,7 @@
           <NavigationProperty Name="motherboard" Relationship="Self.FK_motherboard_memorytype" FromRole="memorytype" ToRole="motherboard" />
           <NavigationProperty Name="ram" Relationship="Self.FK_ram_memorytype" FromRole="memorytype" ToRole="ram" />
         </EntityType>
-        <EntityType Name="motherboard">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+        <EntityType Name="motherboard" BaseType="PR15_BuilderPCModel.basepart">
           <Property Name="socketid" Type="Int32" Nullable="false" />
           <Property Name="formfactorid" Type="Int32" Nullable="false" />
           <Property Name="memoryslots" Type="Int32" Nullable="false" />
@@ -994,7 +958,6 @@
           <Property Name="pcislots" Type="Int32" Nullable="false" />
           <Property Name="sataports" Type="Int32" Nullable="false" />
           <Property Name="usbports" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="basepart" Relationship="Self.FK_motherboard_basepart" FromRole="motherboard" ToRole="basepart" />
           <NavigationProperty Name="formfactor" Relationship="Self.FK_motherboard_formfactor" FromRole="motherboard" ToRole="formfactor" />
           <NavigationProperty Name="memorytype" Relationship="Self.FK_motherboard_memorytype" FromRole="motherboard" ToRole="memorytype" />
           <NavigationProperty Name="socket" Relationship="Self.FK_motherboard_socket" FromRole="motherboard" ToRole="socket" />
@@ -1017,43 +980,28 @@
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="basepart" Relationship="Self.FK_basepart_parttype" FromRole="parttype" ToRole="basepart" />
         </EntityType>
-        <EntityType Name="powersupply">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+        <EntityType Name="powersupply" BaseType="PR15_BuilderPCModel.basepart">
           <Property Name="power" Type="Int32" Nullable="false" />
           <Property Name="fandimensionid" Type="Int32" Nullable="false" />
           <Property Name="certificationid" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="basepart" Relationship="Self.FK_powersupply_basepart" FromRole="powersupply" ToRole="basepart" />
           <NavigationProperty Name="certificate" Relationship="Self.FK_powersupply_certificate" FromRole="powersupply" ToRole="certificate" />
           <NavigationProperty Name="fandimension" Relationship="Self.FK_powersupply_fandimension" FromRole="powersupply" ToRole="fandimension" />
         </EntityType>
-        <EntityType Name="processorcooler">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+        <EntityType Name="processorcooler" BaseType="PR15_BuilderPCModel.basepart">
           <Property Name="fandimensionid" Type="Int32" Nullable="false" />
           <Property Name="heatpipes" Type="Int32" Nullable="false" />
           <Property Name="minspeed" Type="Int32" Nullable="false" />
           <Property Name="maxspeed" Type="Int32" Nullable="false" />
           <Property Name="noiselevel" Type="Double" Nullable="false" />
-          <NavigationProperty Name="basepart" Relationship="Self.FK_processorcooler_basepart" FromRole="processorcooler" ToRole="basepart" />
           <NavigationProperty Name="fandimension" Relationship="Self.FK_processorcooler_fandimension" FromRole="processorcooler" ToRole="fandimension" />
           <NavigationProperty Name="socketprocessorcooler" Relationship="Self.FK_socketprocessorcooler_processorcooler" FromRole="processorcooler" ToRole="socketprocessorcooler" />
         </EntityType>
-        <EntityType Name="ram">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+        <EntityType Name="ram" BaseType="PR15_BuilderPCModel.basepart">
           <Property Name="memorytypeid" Type="Int32" Nullable="false" />
           <Property Name="capacity" Type="Int32" Nullable="false" />
           <Property Name="count" Type="Int32" Nullable="false" />
           <Property Name="ghz" Type="Int32" Nullable="false" />
           <Property Name="timings" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="basepart" Relationship="Self.FK_ram_basepart" FromRole="ram" ToRole="basepart" />
           <NavigationProperty Name="memorytype" Relationship="Self.FK_ram_memorytype" FromRole="ram" ToRole="memorytype" />
         </EntityType>
         <EntityType Name="socket">
@@ -1076,27 +1024,14 @@
           <NavigationProperty Name="processorcooler" Relationship="Self.FK_socketprocessorcooler_processorcooler" FromRole="socketprocessorcooler" ToRole="processorcooler" />
           <NavigationProperty Name="socket" Relationship="Self.FK_socketprocessorcooler_socket" FromRole="socketprocessorcooler" ToRole="socket" />
         </EntityType>
-        <EntityType Name="ssd">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="tbw" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="storagedevice" Relationship="Self.FK_ssd_storagedevice" FromRole="ssd" ToRole="storagedevice" />
-        </EntityType>
-        <EntityType Name="storagedevice">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+        <EntityType Name="storagedevice" BaseType="PR15_BuilderPCModel.basepart">
           <Property Name="capacity" Type="Int32" Nullable="false" />
           <Property Name="storagedeviceinterfaceid" Type="Int32" Nullable="false" />
           <Property Name="storagedevicetypeid" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="basepart" Relationship="Self.FK_storagedevice_basepart" FromRole="storagedevice" ToRole="basepart" />
-          <NavigationProperty Name="hdd" Relationship="Self.FK_hdd_storagedevice" FromRole="storagedevice" ToRole="hdd" />
-          <NavigationProperty Name="ssd" Relationship="Self.FK_ssd_storagedevice" FromRole="storagedevice" ToRole="ssd" />
           <NavigationProperty Name="storagedeviceinterface" Relationship="Self.FK_storagedevice_storagedeviceinterface" FromRole="storagedevice" ToRole="storagedeviceinterface" />
           <NavigationProperty Name="storagedevicetype" Relationship="Self.FK_storagedevice_storagedevicetype" FromRole="storagedevice" ToRole="storagedevicetype" />
+          <NavigationProperty Name="hdd" Relationship="PR15_BuilderPCModel.FK_hdd_storagedevice" FromRole="storagedevice" ToRole="hdd" />
+          <NavigationProperty Name="ssd" Relationship="PR15_BuilderPCModel.FK_ssd_storagedevice" FromRole="storagedevice" ToRole="ssd" />
         </EntityType>
         <EntityType Name="storagedeviceinterface">
           <Key>
@@ -1178,54 +1113,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_case_basepart">
-          <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
-          <End Role="case" Type="Self.case" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="basepart">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="case">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cpu_basepart">
-          <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
-          <End Role="cpu" Type="Self.cpu" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="basepart">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="cpu">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_gpu_basepart">
-          <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
-          <End Role="gpu" Type="Self.gpu" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="basepart">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="gpu">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_motherboard_basepart">
-          <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
-          <End Role="motherboard" Type="Self.motherboard" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="basepart">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="motherboard">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_partassembly_basepart">
           <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
           <End Role="partassembly" Type="Self.partassembly" Multiplicity="*" />
@@ -1235,54 +1122,6 @@
             </Principal>
             <Dependent Role="partassembly">
               <PropertyRef Name="partid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_powersupply_basepart">
-          <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
-          <End Role="powersupply" Type="Self.powersupply" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="basepart">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="powersupply">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_processorcooler_basepart">
-          <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
-          <End Role="processorcooler" Type="Self.processorcooler" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="basepart">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="processorcooler">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ram_basepart">
-          <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
-          <End Role="ram" Type="Self.ram" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="basepart">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="ram">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_storagedevice_basepart">
-          <End Role="basepart" Type="Self.basepart" Multiplicity="1" />
-          <End Role="storagedevice" Type="Self.storagedevice" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="basepart">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="storagedevice">
-              <PropertyRef Name="id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1418,18 +1257,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_hdd_storagedevice">
-          <End Role="storagedevice" Type="Self.storagedevice" Multiplicity="1" />
-          <End Role="hdd" Type="Self.hdd" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="storagedevice">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="hdd">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_motherboard_memorytype">
           <End Role="memorytype" Type="Self.memorytype" Multiplicity="1" />
           <End Role="motherboard" Type="Self.motherboard" Multiplicity="*" />
@@ -1490,18 +1317,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ssd_storagedevice">
-          <End Role="storagedevice" Type="Self.storagedevice" Multiplicity="1" />
-          <End Role="ssd" Type="Self.ssd" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="storagedevice">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="ssd">
-              <PropertyRef Name="id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_storagedevice_storagedeviceinterface">
           <End Role="storagedeviceinterface" Type="Self.storagedeviceinterface" Multiplicity="1" />
           <End Role="storagedevice" Type="Self.storagedevice" Multiplicity="*" />
@@ -1542,28 +1357,18 @@
           <EntitySet Name="assembly" EntityType="Self.assembly" />
           <EntitySet Name="basepart" EntityType="Self.basepart" />
           <EntitySet Name="boardformfactorcase" EntityType="Self.boardformfactorcase" />
-          <EntitySet Name="case" EntityType="Self.case" />
           <EntitySet Name="casesize" EntityType="Self.casesize" />
           <EntitySet Name="certificate" EntityType="Self.certificate" />
-          <EntitySet Name="cpu" EntityType="Self.cpu" />
           <EntitySet Name="fandimension" EntityType="Self.fandimension" />
           <EntitySet Name="formfactor" EntityType="Self.formfactor" />
-          <EntitySet Name="gpu" EntityType="Self.gpu" />
           <EntitySet Name="gpuinterface" EntityType="Self.gpuinterface" />
-          <EntitySet Name="hdd" EntityType="Self.hdd" />
           <EntitySet Name="igpu" EntityType="Self.igpu" />
           <EntitySet Name="manufacturer" EntityType="Self.manufacturer" />
           <EntitySet Name="memorytype" EntityType="Self.memorytype" />
-          <EntitySet Name="motherboard" EntityType="Self.motherboard" />
           <EntitySet Name="partassembly" EntityType="Self.partassembly" />
           <EntitySet Name="parttype" EntityType="Self.parttype" />
-          <EntitySet Name="powersupply" EntityType="Self.powersupply" />
-          <EntitySet Name="processorcooler" EntityType="Self.processorcooler" />
-          <EntitySet Name="ram" EntityType="Self.ram" />
           <EntitySet Name="socket" EntityType="Self.socket" />
           <EntitySet Name="socketprocessorcooler" EntityType="Self.socketprocessorcooler" />
-          <EntitySet Name="ssd" EntityType="Self.ssd" />
-          <EntitySet Name="storagedevice" EntityType="Self.storagedevice" />
           <EntitySet Name="storagedeviceinterface" EntityType="Self.storagedeviceinterface" />
           <EntitySet Name="storagedevicetype" EntityType="Self.storagedevicetype" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -1581,44 +1386,12 @@
             <End Role="parttype" EntitySet="parttype" />
             <End Role="basepart" EntitySet="basepart" />
           </AssociationSet>
-          <AssociationSet Name="FK_case_basepart" Association="Self.FK_case_basepart">
-            <End Role="basepart" EntitySet="basepart" />
-            <End Role="case" EntitySet="case" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cpu_basepart" Association="Self.FK_cpu_basepart">
-            <End Role="basepart" EntitySet="basepart" />
-            <End Role="cpu" EntitySet="cpu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_gpu_basepart" Association="Self.FK_gpu_basepart">
-            <End Role="basepart" EntitySet="basepart" />
-            <End Role="gpu" EntitySet="gpu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_motherboard_basepart" Association="Self.FK_motherboard_basepart">
-            <End Role="basepart" EntitySet="basepart" />
-            <End Role="motherboard" EntitySet="motherboard" />
-          </AssociationSet>
           <AssociationSet Name="FK_partassembly_basepart" Association="Self.FK_partassembly_basepart">
             <End Role="basepart" EntitySet="basepart" />
             <End Role="partassembly" EntitySet="partassembly" />
           </AssociationSet>
-          <AssociationSet Name="FK_powersupply_basepart" Association="Self.FK_powersupply_basepart">
-            <End Role="basepart" EntitySet="basepart" />
-            <End Role="powersupply" EntitySet="powersupply" />
-          </AssociationSet>
-          <AssociationSet Name="FK_processorcooler_basepart" Association="Self.FK_processorcooler_basepart">
-            <End Role="basepart" EntitySet="basepart" />
-            <End Role="processorcooler" EntitySet="processorcooler" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ram_basepart" Association="Self.FK_ram_basepart">
-            <End Role="basepart" EntitySet="basepart" />
-            <End Role="ram" EntitySet="ram" />
-          </AssociationSet>
-          <AssociationSet Name="FK_storagedevice_basepart" Association="Self.FK_storagedevice_basepart">
-            <End Role="basepart" EntitySet="basepart" />
-            <End Role="storagedevice" EntitySet="storagedevice" />
-          </AssociationSet>
           <AssociationSet Name="FK_boardformfactorcase_case" Association="Self.FK_boardformfactorcase_case">
-            <End Role="case" EntitySet="case" />
+            <End Role="case" EntitySet="basepart" />
             <End Role="boardformfactorcase" EntitySet="boardformfactorcase" />
           </AssociationSet>
           <AssociationSet Name="FK_boardformfactorcase_formfactor" Association="Self.FK_boardformfactorcase_formfactor">
@@ -1627,81 +1400,123 @@
           </AssociationSet>
           <AssociationSet Name="FK_case_casesize" Association="Self.FK_case_casesize">
             <End Role="casesize" EntitySet="casesize" />
-            <End Role="case" EntitySet="case" />
+            <End Role="case" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_powersupply_certificate" Association="Self.FK_powersupply_certificate">
             <End Role="certificate" EntitySet="certificate" />
-            <End Role="powersupply" EntitySet="powersupply" />
+            <End Role="powersupply" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_cpu_igpu" Association="Self.FK_cpu_igpu">
             <End Role="igpu" EntitySet="igpu" />
-            <End Role="cpu" EntitySet="cpu" />
+            <End Role="cpu" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_cpu_socket1" Association="Self.FK_cpu_socket1">
             <End Role="socket" EntitySet="socket" />
-            <End Role="cpu" EntitySet="cpu" />
+            <End Role="cpu" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_powersupply_fandimension" Association="Self.FK_powersupply_fandimension">
             <End Role="fandimension" EntitySet="fandimension" />
-            <End Role="powersupply" EntitySet="powersupply" />
+            <End Role="powersupply" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_processorcooler_fandimension" Association="Self.FK_processorcooler_fandimension">
             <End Role="fandimension" EntitySet="fandimension" />
-            <End Role="processorcooler" EntitySet="processorcooler" />
+            <End Role="processorcooler" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_motherboard_formfactor" Association="Self.FK_motherboard_formfactor">
             <End Role="formfactor" EntitySet="formfactor" />
-            <End Role="motherboard" EntitySet="motherboard" />
+            <End Role="motherboard" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_gpu_gpuinterface" Association="Self.FK_gpu_gpuinterface">
             <End Role="gpuinterface" EntitySet="gpuinterface" />
-            <End Role="gpu" EntitySet="gpu" />
+            <End Role="gpu" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_videoconnectorgpu_gpu" Association="Self.FK_videoconnectorgpu_gpu">
-            <End Role="gpu" EntitySet="gpu" />
+            <End Role="gpu" EntitySet="basepart" />
             <End Role="videoconnectorgpu" EntitySet="videoconnectorgpu" />
-          </AssociationSet>
-          <AssociationSet Name="FK_hdd_storagedevice" Association="Self.FK_hdd_storagedevice">
-            <End Role="storagedevice" EntitySet="storagedevice" />
-            <End Role="hdd" EntitySet="hdd" />
           </AssociationSet>
           <AssociationSet Name="FK_motherboard_memorytype" Association="Self.FK_motherboard_memorytype">
             <End Role="memorytype" EntitySet="memorytype" />
-            <End Role="motherboard" EntitySet="motherboard" />
+            <End Role="motherboard" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_ram_memorytype" Association="Self.FK_ram_memorytype">
             <End Role="memorytype" EntitySet="memorytype" />
-            <End Role="ram" EntitySet="ram" />
+            <End Role="ram" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_motherboard_socket" Association="Self.FK_motherboard_socket">
             <End Role="socket" EntitySet="socket" />
-            <End Role="motherboard" EntitySet="motherboard" />
+            <End Role="motherboard" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_socketprocessorcooler_processorcooler" Association="Self.FK_socketprocessorcooler_processorcooler">
-            <End Role="processorcooler" EntitySet="processorcooler" />
+            <End Role="processorcooler" EntitySet="basepart" />
             <End Role="socketprocessorcooler" EntitySet="socketprocessorcooler" />
           </AssociationSet>
           <AssociationSet Name="FK_socketprocessorcooler_socket" Association="Self.FK_socketprocessorcooler_socket">
             <End Role="socket" EntitySet="socket" />
             <End Role="socketprocessorcooler" EntitySet="socketprocessorcooler" />
           </AssociationSet>
-          <AssociationSet Name="FK_ssd_storagedevice" Association="Self.FK_ssd_storagedevice">
-            <End Role="storagedevice" EntitySet="storagedevice" />
-            <End Role="ssd" EntitySet="ssd" />
-          </AssociationSet>
           <AssociationSet Name="FK_storagedevice_storagedeviceinterface" Association="Self.FK_storagedevice_storagedeviceinterface">
             <End Role="storagedeviceinterface" EntitySet="storagedeviceinterface" />
-            <End Role="storagedevice" EntitySet="storagedevice" />
+            <End Role="storagedevice" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_storagedevice_storagedevicetype" Association="Self.FK_storagedevice_storagedevicetype">
             <End Role="storagedevicetype" EntitySet="storagedevicetype" />
-            <End Role="storagedevice" EntitySet="storagedevice" />
+            <End Role="storagedevice" EntitySet="basepart" />
           </AssociationSet>
           <AssociationSet Name="FK_videoconnectorgpu_videoconnector" Association="Self.FK_videoconnectorgpu_videoconnector">
             <End Role="videoconnector" EntitySet="videoconnector" />
             <End Role="videoconnectorgpu" EntitySet="videoconnectorgpu" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="hdd" EntityType="PR15_BuilderPCModel.hdd" />
+          <EntitySet Name="ssd" EntityType="PR15_BuilderPCModel.ssd" />
+          <AssociationSet Name="FK_hdd_storagedevice" Association="PR15_BuilderPCModel.FK_hdd_storagedevice">
+            <End Role="storagedevice" EntitySet="basepart" />
+            <End Role="hdd" EntitySet="hdd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ssd_storagedevice" Association="PR15_BuilderPCModel.FK_ssd_storagedevice">
+            <End Role="storagedevice" EntitySet="basepart" />
+            <End Role="ssd" EntitySet="ssd" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="hdd">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="rotationspeed" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="storagedevice" Relationship="PR15_BuilderPCModel.FK_hdd_storagedevice" FromRole="hdd" ToRole="storagedevice" />
+        </EntityType>
+        <EntityType Name="ssd">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="tbw" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="storagedevice" Relationship="PR15_BuilderPCModel.FK_ssd_storagedevice" FromRole="ssd" ToRole="storagedevice" />
+        </EntityType>
+        <Association Name="FK_hdd_storagedevice">
+          <End Type="PR15_BuilderPCModel.storagedevice" Role="storagedevice" Multiplicity="1" />
+          <End Type="PR15_BuilderPCModel.hdd" Role="hdd" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="storagedevice">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hdd">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ssd_storagedevice">
+          <End Type="PR15_BuilderPCModel.storagedevice" Role="storagedevice" Multiplicity="1" />
+          <End Type="PR15_BuilderPCModel.ssd" Role="ssd" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="storagedevice">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ssd">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1718,14 +1533,93 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="basepart">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.basepart">
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.basepart)">
               <MappingFragment StoreEntitySet="basepart">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="manufacturerid" ColumnName="manufacturerid" />
-                <ScalarProperty Name="parttypeid" ColumnName="parttypeid" />
-                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="parttypeid" ColumnName="parttypeid" />
+                <ScalarProperty Name="manufacturerid" ColumnName="manufacturerid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.cpu)">
+              <MappingFragment StoreEntitySet="cpu">
+                <ScalarProperty Name="hasigpu" ColumnName="hasigpu" />
+                <ScalarProperty Name="thermalpower" ColumnName="thermalpower" />
+                <ScalarProperty Name="igpuid" ColumnName="igpuid" />
+                <ScalarProperty Name="cachel3" ColumnName="cachel3" />
+                <ScalarProperty Name="maxcorefrequency" ColumnName="maxcorefrequency" />
+                <ScalarProperty Name="basecorefrequency" ColumnName="basecorefrequency" />
+                <ScalarProperty Name="numberofcores" ColumnName="numberofcores" />
+                <ScalarProperty Name="socketid" ColumnName="socketid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.gpu)">
+              <MappingFragment StoreEntitySet="gpu">
+                <ScalarProperty Name="recommendpower" ColumnName="recommendpower" />
+                <ScalarProperty Name="memorybus" ColumnName="memorybus" />
+                <ScalarProperty Name="videomemory" ColumnName="videomemory" />
+                <ScalarProperty Name="chipfrequency" ColumnName="chipfrequency" />
+                <ScalarProperty Name="gpuinterfaceid" ColumnName="gpuinterfaceid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.case)">
+              <MappingFragment StoreEntitySet="case">
+                <ScalarProperty Name="fans" ColumnName="fans" />
+                <ScalarProperty Name="expansionslots" ColumnName="expansionslots" />
+                <ScalarProperty Name="sizeid" ColumnName="sizeid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.motherboard)">
+              <MappingFragment StoreEntitySet="motherboard">
+                <ScalarProperty Name="usbports" ColumnName="usbports" />
+                <ScalarProperty Name="sataports" ColumnName="sataports" />
+                <ScalarProperty Name="pcislots" ColumnName="pcislots" />
+                <ScalarProperty Name="memorytypeid" ColumnName="memorytypeid" />
+                <ScalarProperty Name="memoryslots" ColumnName="memoryslots" />
+                <ScalarProperty Name="formfactorid" ColumnName="formfactorid" />
+                <ScalarProperty Name="socketid" ColumnName="socketid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.storagedevice)">
+              <MappingFragment StoreEntitySet="storagedevice">
+                <ScalarProperty Name="storagedevicetypeid" ColumnName="storagedevicetypeid" />
+                <ScalarProperty Name="storagedeviceinterfaceid" ColumnName="storagedeviceinterfaceid" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.ram)">
+              <MappingFragment StoreEntitySet="ram">
+                <ScalarProperty Name="timings" ColumnName="timings" />
+                <ScalarProperty Name="ghz" ColumnName="ghz" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="memorytypeid" ColumnName="memorytypeid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.powersupply)">
+              <MappingFragment StoreEntitySet="powersupply">
+                <ScalarProperty Name="certificationid" ColumnName="certificationid" />
+                <ScalarProperty Name="fandimensionid" ColumnName="fandimensionid" />
+                <ScalarProperty Name="power" ColumnName="power" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.processorcooler)">
+              <MappingFragment StoreEntitySet="processorcooler">
+                <ScalarProperty Name="noiselevel" ColumnName="noiselevel" />
+                <ScalarProperty Name="maxspeed" ColumnName="maxspeed" />
+                <ScalarProperty Name="minspeed" ColumnName="minspeed" />
+                <ScalarProperty Name="heatpipes" ColumnName="heatpipes" />
+                <ScalarProperty Name="fandimensionid" ColumnName="fandimensionid" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1735,16 +1629,6 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="caseid" ColumnName="caseid" />
                 <ScalarProperty Name="formfactorid" ColumnName="formfactorid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="case">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.case">
-              <MappingFragment StoreEntitySet="case">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="sizeid" ColumnName="sizeid" />
-                <ScalarProperty Name="expansionslots" ColumnName="expansionslots" />
-                <ScalarProperty Name="fans" ColumnName="fans" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1764,21 +1648,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="cpu">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.cpu">
-              <MappingFragment StoreEntitySet="cpu">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="socketid" ColumnName="socketid" />
-                <ScalarProperty Name="numberofcores" ColumnName="numberofcores" />
-                <ScalarProperty Name="basecorefrequency" ColumnName="basecorefrequency" />
-                <ScalarProperty Name="maxcorefrequency" ColumnName="maxcorefrequency" />
-                <ScalarProperty Name="cachel3" ColumnName="cachel3" />
-                <ScalarProperty Name="igpuid" ColumnName="igpuid" />
-                <ScalarProperty Name="thermalpower" ColumnName="thermalpower" />
-                <ScalarProperty Name="hasigpu" ColumnName="hasigpu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="fandimension">
             <EntityTypeMapping TypeName="PR15_BuilderPCModel.fandimension">
               <MappingFragment StoreEntitySet="fandimension">
@@ -1795,31 +1664,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="gpu">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.gpu">
-              <MappingFragment StoreEntitySet="gpu">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="gpuinterfaceid" ColumnName="gpuinterfaceid" />
-                <ScalarProperty Name="chipfrequency" ColumnName="chipfrequency" />
-                <ScalarProperty Name="videomemory" ColumnName="videomemory" />
-                <ScalarProperty Name="memorybus" ColumnName="memorybus" />
-                <ScalarProperty Name="recommendpower" ColumnName="recommendpower" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="gpuinterface">
             <EntityTypeMapping TypeName="PR15_BuilderPCModel.gpuinterface">
               <MappingFragment StoreEntitySet="gpuinterface">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="hdd">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.hdd">
-              <MappingFragment StoreEntitySet="hdd">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="rotationspeed" ColumnName="rotationspeed" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1847,20 +1696,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="motherboard">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.motherboard">
-              <MappingFragment StoreEntitySet="motherboard">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="socketid" ColumnName="socketid" />
-                <ScalarProperty Name="formfactorid" ColumnName="formfactorid" />
-                <ScalarProperty Name="memoryslots" ColumnName="memoryslots" />
-                <ScalarProperty Name="memorytypeid" ColumnName="memorytypeid" />
-                <ScalarProperty Name="pcislots" ColumnName="pcislots" />
-                <ScalarProperty Name="sataports" ColumnName="sataports" />
-                <ScalarProperty Name="usbports" ColumnName="usbports" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="partassembly">
             <EntityTypeMapping TypeName="PR15_BuilderPCModel.partassembly">
               <MappingFragment StoreEntitySet="partassembly">
@@ -1875,40 +1710,6 @@
               <MappingFragment StoreEntitySet="parttype">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="powersupply">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.powersupply">
-              <MappingFragment StoreEntitySet="powersupply">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="power" ColumnName="power" />
-                <ScalarProperty Name="fandimensionid" ColumnName="fandimensionid" />
-                <ScalarProperty Name="certificationid" ColumnName="certificationid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="processorcooler">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.processorcooler">
-              <MappingFragment StoreEntitySet="processorcooler">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="fandimensionid" ColumnName="fandimensionid" />
-                <ScalarProperty Name="heatpipes" ColumnName="heatpipes" />
-                <ScalarProperty Name="minspeed" ColumnName="minspeed" />
-                <ScalarProperty Name="maxspeed" ColumnName="maxspeed" />
-                <ScalarProperty Name="noiselevel" ColumnName="noiselevel" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ram">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.ram">
-              <MappingFragment StoreEntitySet="ram">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="memorytypeid" ColumnName="memorytypeid" />
-                <ScalarProperty Name="capacity" ColumnName="capacity" />
-                <ScalarProperty Name="count" ColumnName="count" />
-                <ScalarProperty Name="ghz" ColumnName="ghz" />
-                <ScalarProperty Name="timings" ColumnName="timings" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1929,26 +1730,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ssd">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.ssd">
-              <MappingFragment StoreEntitySet="ssd">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="tbw" ColumnName="tbw" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="storagedevice">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.storagedevice">
-              <MappingFragment StoreEntitySet="storagedevice">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="capacity" ColumnName="capacity" />
-                <ScalarProperty Name="storagedeviceinterfaceid" ColumnName="storagedeviceinterfaceid" />
-                <ScalarProperty Name="storagedevicetypeid" ColumnName="storagedevicetypeid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="storagedeviceinterface">
-            <EntityTypeMapping TypeName="PR15_BuilderPCModel.storagedeviceinterface">
+            <EntityTypeMapping TypeName="IsTypeOf(PR15_BuilderPCModel.storagedeviceinterface)">
               <MappingFragment StoreEntitySet="storagedeviceinterface">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1991,7 +1774,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="hdd">
+            <EntityTypeMapping TypeName="PR15_BuilderPCModel.hdd">
+              <MappingFragment StoreEntitySet="hdd">
+                <ScalarProperty Name="rotationspeed" ColumnName="rotationspeed" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ssd">
+            <EntityTypeMapping TypeName="PR15_BuilderPCModel.ssd">
+              <MappingFragment StoreEntitySet="ssd">
+                <ScalarProperty Name="tbw" ColumnName="tbw" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
