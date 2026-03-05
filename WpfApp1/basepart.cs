@@ -26,15 +26,14 @@ namespace WpfApp1
         public int parttypeid { get; set; }
         public string image { get; set; }
         public decimal price { get; set; }
-    
+
+        public string description;
         public virtual manufacturer manufacturer { get; set; }
         public virtual parttype parttype { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<partassembly> partassembly { get; set; }
 
-        public virtual string info()
-        {
-            return $"{id}, {name}, {price}";
-        }
+        public virtual string info=> $"{id}, {name}, {price}";
+        
     }
 }

@@ -28,12 +28,37 @@ namespace WpfApp1.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            List<cpu> a = data.CPU_lst;
-            foreach (cpu i in a)
+            Button button = sender as Button;
+            List<basepart> list = new List<basepart>(); 
+            switch (button.Name)
             {
-                MessageBox.Show(i.info());
+                case "proc":
+                    list = Core.Context.cpu.Cast<basepart>().ToList();
+                    break;
+                case "plata":
+                    list = Core.Context.motherboard.Cast<basepart>().ToList();
+                    break;
+                case "block":
+                    list = Core.Context.powersupply.Cast<basepart>().ToList();
+                    break;
+                case "corp":
+                    list = Core.Context.@case.Cast<basepart>().ToList();
+                    break;
+                case "video":
+                    list = Core.Context.gpu.Cast<basepart>().ToList();
+                    break;
+                case "oper":
+                    list = Core.Context.ram.Cast<basepart>().ToList();
+                    break;
+                case "disk":
+                    list = Core.Context.storagedevice.Cast<basepart>().ToList();
+                    break;
+                case "cooler":
+                    list = Core.Context.processorcooler.Cast<basepart>().ToList();
+                    break;
             }
-            NavigationService.Navigate(new SelectItem());
+            
+            NavigationService.Navigate(new SelectItem(list));
         }
     }
 }

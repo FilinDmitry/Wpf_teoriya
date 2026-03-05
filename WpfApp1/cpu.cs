@@ -26,9 +26,7 @@ namespace WpfApp1
         public virtual igpu igpu { get; set; }
         public virtual socket socket { get; set; }
 
-        public override string info()
-        {
-            return "Это процессор";
-        }
+        public override string info=> "Это процессор";
     }
+    
 }

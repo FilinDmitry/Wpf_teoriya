@@ -9,6 +9,60 @@
       Title="SelectItem">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="1.5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Margin="0 5 5 0">
+            <TextBlock Text="Фильтры" FontSize="20" FontWeight="Medium" Margin="10, 30, 0, 0"/>
+            <StackPanel Margin="8 5">
+                <TextBlock Text="Производитель" FontSize="15" Margin="0 10"/>
+                <ComboBox x:Name="CB_proiz" Width="140" HorizontalAlignment="Left" FontSize="15" SelectionChanged="CB_proiz_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="0" Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Margin="5" Grid.Column="1">
+                <TextBox x:Name="TB_search" FontSize="16" BorderThickness="0" Margin="6 0" Padding="3" TextChanged="TB_search_TextChanged"/>
+            </Border>
+        </Grid>
+
+        <ListBox x:Name="LB_main" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Margin="0 10" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="{Binding image}" Width="80" Height="80" Margin="5"/>
+                            <StackPanel Grid.Column="1" Margin="5 5" Orientation="Vertical">
+                                <TextBlock Text="{Binding name}"/>
+                                <TextBlock Text="{Binding manufacturer.name, StringFormat=Производитель: {0}}"/>
+                                <TextBlock Text="{Binding info}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Margin="0 0 5 0" >
+                                <TextBlock Text="Price" FontSize="15" FontWeight="Medium" HorizontalAlignment="Right" Margin="0 5"/>
+                                <Border HorizontalAlignment="Right" BorderBrush="Gray" CornerRadius="5" BorderThickness="1">
+                                    <Button Content="Добавить" FontSize="13" Padding="3" Click="btnAdd_Click"/>
+                                </Border>
+                            </StackPanel>
+                        </Grid>
+                    
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

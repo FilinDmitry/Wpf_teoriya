@@ -20,9 +20,26 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class SelectItem : Page
     {
-        public SelectItem()
+        public SelectItem(List<basepart> item_lst)
         {
             InitializeComponent();
+            CB_proiz.ItemsSource = Core.Context.manufacturer.Select(i => i.name).ToList();
+            LB_main.ItemsSource = item_lst;
+        }
+
+        private void CB_proiz_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TB_search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
