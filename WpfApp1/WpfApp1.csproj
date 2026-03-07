@@ -84,6 +84,7 @@
     <Compile Include="cpu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SelectedComponents.cs" />
     <Compile Include="subclass.cs" />
     <Compile Include="fandimension.cs">
       <DependentUpon>Model1.tt</DependentUpon>

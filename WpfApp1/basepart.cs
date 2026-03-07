@@ -26,6 +26,13 @@ namespace WpfApp1
         public int parttypeid { get; set; }
         public string image { get; set; }
         public decimal price { get; set; }
+        public decimal Price 
+        {
+         get
+            {
+                return decimal.Round(price, 2);
+            }
+        }
 
         public string description;
         public virtual manufacturer manufacturer { get; set; }
