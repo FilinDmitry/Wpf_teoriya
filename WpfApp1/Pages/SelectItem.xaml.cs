@@ -21,9 +21,11 @@ namespace WpfApp1.Pages
     public partial class SelectItem : Page
     {
         List<basepart> lst_basepart;
+        List<basepart> lst_cur;
         public SelectItem(List<basepart> item_lst)
         {
             lst_basepart = item_lst;
+            lst_cur = item_lst;
             InitializeComponent();
             CB_proiz.ItemsSource = Core.Context.manufacturer.Select(i => i.name).ToList();
             LB_main.ItemsSource = item_lst;
@@ -32,18 +34,12 @@ namespace WpfApp1.Pages
 
         private void CB_proiz_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (CB_proiz.SelectedItem != null)
-            {
-                List<basepart> filter = lst_basepart.Where(i => i.manufacturer.name == CB_proiz.SelectedItem.ToString()).ToList();
-                LB_main.ItemsSource = filter;
-            }
+            set_filters();
         }
 
         private void TB_search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox search_box = sender as TextBox;
-            List<basepart> filter = lst_basepart.Where(i => i.name.ToLower().Contains(search_box.Text.ToLower())).ToList();
-            LB_main.ItemsSource = filter;
+            set_filters();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -56,6 +52,24 @@ namespace WpfApp1.Pages
             CB_proiz.SelectedItem = null;
             TB_search.Text = "";
             LB_main.ItemsSource = lst_basepart;
+            lst_cur = lst_basepart;
+        }
+
+        private void set_filters()
+        {
+            List<basepart> filter = new List<basepart>();
+            if (CB_proiz.SelectedItem != null)
+            {
+                 filter = lst_cur.Where(i => i.manufacturer.name == CB_proiz.SelectedItem.ToString()
+                &&
+                i.name.ToLower().Contains(TB_search.Text.ToLower())).ToList();
+                
+            }
+            else
+            {
+                filter = lst_cur.Where(i => i.name.ToLower().Contains(TB_search.Text.ToLower())).ToList();
+            }
+            LB_main.ItemsSource = filter;
         }
     }
 }

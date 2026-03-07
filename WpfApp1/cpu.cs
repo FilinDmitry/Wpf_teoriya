@@ -20,13 +20,15 @@ namespace WpfApp1
         public double maxcorefrequency { get; set; }
         public int cachel3 { get; set; }
         public Nullable<int> igpuid { get; set; }
+
         public int thermalpower { get; set; }
         public bool hasigpu { get; set; }
     
         public virtual igpu igpu { get; set; }
         public virtual socket socket { get; set; }
+        public override string info => $"Встроенная графика: {igpu.name}\nСокет: {socket.name}\nКоличество ядер: {numberofcores}\nБазовая частота: {basecorefrequency} ГГЦ\nМаксимальная чаcтота: {maxcorefrequency} ГГЦ\nКэш 3: {cachel3} МБ\nТепловая мощность: {thermalpower}";
 
-        public override string info=> "Это процессор";
+        
     }
     
 }

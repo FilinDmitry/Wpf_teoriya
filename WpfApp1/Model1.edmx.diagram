@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="PR15_BuilderPCModel.assembly" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PR15_BuilderPCModel.basepart" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PR15_BuilderPCModel.boardformfactorcase" Width="1.5" PointX="13.5" PointY="17.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PR15_BuilderPCModel.case" Width="1.5" PointX="7.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PR15_BuilderPCModel.case" Width="1.5" PointX="7" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="PR15_BuilderPCModel.casesize" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PR15_BuilderPCModel.certificate" Width="1.5" PointX="6" PointY="30.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PR15_BuilderPCModel.cpu" Width="1.5" PointX="9.125" PointY="17" IsExpanded="true" />

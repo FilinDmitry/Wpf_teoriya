@@ -27,5 +27,7 @@ namespace WpfApp1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<boardformfactorcase> boardformfactorcase { get; set; }
         public virtual casesize casesize { get; set; }
+
+        public override string info => $"Размер: {casesize.name}\nСлоты расширения: {expansionslots}\nКоличество вентиляторов: {fans}";
     }
 }
