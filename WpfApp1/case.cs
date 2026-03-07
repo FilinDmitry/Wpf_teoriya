@@ -28,6 +28,6 @@ namespace WpfApp1
         public virtual ICollection<boardformfactorcase> boardformfactorcase { get; set; }
         public virtual casesize casesize { get; set; }
 
-        public override string info => $"Размер: {casesize.name}\nСлоты расширения: {expansionslots}\nКоличество вентиляторов: {fans}";
+        public override string info => $"Размер: {casesize.name}\nСлоты расширения: {expansionslots}\nКоличество вентиляторов: {fans} \n";
     }
 }

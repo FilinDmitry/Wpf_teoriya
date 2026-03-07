@@ -29,5 +29,7 @@ namespace WpfApp1
         public virtual gpuinterface gpuinterface { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<videoconnectorgpu> videoconnectorgpu { get; set; }
+
+        public override string info => $"Интерфейс: {gpuinterface.name}\nВидеопамять: {videomemory}\nШина памяти: {memorybus}\nЧастота: {chipfrequency}";
     }
 }

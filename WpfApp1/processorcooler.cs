@@ -29,5 +29,6 @@ namespace WpfApp1
         public virtual fandimension fandimension { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<socketprocessorcooler> socketprocessorcooler { get; set; }
+        public override string info => $"Размер: {fandimension.name}\nМинимальная скорость: {minspeed}\nМаксимальная скорость: {maxspeed}\nУровень шума: {noiselevel}\nТепловые трубки: {heatpipes}";
     }
 }

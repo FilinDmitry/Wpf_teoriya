@@ -71,5 +71,10 @@ namespace WpfApp1.Pages
             }
             LB_main.ItemsSource = filter;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

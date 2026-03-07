@@ -20,5 +20,7 @@ namespace WpfApp1
     
         public virtual certificate certificate { get; set; }
         public virtual fandimension fandimension { get; set; }
+
+        public override string info => $"Мощность: {power} Вт\nРазмер вентилятора: {fandimension}\nСертификат: {certificate.name}";
     }
 }

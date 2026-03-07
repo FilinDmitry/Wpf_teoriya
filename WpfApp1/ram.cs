@@ -21,5 +21,6 @@ namespace WpfApp1
         public string timings { get; set; }
     
         public virtual memorytype memorytype { get; set; }
+        public override string info => $"Тип памяти: {memorytype.name}\nОбъем: {capacity} ГБ\nКоличетсва плашек: {count}\nСкорость: {ghz}ГГЦ";
     }
 }

@@ -25,5 +25,7 @@ namespace WpfApp1
         public virtual formfactor formfactor { get; set; }
         public virtual memorytype memorytype { get; set; }
         public virtual socket socket { get; set; }
+
+        public override string info => $"Сокет процессора: {socket.name}\nФормфактор: {formfactor.name}\nТип памяти: {memorytype.name}\nPci: {pcislots}\nSata: {sataports}\nUsb: {usbports}";
     }
 }

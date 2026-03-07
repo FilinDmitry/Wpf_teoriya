@@ -22,5 +22,21 @@ namespace WpfApp1
         public virtual storagedevicetype storagedevicetype { get; set; }
         public virtual hdd hdd { get; set; }
         public virtual ssd ssd { get; set; }
+
+        public string describe_type
+        {
+            get
+            {
+                if (storagedevicetypeid == 1)
+                {
+                    return $"Ресурс накопителя: {ssd.tbw} Циклов";
+                }
+                else 
+                {
+                    return $"Скорость вращения: {hdd.rotationspeed}";
+                }
+            }
+        }
+        public override string info => $"Тип: {storagedevicetype.name}\nИнтерфейс: {storagedeviceinterface}\nВместимость: {capacity} ГБ\n{describe_type}";
     }
 }
