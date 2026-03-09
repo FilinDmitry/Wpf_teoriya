@@ -44,7 +44,10 @@ namespace WpfApp1.Pages
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            basepart component = DataContext as basepart;
+            MessageBox.Show(component.ToString());
+            SelectedComponents.set_part(component);
+            NavigationService.GoBack();
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
