@@ -44,8 +44,8 @@ namespace WpfApp1.Pages
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            basepart component = DataContext as basepart;
-            MessageBox.Show(component.ToString());
+            Button button = sender as Button;
+            basepart component = button.DataContext as basepart;
             SelectedComponents.set_part(component);
             NavigationService.GoBack();
         }

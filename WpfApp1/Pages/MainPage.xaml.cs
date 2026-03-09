@@ -23,7 +23,7 @@ namespace WpfApp1.Pages
         public MainPage()
         {
             InitializeComponent();
-
+            items_changed();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -60,5 +60,34 @@ namespace WpfApp1.Pages
             
             NavigationService.Navigate(new SelectItem(list));
         }
+       private decimal choice(ref decimal price, TextBlock textbox, basepart basepart)
+        {
+            if (basepart != null)
+            {
+                textbox.Text = $"Выбрано: {basepart.name}";
+                price += basepart.price;
+            }
+            else
+            {
+                textbox.Text = $"Не выбрано";
+            }
+            return price;
+            
+        }
+
+        public void items_changed()
+        {
+            decimal price = 0;
+            choice(ref price, CPU, SelectedComponents.cpu);
+            choice(ref price, Case, SelectedComponents.@case);
+            choice(ref price, GPU, SelectedComponents.gpu);
+            choice(ref price, RAM, SelectedComponents.ram);
+            choice(ref price, DISK, SelectedComponents.storagedevice);
+            choice(ref price, Motherboard, SelectedComponents.motherboard);
+            choice(ref price, COOLER, SelectedComponents.processorcooler);
+            choice(ref price, Power, SelectedComponents.powersupply);
+            Price.Text = "Цена: " + decimal.Round(price, 2) + " ₪";
+        }
+        
     }
 }

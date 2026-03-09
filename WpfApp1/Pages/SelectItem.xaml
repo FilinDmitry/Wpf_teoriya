@@ -62,7 +62,7 @@
                                 <TextBlock Text="{Binding info}"/>
                             </StackPanel>
                             <StackPanel Grid.Column="2" Margin="0 0 5 0" >
-                            <TextBlock Text="{Binding Price, StringFormat=Цена: {0} ₪}" FontSize="15" FontWeight="Medium" HorizontalAlignment="Right" Margin="0 5"/>
+                            <TextBlock Text="{Binding price, StringFormat=Цена: {0} ₪}" FontSize="15" FontWeight="Medium" HorizontalAlignment="Right" Margin="0 5"/>
                                 <Border HorizontalAlignment="Right" BorderBrush="Gray" CornerRadius="5" BorderThickness="1">
                                     <Button Content="Добавить" FontSize="13" Padding="3" Click="btnAdd_Click"/>
                                 </Border>
