@@ -81,6 +81,7 @@
     <Compile Include="certificate.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Checkers.cs" />
     <Compile Include="cpu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

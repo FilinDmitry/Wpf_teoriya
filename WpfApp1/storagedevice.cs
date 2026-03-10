@@ -23,6 +23,7 @@ namespace WpfApp1
         public virtual hdd hdd { get; set; }
         public virtual ssd ssd { get; set; }
 
+
         public string describe_type
         {
             get
@@ -31,7 +32,7 @@ namespace WpfApp1
                 {
                     return $"Ресурс накопителя: {ssd.tbw} Циклов";
                 }
-                else 
+                else
                 {
                     return $"Скорость вращения: {hdd.rotationspeed}";
                 }
