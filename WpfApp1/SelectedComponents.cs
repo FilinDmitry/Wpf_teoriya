@@ -20,33 +20,56 @@ namespace WpfApp1
         public static basepart ram;
         public static basepart powersupply;
         public static basepart storagedevice;
+        static basepart previous_detail;
         static public List<basepart> lst;
         static public void set_part(basepart part)
         {
             switch (part.parttypeid)
             {
                 case 1:
+                    previous_detail = cpu;
                     cpu = part;
+                    if (!Checkers.SocketCheck())
+                    { cpu = previous_detail; }
                     break;
                 case 2:
+                    previous_detail = gpu;
                     gpu = part;
+                    if (!Checkers.PowerCheck())
+                    { gpu = previous_detail; }
                     break;
                 case 3:
+                    previous_detail = ram;
                     ram = part;
+                    if (!Checkers.RamTypeCheck())
+                    { ram = previous_detail; }
                     break;
                 case 4:
+                    previous_detail = motherboard;
                     motherboard = part;
+                    if (!Checkers.MotherboardChecks())
+                    { motherboard = previous_detail; }
                     break;
                 case 5:
+                    previous_detail = @case;
                     @case = part;
+                    if (!Checkers.FormFactorCheck())
+                    { @case = previous_detail; }
                     break;
                 case 6:
+                    previous_detail = powersupply;
                     powersupply = part;
+                    if (!Checkers.PowerCheck())
+                    { powersupply = previous_detail; }
                     break;
                 case 7:
-                   processorcooler = part;
+                    previous_detail = processorcooler;
+                    processorcooler = part;
+                    if (!Checkers.SocketCheck())
+                    { processorcooler = previous_detail; }
                     break;
                 case 8:
+                    
                     storagedevice = part;
                     break;
             }

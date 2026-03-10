@@ -13,7 +13,7 @@ namespace WpfApp1
         {
             gpu gpu = SelectedComponents.gpu as gpu;
             powersupply powersupply = SelectedComponents.powersupply as powersupply;
-            if (gpu != null || powersupply != null)
+            if (gpu != null && powersupply != null)
             {
                 if (gpu.recommendpower > powersupply.power)
                 {
@@ -26,15 +26,16 @@ namespace WpfApp1
             }
             return true;
         }
-        static public bool FormFactor()
+        static public bool FormFactorCheck()
         {
             motherboard motherboard = SelectedComponents.motherboard as motherboard;
             @case @case = SelectedComponents.@case as @case;
-            if (motherboard != null || @case != null)
+            if (motherboard != null && @case != null)
             {
-                //if (motherboard.formfactorid != @case.boardformfactorcase)
+                boardformfactorcase condition = Core.Context.boardformfactorcase.FirstOrDefault(i => i.@case == @case && i.formfactorid == motherboard.formfactorid);
+                if (condition == null)
                 {
-                    MessageBoxResult dialogResult = MessageBox.Show("Формфактор материнской платы и корпуса не совпадает", "Предупреждение", MessageBoxButton.YesNo);
+                    MessageBoxResult dialogResult = MessageBox.Show("Формфактор материнской платы и корпуса не совпадает. Хотите продолжить?", "Предупреждение", MessageBoxButton.YesNo);
                     if (dialogResult == MessageBoxResult.No)
                     {
                         return false;
@@ -42,6 +43,71 @@ namespace WpfApp1
                 }
             }
             return true;
+        }
+        static public bool SocketCheck()
+        {
+            motherboard motherboard = SelectedComponents.motherboard as motherboard;
+            cpu cpu = SelectedComponents.cpu as cpu;
+            processorcooler processorcooler = SelectedComponents.processorcooler as processorcooler;
+            if (cpu != null && motherboard != null)
+            {
+                if (cpu.socketid != motherboard.socketid)
+                {
+                    MessageBoxResult dialogResult = MessageBox.Show("Сокет на материнской плате и сокет процессора не совпадают. Вы уверены что хотите продолжить?", "Предупреждение", MessageBoxButton.YesNo);
+                    if (dialogResult == MessageBoxResult.No)
+                    {
+                        return false;
+                    }
+                }
+                
+            }
+            else if (cpu != null && processorcooler != null)
+            {
+                var l_1 = cpu.socket.socketprocessorcooler;
+                var l_2 = processorcooler.socketprocessorcooler;
+                foreach (socketprocessorcooler item in l_1)
+                {
+                    if (l_2.Contains(item))
+                    { return true; }
+                }
+                MessageBoxResult dialogResult = MessageBox.Show("Кулер не подходит к данному процессору. Вы уверены что хотите продолжить?", "Предупреждение", MessageBoxButton.YesNo);
+                if (dialogResult == MessageBoxResult.No)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        
+        static public bool RamTypeCheck()
+        {
+            ram ram = SelectedComponents.ram as ram;
+            motherboard motherboard = SelectedComponents.motherboard as motherboard;
+            if (ram != null && motherboard != null)
+            {
+                if (ram.memorytypeid != motherboard.memorytypeid)
+                {
+                    MessageBoxResult dialogResult = MessageBox.Show("Тип памяти в материнской плате и в оперативной памяти не совпдают. Хотите продолжить?", "Предупреждение", MessageBoxButton.YesNo);
+                    if (dialogResult == MessageBoxResult.No)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+            
+        }
+
+        static public bool MotherboardChecks()
+        {
+            if (SocketCheck())
+            { 
+                if (RamTypeCheck())
+                { 
+                    return FormFactorCheck();
+                }
+            }
+            return false;
         }
 
     }
