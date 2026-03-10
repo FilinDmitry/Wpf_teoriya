@@ -17,7 +17,6 @@ namespace WpfApp1
         public int id { get; set; }
         public int partid { get; set; }
         public int assemblyid { get; set; }
-    
         public virtual assembly assembly { get; set; }
         public virtual basepart basepart { get; set; }
     }

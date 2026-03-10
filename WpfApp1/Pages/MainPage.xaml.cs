@@ -88,6 +88,10 @@ namespace WpfApp1.Pages
             choice(ref price, Power, SelectedComponents.powersupply);
             Price.Text = "Цена: " + decimal.Round(price, 2) + " ₪";
         }
-        
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Assembly());
+        }
     }
 }
