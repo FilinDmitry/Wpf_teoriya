@@ -110,5 +110,39 @@ namespace WpfApp1
             return false;
         }
 
+        static public bool FinalCheck()
+        {
+            ram ram = SelectedComponents.ram as ram;
+            motherboard motherboard = SelectedComponents.motherboard as motherboard;
+            cpu cpu = SelectedComponents.cpu as cpu;
+            processorcooler processorcooler = SelectedComponents.processorcooler as processorcooler;
+            gpu gpu = SelectedComponents.gpu as gpu;
+            powersupply powersupply = SelectedComponents.powersupply as powersupply;
+            @case @case = SelectedComponents.@case as @case;
+            if (ram.memorytypeid != motherboard.memorytypeid)
+            {
+
+                return false;
+            }
+            if (cpu.socketid != motherboard.socketid)
+            {
+                return false;
+            }
+            
+            if ((Core.Context.boardformfactorcase.FirstOrDefault(i => i.caseid == @case.id && i.formfactorid == motherboard.formfactorid) == null))
+            {
+                return false;
+            }
+            if ((Core.Context.socketprocessorcooler.FirstOrDefault(i => i.processorcoolerid == processorcooler.id && i.socketid == cpu.socket.id) == null))
+            {
+                return false;
+            }
+            if (gpu.recommendpower > powersupply.power)
+            {
+                return false;
+            }
+            return true;
+        }   
+
     }
 }

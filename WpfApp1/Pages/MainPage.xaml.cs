@@ -24,6 +24,7 @@ namespace WpfApp1.Pages
         {
             InitializeComponent();
             items_changed();
+            Saver.IsEnabled = good_assembly();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -103,6 +104,13 @@ namespace WpfApp1.Pages
                 wnd.ShowDialog();
             }
         }
-
+        private bool good_assembly()
+        {
+            if (SelectedComponents.all_component_selected())
+            {
+                return Checkers.FinalCheck();
+            }
+            return false;
+        }
     }
 }
