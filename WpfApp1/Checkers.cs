@@ -32,7 +32,7 @@ namespace WpfApp1
             @case @case = SelectedComponents.@case as @case;
             if (motherboard != null && @case != null)
             {
-                boardformfactorcase condition = Core.Context.boardformfactorcase.FirstOrDefault(i => i.@case == @case && i.formfactorid == motherboard.formfactorid);
+                boardformfactorcase condition = Core.Context.boardformfactorcase.FirstOrDefault(i => i.caseid == @case.id && i.formfactorid == motherboard.formfactorid);
                 if (condition == null)
                 {
                     MessageBoxResult dialogResult = MessageBox.Show("Формфактор материнской платы и корпуса не совпадает. Хотите продолжить?", "Предупреждение", MessageBoxButton.YesNo);

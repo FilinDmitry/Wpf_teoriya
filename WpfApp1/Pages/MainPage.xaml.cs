@@ -93,5 +93,16 @@ namespace WpfApp1.Pages
         {
             NavigationService.Navigate(new Assembly());
         }
+
+        private void Save_assembly(object sender, RoutedEventArgs e)
+        {
+            if (SelectedComponents.all_component_selected())
+            {
+                Window wnd = new SaveWindow();
+                wnd.Owner = Window.GetWindow(this);
+                wnd.ShowDialog();
+            }
+        }
+
     }
 }

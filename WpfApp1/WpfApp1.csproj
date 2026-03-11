@@ -88,6 +88,9 @@
     <Compile Include="Pages\Assembly.xaml.cs">
       <DependentUpon>Assembly.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SaveWindow.xaml.cs">
+      <DependentUpon>SaveWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectedComponents.cs" />
     <Compile Include="subclass.cs" />
     <Compile Include="fandimension.cs">
@@ -192,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SelectItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SaveWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
