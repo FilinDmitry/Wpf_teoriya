@@ -5,21 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <!--Элемент для вывода текста пользователю-->
-            <TextBlock HorizontalAlignment="Center" Text="Введите минимальное значение случайного числа:" Margin="5"/>
-            <!--Элемент для ввода текста-->
-            <TextBox x:Name="MinRandTextBox" Height="20" Width="100" Margin="5"/>
-            <!--Элемент для вывода текста пользователю-->
-            <TextBlock HorizontalAlignment="Center" Text="Введите максимальное значение случайного числа:" Margin="5"/>
-            <!--Элемент для ввода текста-->
-            <TextBox x:Name="MaxRandTextBox" Height="20" Width="100" Margin="5"/>
-            <!--Кнопка-->
-            <Button x:Name="RandomButton" HorizontalAlignment="Center" Content="Нажми на меня!" Click="RandomButton_Click" Margin="5"/>
-            <!--Вывод случайного значения-->
-            <TextBlock x:Name="OutputTextBlock" Margin="5" Height="20" Width="100"/>
-        </StackPanel>
+        Title="GoidaGame" Height="600" Width="900">
+    <Grid Background="Black">
+        <Frame NavigationUIVisibility="Hidden" Source="/Pages/StartMenu.xaml"></Frame>
     </Grid>
 </Window>

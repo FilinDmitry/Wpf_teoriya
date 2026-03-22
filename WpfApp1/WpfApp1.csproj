@@ -67,8 +67,41 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\EndPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StartMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\EndPage.xaml.cs">
+      <DependentUpon>EndPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="model\CustomEnemy.cs" />
+    <Compile Include="model\Enemy.cs" />
+    <Compile Include="model\EnemyFabric.cs" />
+    <Compile Include="model\Game.cs" />
+    <Compile Include="model\GenEnemy.cs" />
+    <Compile Include="model\Goblin.cs" />
+    <Compile Include="model\Magic.cs" />
+    <Compile Include="model\Player.cs" />
+    <Compile Include="model\Rand.cs" />
+    <Compile Include="model\Skeleton.cs" />
+    <Compile Include="model\Slime.cs" />
+    <Compile Include="model\Uron.cs" />
+    <Compile Include="Pages\StartMenu.xaml.cs">
+      <DependentUpon>StartMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +126,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\axe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Armor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Goblin.jpg" />
+    <Resource Include="images\Hero.png" />
+    <Resource Include="images\Magic.jpg" />
+    <Resource Include="images\Skeleton.jpg" />
+    <Resource Include="images\slime.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
