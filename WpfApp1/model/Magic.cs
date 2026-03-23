@@ -9,7 +9,7 @@ namespace ISIP223_Filin.model
     class Magic : Enemy
     {
         public double freeze_chance;
-        public Magic(int hp, int defence, int damage, double freeze_chance) : base(hp, defence, damage)
+        public Magic(int hp, int defence, int damage, double freeze_chance, string img_source) : base(hp, defence, damage, img_source)
         {
             name = "Маг";
             this.freeze_chance = freeze_chance;

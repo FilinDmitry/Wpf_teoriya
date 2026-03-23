@@ -3,58 +3,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ISIP223_Filin.model
 {
     internal class Game
     {
-        Player player = new Player(Rand.randint(40, 60), Rand.randint(2, 4), Rand.randint(4, 6), 0.1);
+        static TextBlock logs;
+        int level = 0;
+        Enemy cur_enemy;
+        public Player player = new Player(Rand.randint(40, 60), Rand.randint(2, 4), Rand.randint(4, 6), 0.1);
 
-        public void game()
+        public void game(TextBlock logs_tb)
         {
-            start_menu();
-            for (int i = 0; i < 10; i++)
+            logs = logs_tb;
+            cur_enemy = GenEnemy.Choice_enemy();
+            logs.Text = $"Ты встретился с врагом {cur_enemy.name}";
+            //while (true)
             {
-                gameplay();
-                if (player.hp == 0) { return; }
+
+                //gameplay();
+                level++;
+                if (level % 10 == 0) 
+                {
+                    level++;
+                    boss();
+                }
+                //if (player.hp == 0) { break; }
             }
-            boss();
+            
             if (player.hp == 0) { return; }
             end();
         }
 
-        public void start_menu() 
-        {
-            Console.WriteLine("'''Герой КИПФИН'''");
-            Console.WriteLine("'''Версия 0.3'''");
-            Console.WriteLine("Приготовьтесь к игре\n");
-            wait();
-        }
-
         public void boss()
         {
-            Console.WriteLine("Ты чувствуешь дрожь по спине");
-            Console.WriteLine("ОНО ПРЯМО ПЕРЕД ТОБОЙ");
-            battle(GenEnemy.Choice_boss());
+            cur_enemy = GenEnemy.Choice_boss();
+            logs.Text = $"Ты встретился с боссом { cur_enemy.name}";
+            //battle(cur_enemy);
+            
         }
         public void gameplay()
         {
-            int deistv = Rand.randint(0, 1);
+            int deistv = Rand.randint(0, 2);
             switch (deistv)
             {
                 case 0:
-                    get_tools();
+                    //get_tools();
                     break;
                 case 1:
-                    Console.WriteLine("Сейчас махыч будет");
-                    //Thread.Sleep(1000);
-                    battle(GenEnemy.Choice_enemy());
+                    cur_enemy = GenEnemy.Choice_enemy();
+                    logs.Text = $"Ты встретился с врагом {cur_enemy.name}";
+                    //battle(cur_enemy);
                     if (player.hp <= 0) { end(); return; }
                     break;
             }
-            wait();
         }
-        public void battle(Enemy enemy)
+        /*public void battle(Enemy enemy)
         {
             Console.WriteLine($"Ваш противник {enemy.name}");
             while (true)
@@ -66,7 +71,6 @@ namespace ISIP223_Filin.model
                     {
                         Console.WriteLine("Персонаж успешно контратаковал");
                         enemy.take_damage(player.damage);
-                        wait();
                         continue;
                     }
                     enemy.take_damage(player.damage);
@@ -83,40 +87,37 @@ namespace ISIP223_Filin.model
                     Console.WriteLine("Враг убил тебя");
                     return;
                 }
-
-                wait();
                 player.info();
                 enemy.info();
             }
         }
+        */
         public void get_tools()
         {
             int a = Rand.randint(0, 3);
-            Console.Clear();
+            
             switch (a)
             {
                 case 0:
                     player.Regeneration();
+                    logs.Text += "\nВы востановили здоровье";
                     break;
                 case 1:
                     player.new_weapon();
+                    logs.Text += "\nВы нашли оружие";
                     break;
                 case 2:
                     player.new_defence();
+                    logs.Text += "\nВы нашли броню";
                     break;
             }
         }
         public void end()
         {
             //Thread.Sleep(1500);
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine("Поздравляем с победой, следите за новостями: https://t.me/+2hokw8kg4fM4NGY6");
         }
-        public void wait()
-        {
-            Console.WriteLine("Для продолжения нажмите enter");
-            Console.ReadLine();
-            Console.Clear();
-        }
+        
     }
 }

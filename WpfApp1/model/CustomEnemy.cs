@@ -12,8 +12,8 @@ namespace ISIP223_Filin.model
         public double freeze_chance;
         public bool ignore_defence;
         public int dop_defence;
-        public CustomEnemy(string name, int hp, int defence, int damage, double crit_chance = 0, double freeze_chance = 0, bool ignore_defence = false, int dop_defence = 0)
-            : base(hp, defence, damage)
+        public CustomEnemy(string name, int hp, int defence, int damage, string img_source, double crit_chance = 0, double freeze_chance = 0, bool ignore_defence = false, int dop_defence = 0)
+            : base(hp, defence, damage, img_source)
         {
             this.name = name;
             this.crit_chance = crit_chance;

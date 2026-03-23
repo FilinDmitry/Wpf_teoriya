@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ISIP223_Filin.model
 {
@@ -22,13 +23,13 @@ namespace ISIP223_Filin.model
             this.damage = damage;
             this.contr_chance = contr_chance;
         }
+        
         public void Regeneration()
         {
-            Console.WriteLine("Вам выпало зелье лечения от поноса");
+            MessageBox.Show("Вам выпало зелье, здоровье восстановлено");
             hp = max_hp;
-            Console.WriteLine("Здоровье восстановлено");
-            Console.WriteLine($"Здоровье персонажа {hp}");
         }
+        //
         public void take_damage(Uron uron)
         {
 
@@ -62,43 +63,55 @@ namespace ISIP223_Filin.model
                 
             }
         }
-
-        public void info()
+        //
+        public string info()
         {
-            Console.WriteLine($"Здоровье персонажа {hp} \n");
+            return $"Здоровье персонажа {hp} \n";
+        }
+        public string player_hp()
+        {
+            return $"HP: {hp}/{max_hp}";
+        }
+        public string player_defence()
+        {
+            return $"defence: {defence}";
+        }
+        public string player_attack()
+        {
+            return $"damage: {damage}";
         }
 
-        public void stats_def(int def)
+        private string stats_def(int def)
         {
-            Console.WriteLine($"Ваша защита {defence}\tЗащита новой брони {def}");
+            return $"Ваша защита {defence}\tЗащита новой брони {def}";
         }
-        public void stats_attack(int attack)
+        private string stats_attack(int attack)
         {
-            Console.WriteLine($"Ваша атака {damage}\tАтака нового меча {attack}");
+            return $"Ваша атака {damage}\tАтака нового меча {attack}";
         }
 
-        public void new_weapon()
+        public bool new_weapon()
         {
-            Console.WriteLine("Вам выпал новый меч, желаете его взять? (1-да, 0-нет)");
             int n_damage = Rand.randint(0, 1) * 5 + Rand.randint(0, 1) * 4 + Rand.randint(0, 2) * 3 + Rand.randint(0, 1) + 1;
-            stats_attack(n_damage);
-            string s = Console.ReadLine();
-            if (s == "1")
+            MessageBoxResult dialogResult = MessageBox.Show($"Вам выпал новый меч, желаете его взять? \n{stats_attack(n_damage)}", "Выбор оружия", MessageBoxButton.YesNo);
+            if (dialogResult == MessageBoxResult.Yes)
             {
                 damage = n_damage;
+                return true;
             }
+            return false;
         }
 
-        public void new_defence()
+        public bool new_defence()
         {
-            Console.WriteLine("Вам выпал новая броня, хотите ее экипировать? (1-да, 0-нет)");
             int n_def = Rand.randint(0, 1) * 5 + Rand.randint(0, 1) * 4 + Rand.randint(0, 2) * 2 + Rand.randint(0, 1) + 1;
-            stats_def(n_def);
-            string s = Console.ReadLine();
-            if (s == "1")
+            MessageBoxResult dialogResult = MessageBox.Show($"Вам выпал новый доспех вы хотите взять его? \n{stats_def(n_def)}", "Выбор доспехов", MessageBoxButton.YesNo);
+            if (dialogResult == MessageBoxResult.Yes)
             {
                 defence = n_def;
+                return true;
             }
+            return false;
         }
         
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace ISIP223_Filin.model
 {
@@ -16,19 +17,20 @@ namespace ISIP223_Filin.model
         public bool is_alive = true;
         public bool freeze = false;
         public bool ignore_def = false;
-        
+        public string img_source;
 
-        public Enemy(int hp, int defence, int damage)
+        public Enemy(int hp, int defence, int damage, string img_source)
         {
             this.hp = hp;
             max_hp = hp;
             this.defence = defence;
             this.damage = damage;
+            this.img_source = img_source;
         }
 
-        public void info()
+        public string info()
         {
-                Console.WriteLine($"Здоровье {name} = {hp}");
+             return $"Здоровье {name} = {hp}";
         }
         public virtual void take_damage(int d)
         {

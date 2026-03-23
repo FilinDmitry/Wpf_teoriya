@@ -9,7 +9,7 @@ namespace ISIP223_Filin.model
     class Goblin : Enemy
     {
         public double crit_chance;
-        public Goblin(int hp, int defence, int damage, double crit_chance) : base(hp, defence, damage)
+        public Goblin(int hp, int defence, int damage, double crit_chance, string img_source) : base(hp, defence, damage, img_source)
         {
             name = "Гоблин";
             this.crit_chance = crit_chance;

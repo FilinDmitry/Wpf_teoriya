@@ -8,7 +8,7 @@ namespace ISIP223_Filin.model
 {
     class Skeleton : Enemy
     {
-        public Skeleton(int hp, int defence, int damage) : base(hp, defence, damage)
+        public Skeleton(int hp, int defence, int damage, string img_source) : base(hp, defence, damage, img_source)
         {
             name = "Скелет";
         }

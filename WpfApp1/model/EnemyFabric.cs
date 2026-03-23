@@ -15,7 +15,7 @@ namespace ISIP223_Filin.model
     {
         public override Enemy Create()
         {
-            return new Magic(Rand.randint(10, 15), Rand.randint(2, 3), Rand.randint(3, 5), 0.2);
+            return new Magic(Rand.randint(10, 15), Rand.randint(2, 3), Rand.randint(3, 5), 0.2, "/images/Magic.jpg");
         }
     }
 
@@ -23,7 +23,7 @@ namespace ISIP223_Filin.model
     {
         public override Enemy Create()
         {
-            return new Goblin(Rand.randint(8, 12), Rand.randint(3, 4), Rand.randint(4, 6), 0.2);
+            return new Goblin(Rand.randint(8, 12), Rand.randint(3, 4), Rand.randint(4, 6), 0.2, "/images/Goblin.jpg");
         }
     }
 
@@ -31,7 +31,7 @@ namespace ISIP223_Filin.model
     {
         public override Enemy Create()
         {
-            return new Skeleton(Rand.randint(13, 18), Rand.randint(1, 3), Rand.randint(2, 4));
+            return new Skeleton(Rand.randint(13, 18), Rand.randint(1, 3), Rand.randint(2, 4), "/images/Skeleton.jpg");
         }
     }
 
@@ -39,7 +39,7 @@ namespace ISIP223_Filin.model
     {
         public override Enemy Create()
         {
-            return new Slime(Rand.randint(15, 22), Rand.randint(2, 3), Rand.randint(1, 4));
+            return new Slime(Rand.randint(15, 22), Rand.randint(2, 3), Rand.randint(1, 4), "/images/slime.jpg");
         }
     }
 

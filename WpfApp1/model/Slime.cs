@@ -9,7 +9,7 @@ namespace ISIP223_Filin.model
     class Slime : Enemy
     {
         public int dop_defence = 2;
-        public Slime(int hp, int defence, int damage) : base(hp, defence, damage)
+        public Slime(int hp, int defence, int damage, string img_source) : base(hp, defence, damage, img_source)
         {
             name = "Слайм";
         }
