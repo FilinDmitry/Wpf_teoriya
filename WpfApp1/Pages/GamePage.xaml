@@ -26,7 +26,7 @@
         </Border>
         <Border Background="LightGray" BorderThickness="3" Grid.Row="1" Grid.ColumnSpan="3" BorderBrush="Black" CornerRadius="4">
             <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="LevelTB" Text="Level: 0" FontSize="20" FontWeight="Bold" FontFamily="Wide Latin" Foreground="DarkGreen"></TextBlock>
+                <TextBlock x:Name="LevelTB" Text="Level: 1" FontSize="20" FontWeight="Bold" FontFamily="Wide Latin" Foreground="DarkGreen"></TextBlock>
                 <TextBlock x:Name="HPTB" Margin="30, 0" FontSize="20" Text="HP: -/-"  FontFamily="Wide Latin" FontWeight="Bold" Foreground="#FF6F0000"/>
             </StackPanel>
         </Border>
@@ -58,7 +58,7 @@
                 <Viewbox Grid.Column="1">
                     <StackPanel>
                         <Image Width="100" Source="/images/Hero.png"/>
-                        <ProgressBar Height="7" Width="100" Background="#FFA10A0A"></ProgressBar>
+                        <!--<ProgressBar Height="7" Width="100" Background="#FFA10A0A"></ProgressBar>-->
                     </StackPanel>
                 </Viewbox>
                 <Viewbox Grid.Column="3">

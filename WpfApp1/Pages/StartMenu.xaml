@@ -14,7 +14,7 @@
             <RowDefinition Height="200"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock FontSize="60" Foreground="Red" FontFamily="Calisto MT" Text="Game" VerticalAlignment="Bottom" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock FontSize="60" Foreground="Red" FontFamily="Calisto MT" Text="GoidaGame" VerticalAlignment="Bottom" HorizontalAlignment="Center"></TextBlock>
         <Button Grid.Row="1" VerticalAlignment="Top" Foreground="Red" Background="Beige" Margin="30" Content="Start game" Height="80" FontFamily="Calisto MT" Width="400" FontSize="35" Click="Button_Click"></Button>
     </Grid>
 </Page>

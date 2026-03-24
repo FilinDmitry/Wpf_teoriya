@@ -28,9 +28,13 @@ namespace ISIP223_Filin.model
             this.img_source = img_source;
         }
 
+        public string hp_info()
+        {
+            return $"{hp}/{max_hp}";
+        }
         public string info()
         {
-             return $"Здоровье {name} = {hp}";
+             return $"Defence {defence}\nDamage {damage}";
         }
         public virtual void take_damage(int d)
         {

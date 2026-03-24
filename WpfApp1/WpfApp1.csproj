@@ -90,7 +90,6 @@
     <Compile Include="model\CustomEnemy.cs" />
     <Compile Include="model\Enemy.cs" />
     <Compile Include="model\EnemyFabric.cs" />
-    <Compile Include="model\Game.cs" />
     <Compile Include="model\GenEnemy.cs" />
     <Compile Include="model\Goblin.cs" />
     <Compile Include="model\Magic.cs" />
@@ -148,6 +147,9 @@
     <Resource Include="images\BossSkelet.jpg" />
     <Resource Include="images\Perminov.png" />
     <Resource Include="images\Porche.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lose.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
