@@ -57,17 +57,19 @@ namespace WpfApp1.Pages
         {
             cur_enemy = GenEnemy.Choice_boss();
             Logs.Text = $"Ты встретился с врагом {cur_enemy.name}";
+            update_info();
             battle(choice);
 
         }
 
         public void gameplay(char choice)
         {
-            if (level % 10 == 0)
+            if (level % 10 == 9)
             {
+                LevelTB.Text = $"Level: {++level}";
                 boss(choice);
                 is_battle = true;
-                LevelTB.Text = $"Level: {level++}";
+                
                 return;    
             }
             LevelTB.Text = $"Level: {++level}";
@@ -95,6 +97,7 @@ namespace WpfApp1.Pages
             {
                 case 0:
                     player.Regeneration();
+                    HPTB.Text = player.player_hp(); 
                     Logs.Text = "Вы востановили здоровье";
                     break;
                 case 1:
@@ -120,12 +123,12 @@ namespace WpfApp1.Pages
             bool contrattack = Rand.chance(player.contr_chance);
             if (choice == 'a')
             {
-                cur_enemy.take_damage(player.damage);
+                cur_enemy.take_damage(player.damage, Logs);
             }
             else if (contrattack)
             {
                 Logs.Text += ("\nПерсонаж успешно контратаковал");
-                cur_enemy.take_damage(player.damage);
+                cur_enemy.take_damage(player.damage, Logs);
                 update_info();
                 return;
             }
@@ -139,7 +142,7 @@ namespace WpfApp1.Pages
                 EnemyHP.Text = cur_enemy.hp_info();
                 return;
             }
-            player.take_damage(cur_enemy.amount_of_damage());
+            player.take_damage(cur_enemy.amount_of_damage(), Logs);
             update_info();
             if (player.hp <= 0)
             {

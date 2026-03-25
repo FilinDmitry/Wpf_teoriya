@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace ISIP223_Filin.model
 {
@@ -26,18 +27,17 @@ namespace ISIP223_Filin.model
         
         public void Regeneration()
         {
-            MessageBox.Show("Вам выпало зелье, здоровье восстановлено");
             hp = max_hp;
         }
         //
-        public void take_damage(Uron uron)
+        public void take_damage(Uron uron, TextBlock log)
         {
 
             int d = uron.damage;
             
             if (Rand.chance(contr_chance))
             {
-                Console.WriteLine("Игрок увернулся");
+                log.Text += "\nИгрок увернулся";
                 return;
             }
             if (!uron.ignore_def)
@@ -47,19 +47,19 @@ namespace ISIP223_Filin.model
             
             if (d <= 0)
             {
-                Console.WriteLine("Игрок не получил урона");
+                log.Text += "\nИгрок не получил урона";
             }
             else 
             {
                 hp -= d;
-                Console.WriteLine($"Игрок получил {d} урона");
+                log.Text += $"\nИгрок получил {d} урона";
                 
             }
             if (uron.freeze)
             {
-                Console.WriteLine("Враг заморозил тебя");
+                log.Text += "\nВраг заморозил тебя";
                 uron.freeze = false;
-                take_damage(uron);
+                take_damage(uron, log);
                 
             }
         }

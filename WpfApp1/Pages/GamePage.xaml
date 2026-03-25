@@ -45,7 +45,7 @@
                 </StackPanel>
                 </Border>
         </StackPanel>
-        
+
         <Border Grid.Row="2" Grid.ColumnSpan="3" CornerRadius="10" Background="Gray" BorderThickness="5">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -62,15 +62,16 @@
                     </StackPanel>
                 </Viewbox>
                 <Viewbox Grid.Column="3">
-                <StackPanel VerticalAlignment="Center" Grid.Column="3">
+                    <StackPanel VerticalAlignment="Center" Grid.Column="3">
                         <Image x:Name="EnemyImg" Width="100" Source="/images/1С.jpg" VerticalAlignment="Bottom"/>
-                    <TextBlock x:Name="EnemyHP" Text="-/-" FontFamily="Wide Latin" HorizontalAlignment="Center" FontSize="10"></TextBlock>
-                </StackPanel>
+                        <TextBlock x:Name="EnemyHP" Text="-/-" FontFamily="Wide Latin" HorizontalAlignment="Center" FontSize="10"></TextBlock>
+                    </StackPanel>
                 </Viewbox>
             </Grid>
         </Border>
-        <TextBlock x:Name="Logs" TextWrapping="Wrap" Background="Black" Foreground="White" Grid.Column="1" Grid.Row="3" Text="Логи"></TextBlock>
-        <StackPanel Grid.Row="3" Grid.Column="2">
+        <TextBlock ScrollViewer.VerticalScrollBarVisibility="Auto" VerticalAlignment="Bottom" ScrollViewer.HorizontalScrollBarVisibility="Disabled" x:Name="Logs" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3" Background="Black" Foreground="White"  Text="Логи"></TextBlock>
+
+            <StackPanel Grid.Row="3" Grid.Column="2">
             <Button x:Name="AttackBtn" Height="50" Margin="20,5" Content="Attack" FontFamily="Showcard Gothic" FontSize="20" Background="#FFA10A0A" Click="AttackBtn_Click"></Button>
             <Button x:Name="DefendBtn"  Height="50" Margin="20,5" Content="Defend" FontFamily="Showcard Gothic" FontSize="20" Background="#FF042DEA" Click="DefendBtn_Click" ></Button>
         </StackPanel>

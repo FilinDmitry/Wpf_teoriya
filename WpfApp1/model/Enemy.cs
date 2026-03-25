@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace ISIP223_Filin.model
@@ -36,16 +37,16 @@ namespace ISIP223_Filin.model
         {
              return $"Defence {defence}\nDamage {damage}";
         }
-        public virtual void take_damage(int d)
+        public virtual void take_damage(int d, TextBlock log)
         {
             d -= Rand.randint(0, defence);
             if (d <= 0)
             {
-                Console.WriteLine("Враг не получил урона");
+                log.Text += "\nВраг не получил урона";
             }
             else
             {
-                Console.WriteLine($"Враг получил {d} урона");
+                log.Text += $"\nВраг получил {d} урона";
                 hp -= d;
                 if (hp <= 0)
                 { is_alive = false; }
