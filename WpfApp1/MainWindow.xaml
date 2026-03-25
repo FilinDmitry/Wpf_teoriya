@@ -5,21 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="800"
+        KeyDown="Window_KeyDown" KeyUp="Window_KeyUp">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="10" />
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        <StackPanel>
-            <!--Элемент для вывода текста пользователю-->
-            <TextBlock HorizontalAlignment="Center" Text="Введите минимальное значение случайного числа:" Margin="5"/>
-            <!--Элемент для ввода текста-->
-            <TextBox x:Name="MinRandTextBox" Height="20" Width="100" Margin="5"/>
-            <!--Элемент для вывода текста пользователю-->
-            <TextBlock HorizontalAlignment="Center" Text="Введите максимальное значение случайного числа:" Margin="5"/>
-            <!--Элемент для ввода текста-->
-            <TextBox x:Name="MaxRandTextBox" Height="20" Width="100" Margin="5"/>
-            <!--Кнопка-->
-            <Button x:Name="RandomButton" HorizontalAlignment="Center" Content="Нажми на меня!" Click="RandomButton_Click" Margin="5"/>
-            <!--Вывод случайного значения-->
-            <TextBlock x:Name="OutputTextBlock" Margin="5" Height="20" Width="100"/>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="TB" Text="Это текст"></TextBlock>
+        
+        <TextBlock x:Name="Date" Text="1" Grid.Row="2"></TextBlock>
+        <TextBlock x:Name="Year" Text="2" Grid.Row="3"></TextBlock>
+        <TextBlock x:Name="Month" Text="3" Grid.Row="4"></TextBlock>
+        <TextBlock x:Name="DayOfWeek" Text="4" Grid.Row="5"></TextBlock>
+        <Calendar SelectionMode="SingleRange" x:Name="Cal" SelectedDatesChanged="Calendar_SelectedDatesChanged" Grid.Row="1" Width="300" VerticalAlignment="Top"></Calendar>
     </Grid>
 </Window>

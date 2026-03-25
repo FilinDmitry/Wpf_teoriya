@@ -23,31 +23,34 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            
+            Cal.BlackoutDates.Add(new CalendarDateRange(new DateTime(2026, 03, 27)));
+            Cal.BlackoutDates.Add(new CalendarDateRange(DateTime.MinValue, DateTime.Today.AddDays(-1)));
         }
 
-        private void RandomButton_Click(object sender, RoutedEventArgs e)
+        
+        
+
+        
+
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            Random random = new Random();
-            int a, b;
+            TB.Text = $"Нажата клавиша {e.Key}";
+        }
 
-            if (!int.TryParse(MinRandTextBox.Text, out a) || !int.TryParse(MaxRandTextBox.Text, out b))
-            {
-                MessageBox.Show("Неправильный ввод", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                MinRandTextBox.Text = ""; // Обращаемся к элементу MinRandTextBox и меняем его Text на пустой
-                MaxRandTextBox.Text = ""; // Обращаемся к элементу MaxRandTextBox и меняем его Text на пустой
-                return;
-            }
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            TB.Text = $"Отпущена клавиша {e.Key}";
+        }
 
-            if (a > b)
-            {
-                int x = a;
-                a = b;
-                b = x;
-            }
-
-            // Обращаемся к элементу OutputTextBlock и меняем его Text на результат случайной генерации числа
-            OutputTextBlock.Text = random.Next(a, b).ToString();
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Calendar calendar = sender as Calendar;
+            DateTime dateTime = (DateTime)calendar.SelectedDate;
+            Year.Text = dateTime.Year.ToString();
+            Month.Text = dateTime.Month.ToString();
+            DayOfWeek.Text = dateTime.DayOfWeek.ToString();
+            Date.Text = dateTime.Date.ToString("dd.MM.yyyy");
         }
     }
 }
