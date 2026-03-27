@@ -38,6 +38,8 @@ namespace WpfApp1.Pages
             {
                 NavigationService.GoBack();
                 NavigationService.GoBack();
+                MainWindow mw = MainWindow.GetWindow(this) as MainWindow;
+                mw.User_information.Text = User_reg.login;
             }
 
             

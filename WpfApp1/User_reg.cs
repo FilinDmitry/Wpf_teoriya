@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace WpfApp1
 {
-    static internal class User_reg
+    public static class User_reg
     {
         static public bool is_reg = false;
         static public string login;
@@ -19,8 +19,7 @@ namespace WpfApp1
 
         static public bool New_user(string login, string name, string password, string email, DateTime? birthday)
         {
-            
-            if (login == null || name == null || password == null || email == null || birthday == null)
+            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(email) || birthday == null)
             {
                 MessageBox.Show("Заполните все поля");
                 return false;
@@ -40,6 +39,7 @@ namespace WpfApp1
                 email = email,
                 birthday = birthday ?? DateTime.Today
             };
+
             Update(user);
             Check_user(login, password);
             return true;
@@ -60,7 +60,6 @@ namespace WpfApp1
                 login = u.Login;
                 id = u.ID; 
                 name = u.Name;
-                Goool.MW.User_information.Text = login_;
                 return true;
             }
         }
