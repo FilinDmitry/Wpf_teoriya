@@ -1,11 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 using WpfApp1;
 
 namespace UnitTestProject
 {
     [TestClass]
-    public class UnitTest1
+    public class RegTest
     {
         DateTime validTime = DateTime.Today.AddYears(-20);
         [TestMethod]
@@ -14,9 +15,14 @@ namespace UnitTestProject
             Assert.IsFalse(User_reg.New_user("", "", "", "", validTime));
         }
         [TestMethod]
-        public void FutureDataReg()
+        public void RegFutureDatag()
         {
             Assert.IsFalse(User_reg.New_user("BereznevYar", "Yaroslav", "098098098", "ybereza@gmail.com", DateTime.Now.AddDays(3)));
+        }
+        [TestMethod]
+        public void LessThan12Reg()
+        {
+            Assert.IsFalse(User_reg.New_user("BereznevYar", "Yaroslav", "098098098", "ybereza@gmail.com", DateTime.Now.AddYears(-8).AddDays(-45)));
         }
         [TestMethod]
         public void LogWithSpacesReg()
@@ -41,7 +47,9 @@ namespace UnitTestProject
         [TestMethod]
         public void RegPos()
         {
+            
             Assert.IsTrue(User_reg.New_user("EgurnovaA", "Arina", "0912873465", "aegurnova@gmail.com", validTime));
         }
     }
+    
 }
