@@ -11,7 +11,7 @@ A file with a database script that does not include the records created during t
 ### Conclusion about the testing performed
 All the authorization tests were passed successfully and did not cause any errors.
 
-Testing of the authorization module revealed several numbers of errors:
+Testing of the regestration module revealed several numbers of errors:
 - No validation for entering a date of birth
 - No validation for entering spaces in the login and password
 - No email validation during registration
@@ -82,7 +82,7 @@ Checks the data and adds the new user to the database, and then make user logged
 
 | Method | Access level | Purpose |
 |-------|-----------------|------------|
-| `Check_user` | `public static` | User authorization |
-| `New_user` | `public static` | User regestratration |
-| `Update` | `private static` | Saving a new user |
-| `Emailvalidation` | `private static` | email validation |
+| `Check_user` | `public` | User authorization |
+| `New_user` | `public` | User regestratration |
+| `Update` | `private` | Saving a new user |
+| `Emailvalidation` | `private` | email validation |
