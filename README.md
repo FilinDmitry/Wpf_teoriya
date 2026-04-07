@@ -1,6 +1,6 @@
 
 # Выполнили саму практическую работу, а также ее тестирование и рефакторинг студенты 3ИСИП-223 Филин Д. Березнев Я. и Степанов Д.
-For English, see [README.en.md](README.en.md) 
+## For English, see [README.en.md](https://github.com/FilinDmitry/Wpf_teoriya/blob/PR14/README.en.md)
 #### Примечание 
 файл со скриптом базы данных без учета созданных записей при тестах приведен в отдельном файле [script.sql](https://github.com/FilinDmitry/Wpf_teoriya/blob/PR14/script.sql)
 
