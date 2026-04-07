@@ -8,8 +8,8 @@ A file with a database script that does not include the records created during t
 <img width="1483" height="1012" alt="image" src="https://github.com/user-attachments/assets/e4f6d9ff-a1af-4116-8775-57caf1af4ff9" />
 
 
-### Вывод о проведенном тестировании
-Все тесты авторизации были пройдены успешно и не вызвали ошибок.
+### Conclusion about the testing performed
+All the authorization tests were passed successfully and did not cause any errors.
 
 Testing of the authorization module revealed several numbers of errors:
 - No validation for entering a date of birth
@@ -23,66 +23,66 @@ Testing of the authorization module revealed several numbers of errors:
 
 ## Module of authorization and registration
 
-Модуль предоставляет функционал для входа в аккаунт, регистрации новых пользователей и управления пользователями в базе данных.
+The module provides functionality for logging into an account, registering new users, and write users in the database.
 
-### Метод аутентификации
-Статический метод для проверки учетных данных и выполнения входа.
+### Authentication method
+A static method for checking data and logging in.
 
 | Parameter | Type | Purpose |
 |----------|-----|----------|
 | `login_` | `string` | User's login |
 | `password` | `string` | User's password |
 
-**Возвращаемое значение:**
-- `true` — вход выполнен успешно
-- `false` — введены неверные данные
+**Returned value:**
+- `true` — user succesfully logged into an account
+- `false` — invalid input data
 
-### Метод регистрации
-Проверяет данные и добавляет нового пользователя в базу данных, а также происходит вход.
+### Registration method
+Checks the data and adds the new user to the database, and then make user logged in.
 
 | Parameter | Type | Purpose |
 |----------|-----|----------|
-| `login` | `string` | Логин пользователя |
-| `name` | `string` | Имя пользователя |
-| `password` | `string` | Пароль пользователя |
-| `email` | `string` | Почта пользователя |
-| `birthday` | `DateTime?` | Дата рождения пользователя |
+| `login` | `string` | User's login |
+| `name` | `string` | User's name |
+| `password` | `string` | User's password |
+| `email` | `string` | User's email |
+| `birthday` | `DateTime?` | User's birthday |
 
-**Действия:**
-1. Проверяет корректность введеных данных
-2. Сохраняет пользователя через `Update(Users user)`
-3. Осуществялет вход через `Check_user(string, string)`
-**Возвращаемое значение:**
-- `true` — создание пользователя выполнено успешно
-- `false` — введены неверные данные для регистрации
+**Actions:**
+1. Verifies the correctness of the entered data
+2. Save user via `Update(Users user)`
+3. Log via `Check_user(string, string)`
+**Returned value:**
+- `true` — if user creation was completed successfully
+- `false` — incorrect registration information has been received
 
 ### Variables
 
 | Variable | Type | Purpose |
 |------------|-----|------------|
-| `is_reg` | `bool` | Флаг авторизации |
-| `login` | `string` | Логин текущего пользователя |
-| `id` | `int` | ID текущего пользователя |
-| `name` | `string` | Имя текущего пользователя |
-| `lst_users` | `List<Users>` | Кэш пользователей из БД |
-| `min_age` | `int` | Константа минимального возраста для регистрации |
+| `is_reg` | `bool` | Authorization flag |
+| `login` | `string` | Current user's login |
+| `id` | `int` | Current user's ID |
+| `name` | `string` | Current user's name |
+| `lst_users` | `List<Users>` | User cache from the database |
+| `min_age` | `int` | The minimum age of user for registration |
 
-### Требования
+### Requirements
 
-- Контекст базы данных `Core.Context`
-- Модель данных из приложенного файла `Sqript.sql`
-- `WPF` для `MessageBox`
+- Database context `Core.Context`
+- The data model from the attached file `Sqript.sql`
+- `WPF`
 
-### Примечания
+### Remarks
 
-- Метод `Check_user` автоматически устанавливает глобальные переменные при успешном входе
-- При неверных данных выводится сообщение через `MessageBox`
+- The `Check_user` method automatically sets global variables when a user logs in successfully
+- If the data is incorrect, a message is displayed using `MessageBox`
 
 ### The status of the methods
 
 | Method | Access level | Purpose |
 |-------|-----------------|------------|
-| `Check_user` | `public static` | Авторизация пользователя |
-| `New_user` | `public static` | Регистрация пользователя |
-| `Update` | `private static` | Сохранение нового пользователя |
-| `Emailvalidation` | `private static` | Проверка корректности email |
+| `Check_user` | `public static` | User authorization |
+| `New_user` | `public static` | User regestratration |
+| `Update` | `private static` | Saving a new user |
+| `Emailvalidation` | `private static` | email validation |
