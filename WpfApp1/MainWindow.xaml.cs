@@ -25,16 +25,17 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService navigation = NavigationService.GetNavigationService(MainFrame);
-            if (navigation != null)
+            if (MainFrame != null)
             {
-                if (navigation.CanGoBack)
+                if (MainFrame.CanGoBack)
                 {
-                    navigation.GoBack();
+                    MainFrame.GoBack();
                 }
-                
+
             }
         }
     }
