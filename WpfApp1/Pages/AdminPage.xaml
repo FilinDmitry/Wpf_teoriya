@@ -7,7 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AdminPage">
-
+    <Page.Resources>
+        <CollectionViewSource x:Key="RoleSource"/>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -17,8 +19,8 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Text="Панель администратора" Margin="30, 0, 30, 0" TextAlignment="Center" FontSize="30"></TextBlock>
-            <TextBlock Margin="5" Text="Фильтр по ролям" VerticalAlignment="Center" FontSize="18"></TextBlock>
-            <ComboBox x:Name="RoleSelector" ItemsSource="{Binding CBSource}" Height="30" Width="150" SelectionChanged="RoleSelector_SelectionChanged"></ComboBox>
+            <TextBlock Margin="5" Text="поиск" VerticalAlignment="Center" FontSize="18"></TextBlock>
+            <TextBox x:Name="Search" Width="200" Height="30" Margin="5" TextChanged="Search_TextChanged"></TextBox>
         </StackPanel>
         <ListBox  x:Name="Users_LB" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListBox.ItemTemplate>
@@ -30,7 +32,7 @@
                             <TextBlock Padding="15" Text="{Binding Phone, StringFormat=Телефон: {0}}"/>
                             <TextBlock Padding="15" Text="{Binding FIO, StringFormat=ФИО: {0}}" MaxWidth="200" TextWrapping="Wrap"/>
                         </StackPanel>
-                        <ComboBox x:Name="RoleChanger" Width="140" ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type local:AdminPage}}, Path=CBSource}" SelectedItem="{Binding Role.Name}" Height="30"></ComboBox>
+                            <ComboBox x:Name="RoleChanger" Width="140" ItemsSource="{Binding AvailableRoles}" SelectedValue="{Binding SelectedRole}" Height="30" SelectionChanged="RoleChanger_SelectionChanged"></ComboBox>
                     </StackPanel>
                     </Border>
                 </DataTemplate>

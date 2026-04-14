@@ -84,6 +84,7 @@
     <Compile Include="Pages\NewUserWindow.xaml.cs">
       <DependentUpon>NewUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserDisplayModel.cs" />
     <Compile Include="PaymentType.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>

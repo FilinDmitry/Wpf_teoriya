@@ -20,28 +20,58 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class AdminPage : Page
     {
-        public List<String> CBSource { get; set; }
+        List<string> roles = null;
+        List<User> users = Core.Context.User.Where(i => i.RoleID != 1).ToList();
         public AdminPage()
         {
-            CBSource = Core.Context.Role.Select(i => i.Name).Where(i => i != "Администратор").ToList();
-            this.DataContext = this;
-            InitializeComponent();
-            Users_LB.ItemsSource = Core.Context.User.Where(i => i.RoleID != 1).ToList();
             
+            InitializeComponent();
+            roles = Core.Context.Role.Select(i => i.Name).Where(i => i != "Администратор").ToList();
+            var displayModels = users.Select(u => new UserDisplayModel
+            {
+                User = u,
+                AvailableRoles = roles,
+                SelectedRole = u.Role?.Name
+            }).ToList();
+            
+            Users_LB.ItemsSource = displayModels;
+
         }
 
-        private void RoleSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox cb = sender as ComboBox;
-            if (cb.SelectedItem != null && Users_LB != null)
-            { Users_LB.ItemsSource = Core.Context.User.Where(i => i.Role.Name == cb.SelectedItem.ToString()).ToList(); }
-            
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new NewUserWindow(CBSource);
+            Window window = new NewUserWindow(roles);
             window.Show();
+        }
+
+        private void RoleChanger_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            User user = cb.Tag as User;
+            if (user != null)
+            {
+                MessageBox.Show(user.FIO);
+                user.RoleID = cb.SelectedIndex + 2;
+            }
+        }
+
+        private void Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (Users_LB != null)
+            {
+                var users_lst = users.Where(i => i.FIO.ToLower().Contains(tb.Text.ToLower()));
+                var displayModels = users_lst.Select(u => new UserDisplayModel
+                {
+                    User = u,
+                    AvailableRoles = roles,
+                    SelectedRole = u.Role?.Name
+                }).ToList();
+                Users_LB.ItemsSource = displayModels;
+            }
+
+
         }
 
         /*Button button = sender as Button;

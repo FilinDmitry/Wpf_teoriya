@@ -11,6 +11,6 @@
     
     <Grid>
         <Button Click="Button_Click" Width="60" Height="25" Content="Назад" VerticalAlignment="Top" HorizontalAlignment="Left"></Button>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="pages\StartPage.xaml"></Frame>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="pages\AdminPage.xaml"></Frame>
     </Grid>
 </Window>
