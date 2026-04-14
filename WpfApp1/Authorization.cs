@@ -52,6 +52,40 @@ namespace WpfApp1
             
 
         }
+
+        static public bool CreateUser(string phone, string fio, string password, int role)
+        {
+            if (password.Contains(' '))
+            {
+                MessageBox.Show("Пароль не может содержать пробелы");
+                return false;
+            }
+            
+            phone = phone_clear(phone);
+            if (phone.Length != 11)
+            {
+                MessageBox.Show("Телефон некорректной длины");
+                return false;
+            }
+            User user = Core.Context.User.FirstOrDefault(x => x.Phone == phone);
+            if (user != null)
+            {
+                MessageBox.Show("Телефон уже зарегестрирован на другого пользователя");
+                return false;
+            }
+            role += 2;
+            User new_user = new User()
+            { 
+                RoleID = role,
+                FIO = fio,
+                Password = password,
+                Phone = phone
+            };
+            Core.Context.User.Add(new_user);
+            Core.Context.SaveChanges();
+            MessageBox.Show("Пользователь успешно создан");
+            return true;
+        }
         static private string phone_clear(string phone)
         {
             phone = phone.Replace("+7", "8");
