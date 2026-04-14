@@ -13,7 +13,7 @@ namespace WpfApp1
     /// <summary>
     /// Класс отвечающий за проверку регистрации и авторизации пользователей
     /// </summary>
-    public static class User_reg
+    public static class User_reg 
     {
         static public bool is_reg = false; // Переменная которая хранит произведен ли вход в аккаунт
         static public string login; // Переменная хранящая логин
