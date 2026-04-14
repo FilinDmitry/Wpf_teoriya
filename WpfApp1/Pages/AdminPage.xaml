@@ -9,6 +9,11 @@
       Title="AdminPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Панель администратора" TextAlignment="Center" FontSize="30"></TextBlock>
         
     </Grid>
 </Page>

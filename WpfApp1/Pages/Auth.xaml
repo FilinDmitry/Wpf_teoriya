@@ -23,6 +23,6 @@
         <TextBlock Text="Телефон" FontSize="20"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" Grid.Row="1"></TextBlock>
         <TextBox x:Name="Phone" PreviewTextInput="Phone_PreviewTextInput" FontSize="20" VerticalAlignment="Top"  Margin="10" Grid.Row="1" Grid.Column="1" Width="200" HorizontalAlignment="Left"></TextBox>
         <TextBox x:Name="Password" PreviewTextInput="Password_PreviewTextInput" FontSize="20" VerticalAlignment="Bottom"  Margin="10" Grid.Row="1" Grid.Column="1" Width="200" HorizontalAlignment="Left"></TextBox>
-        <Button  Content="Войти" Height="60" Width="200" FontSize="20" Grid.Row="2" Grid.ColumnSpan="2"></Button>
+        <Button  Content="Войти" Height="60" Width="200" FontSize="20" Grid.Row="2" Grid.ColumnSpan="2" Click="Button_Click"></Button>
     </Grid>
 </Page>

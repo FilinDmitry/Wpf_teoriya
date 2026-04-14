@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace WpfApp1
 {
@@ -11,6 +13,8 @@ namespace WpfApp1
     {
         static List<string> list = new List<string>()
             {" " ,"+", "(", ")", "-"};
+        static public User cur_user = null;
+        static public bool is_auth = false;
 
         static public string validchars()
         {
@@ -18,20 +22,44 @@ namespace WpfApp1
         }
         static public bool User_Check(string phone, string password)
         {
+            if (password.Contains(' '))
+            {
+                MessageBox.Show("Пароль не может содержать пробелы");
+                return false;
+            }
             phone = phone_clear(phone);
             if (phone.Length != 11)
             {
                 MessageBox.Show("Телефон некорректной длины");
                 return false;
             }
-
-            return true;
+            User user = Core.Context.User.FirstOrDefault(x => x.Phone == phone && x.Password == password);
+            if (user != null)
+            {
+                if (user.Role.Name == "Заморожен")
+                {
+                    MessageBox.Show("Ваш аккаунт заморожен администратором");
+                }
+                cur_user = user;
+                is_auth = true;
+                return true; 
+            }
+            else
+            {
+                MessageBox.Show("Пользователь с такими данными не найден");
+                return false;
+            }
+            
 
         }
         static private string phone_clear(string phone)
         {
             phone = phone.Replace("+7", "8");
             phone = phone.Replace("+ 7", "8");
+            if (phone[0] == '7')
+            {
+                phone = "8" + phone.Substring(1);
+            }
             foreach (string el in list)
             {
                 phone = phone.Replace(el, string.Empty); 

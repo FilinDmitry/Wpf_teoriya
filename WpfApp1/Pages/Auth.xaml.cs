@@ -34,7 +34,35 @@ namespace WpfApp1.Pages
 
         private void Password_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            
             e.Handled = Regex.IsMatch(e.Text[0].ToString(), "[^a-zA-Z0-9]");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Authorization.User_Check(Phone.Text, Password.Text))
+            {
+                Navigator();
+            }
+        }
+        private void Navigator()
+        {
+            switch (Authorization.cur_user.Role.Name)
+            {
+                case "Клиент":
+                    NavigationService.Navigate(new StartPage());
+                    break;
+                case "Мастер":
+                    NavigationService.Navigate(new MasterPage());
+                    break;
+                case "Администратор":
+                    NavigationService.Navigate(new AdminPage());
+                    break;
+                case "Менеджер":
+                    NavigationService.Navigate(new ManagerPage());
+                    break;
+                
+            }
         }
     }
 }
