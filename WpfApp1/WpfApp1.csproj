@@ -81,8 +81,8 @@
     <Compile Include="OrderProduct.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Windows\NewUserWindow.xaml.cs">
-      <DependentUpon>NewUserWindow.xaml</DependentUpon>
+    <Compile Include="Windows\AdminCreateNewUserWindow.xaml.cs">
+      <DependentUpon>AdminCreateNewUserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenegerPages\ManagerManufacturerPage.xaml.cs">
       <DependentUpon>ManagerManufacturerPage.xaml</DependentUpon>
@@ -108,14 +108,14 @@
     <Compile Include="Windows\ServiceCreateNewWindow.xaml.cs">
       <DependentUpon>ServiceCreateNewWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ServiceNew.xaml.cs">
-      <DependentUpon>ServiceNew.xaml</DependentUpon>
+    <Compile Include="Windows\SelectUserWindow.xaml.cs">
+      <DependentUpon>SelectUserWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ServiceTimeChanger.xaml.cs">
-      <DependentUpon>ServiceTimeChanger.xaml</DependentUpon>
+    <Compile Include="Windows\ServiceTimeChangerWindow.xaml.cs">
+      <DependentUpon>ServiceTimeChangerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ServiceUserChanger.xaml.cs">
-      <DependentUpon>ServiceUserChanger.xaml</DependentUpon>
+    <Compile Include="Windows\ServiceUserChangerWindow.xaml.cs">
+      <DependentUpon>ServiceUserChangerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserDisplayModel.cs" />
     <Compile Include="PaymentType.cs">
@@ -170,7 +170,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Auth.xaml">
+    <Page Include="Pages\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,7 +190,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\NewUserWindow.xaml">
+    <Page Include="Windows\AdminCreateNewUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,15 +246,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ServiceNew.xaml">
+    <Page Include="Windows\SelectUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ServiceTimeChanger.xaml">
+    <Page Include="Windows\ServiceTimeChangerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\ServiceUserChanger.xaml">
+    <Page Include="Windows\ServiceUserChangerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,8 +263,8 @@
     <Compile Include="Pages\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Auth.xaml.cs">
-      <DependentUpon>Auth.xaml</DependentUpon>
+    <Compile Include="Pages\AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CartPage.xaml.cs">
       <DependentUpon>CartPage.xaml</DependentUpon>

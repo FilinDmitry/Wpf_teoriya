@@ -9,6 +9,34 @@
       Title="ManagerTovarPage">
 
     <Grid>
-        
+        <ListBox x:Name="ListBox" Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="SeaGreen" BorderThickness="2" CornerRadius="5" Padding="3">
+                        <StackPanel Width="250" HorizontalAlignment="Center">
+                            <StackPanel VerticalAlignment="Center">
+
+                                <TextBlock Margin="5" TextWrapping="Wrap"  Text="{Binding Name, StringFormat=Наименование: {0}}"></TextBlock>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <TextBlock  Text="Скидка"></TextBlock>
+                                    <TextBox PreviewTextInput="TextBox_PreviewTextInput" TextChanged="TextBox_TextChanged" Width="30" Text="{Binding Discount}"></TextBox>
+                                </StackPanel>
+                                <CheckBox Click="DiscoundFreeze_Click" Content="Скидка заморожена?" IsChecked="{Binding IsFreezeDiscount}"></CheckBox>
+                                <StackPanel Margin="5" Orientation="Horizontal">
+                                    <TextBlock Text="Описание: " Width="50"></TextBlock>
+                                    <TextBox MaxWidth="190" TextWrapping="WrapWithOverflow" TextChanged="TextBox_TextChanged_1"  Text="{Binding Description}"></TextBox>
+                                </StackPanel>
+                                <CheckBox Margin="5" Click="TovarFreeze_Click" IsChecked="{Binding IsFreeze}" Content="Товар заморожен "></CheckBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </Page>
