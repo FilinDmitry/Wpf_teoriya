@@ -17,8 +17,4 @@ namespace WpfApp1.Pages
         public string FIO => User.FIO;
         
     }
-    public class RolesDisplayModel
-    {
-        public List<string> aroles { get; set; }
-    }
 }

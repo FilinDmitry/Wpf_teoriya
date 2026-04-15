@@ -9,6 +9,20 @@
       Title="ServicePageForMaster">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="20" Grid.Row="1">
+            <TextBlock FontSize="30" Margin="5" Text="{Binding Date}"></TextBlock>
+            <TextBlock  FontSize="30" Margin="5" Text="{Binding Time}"></TextBlock>
+            <TextBlock  FontSize="30" Margin="5"  Text="{Binding service.User.FIO}"></TextBlock>
+            <TextBlock  FontSize="30" Margin="5"  Text="{Binding service.User.Phone}"></TextBlock>
+            <TextBlock  FontSize="30" Margin="5"  Text="{Binding Type}"></TextBlock>
+            <Viewbox Height="30" HorizontalAlignment="Left" Margin="10">
+                <CheckBox IsChecked="{Binding service.IsComplete}" Content="Выполнен"></CheckBox>
+            </Viewbox>
+        </StackPanel>
         
     </Grid>
 </Page>

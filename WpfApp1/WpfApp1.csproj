@@ -81,10 +81,10 @@
     <Compile Include="OrderProduct.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\NewUserWindow.xaml.cs">
+    <Compile Include="NewUserWindow.xaml.cs">
       <DependentUpon>NewUserWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\UserDisplayModel.cs" />
+    <Compile Include="UserDisplayModel.cs" />
     <Compile Include="PaymentType.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -100,6 +100,7 @@
     <Compile Include="Service.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="ServiceDisplayModel.cs" />
     <Compile Include="ServiceType.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
@@ -156,7 +157,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\NewUserWindow.xaml">
+    <Page Include="NewUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

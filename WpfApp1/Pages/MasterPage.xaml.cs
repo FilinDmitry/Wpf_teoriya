@@ -23,6 +23,27 @@ namespace WpfApp1.Pages
         public MasterPage()
         {
             InitializeComponent();
+            List<Service> services = Core.Context.Service.ToList();
+            DateTime now = DateTime.Now;
+            var displayModels = services.Select(u => new ServiceDisplayModel
+            {
+                service = u
+            }).ToList();
+            ListBox.ItemsSource = displayModels;
+        }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ServiceDisplayModel item = ListBox.SelectedItem as ServiceDisplayModel;
+            if (item != null)
+            {
+                NavigationService.Navigate(new ServicePageForMaster(item));
+            }
         }
     }
 }

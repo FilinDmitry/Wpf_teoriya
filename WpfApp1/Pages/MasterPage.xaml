@@ -9,6 +9,35 @@
       Title="MasterPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListBox MouseDoubleClick="ListBox_MouseDoubleClick" x:Name="ListBox" SelectionChanged="SelectionChanged" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="SeaGreen" BorderThickness="2" CornerRadius="5" Padding="3">
+                        <StackPanel HorizontalAlignment="Center">
+                            <StackPanel VerticalAlignment="Center">
+                            <TextBlock Padding="2" Text="{Binding Date}"/>
+                            <TextBlock Padding="2" Text="{Binding Time}"/>
+                            <TextBlock Text="{Binding Type}" Padding="10"></TextBlock>
+                            
+                        </StackPanel>
+                        
+                        
+                    </StackPanel>
+                    </Border>
+                </DataTemplate>
+
+
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </Page>

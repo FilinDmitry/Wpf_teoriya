@@ -53,6 +53,7 @@ namespace WpfApp1.Pages
             {
                 MessageBox.Show(user.FIO);
                 user.RoleID = cb.SelectedIndex + 2;
+                Core.Context.SaveChanges();
             }
         }
 
@@ -74,11 +75,6 @@ namespace WpfApp1.Pages
 
         }
 
-        /*Button button = sender as Button;
-        Tovar select_item = button.DataContext as Tovar;
-
-        Info.cart.Add(select_item);
-        */
 
     }
 }

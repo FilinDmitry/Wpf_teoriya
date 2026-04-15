@@ -20,9 +20,11 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class ServicePageForMaster : Page
     {
-        public ServicePageForMaster()
+        public ServicePageForMaster(ServiceDisplayModel service)
         {
             InitializeComponent();
+            this.DataContext = service;
+
         }
     }
 }
