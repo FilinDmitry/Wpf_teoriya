@@ -46,10 +46,17 @@ namespace WpfApp1.Windows
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+
             DateTime dt;
             if (!DateTime.TryParse(Date.Text, out dt))
             {
                 MessageBox.Show("Некоректное DateTime");
+                return;
+            }
+            TimeSpan time;
+            if (!TimeSpan.TryParse(Time.Text, out time))
+                {
+                MessageBox.Show("Некорректное Время");
                 return;
             }
             Decimal d;
@@ -58,6 +65,7 @@ namespace WpfApp1.Windows
                 MessageBox.Show("Некорректная цена");
                 return;
             }
+            dt = dt.Add(time);
                 Service service = new Service()
                 {
                     ServiceTypeID = serviceType.ID,
@@ -65,6 +73,10 @@ namespace WpfApp1.Windows
                     Price = d,
                     Date = dt
                 };
+            Core.Context.Service.Add(service);
+            Core.Context.SaveChanges();
+            MessageBox.Show("Запись создана");
+
             
         }
     }

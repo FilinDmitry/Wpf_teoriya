@@ -16,7 +16,7 @@ namespace WpfApp1
     {
         public int ID { get; set; }
         public int ServiceTypeID { get; set; }
-        public int PaymentTypeID { get; set; }
+        public Nullable<int> PaymentTypeID { get; set; }
         public Nullable<int> ClientID { get; set; }
         public int MasterID { get; set; }
         public bool IsComplete { get; set; }

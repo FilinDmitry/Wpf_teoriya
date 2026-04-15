@@ -9,19 +9,23 @@
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock x:Name="TB_Master" Text="FIO" FontSize="20" Margin="3"></TextBlock>
+                <TextBlock x:Name="TB_Master" Text="FIO" FontSize="20" Margin="3" MinWidth="70"></TextBlock>
                 <Button Content="Выбрать мастера" FontSize="20" Click="Button_Click"></Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock x:Name="TB_Type"  Text="FIO" FontSize="20" Margin="3"></TextBlock>
+                <TextBlock x:Name="TB_Type"  Text="FIO" FontSize="20" Margin="3" MinWidth="70"></TextBlock>
                 <Button Content="Выбрать услугу" FontSize="20" Click="Button_Click_1"></Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="Дата " FontSize="20" Margin="3" Width="50"></TextBlock>
-                <TextBox x:Name="Date" Width="200"></TextBox>
+                <TextBlock Text="Дата " FontSize="20" Margin="3" Width="70"></TextBlock>
+                <DatePicker x:Name="Date" Width="130"></DatePicker>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="Цена " FontSize="20" Margin="3" Width="50"></TextBlock>
+                <TextBlock Text="Время " FontSize="20" Margin="3" Width="70"></TextBlock>
+                <TextBox x:Name="Time" Width="200"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Цена " FontSize="20" Margin="3" Width="70"></TextBlock>
                 <TextBox x:Name="Price" Width="200"></TextBox>
             </StackPanel>
             <Button Content="Создать" VerticalAlignment="Bottom" Margin="100" Height="40" Width="130" Click="Button_Click_2"></Button>
