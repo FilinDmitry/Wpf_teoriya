@@ -84,6 +84,33 @@
     <Compile Include="NewUserWindow.xaml.cs">
       <DependentUpon>NewUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MenegerPages\ManagerManufacturerPage.xaml.cs">
+      <DependentUpon>ManagerManufacturerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenegerPages\ManagerOrderPage.xaml.cs">
+      <DependentUpon>ManagerOrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenegerPages\ManagerServicePage.xaml.cs">
+      <DependentUpon>ManagerServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenegerPages\ManagerServiceTypePage.xaml.cs">
+      <DependentUpon>ManagerServiceTypePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenegerPages\ManagerTovarPage.xaml.cs">
+      <DependentUpon>ManagerTovarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MenegerPages\ManagerTypeTovarPage.xaml.cs">
+      <DependentUpon>ManagerTypeTovarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceNew.xaml.cs">
+      <DependentUpon>ServiceNew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceTimeChanger.xaml.cs">
+      <DependentUpon>ServiceTimeChanger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceUserChanger.xaml.cs">
+      <DependentUpon>ServiceUserChanger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserDisplayModel.cs" />
     <Compile Include="PaymentType.cs">
       <DependentUpon>Data.tt</DependentUpon>
@@ -161,6 +188,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MenegerPages\ManagerManufacturerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenegerPages\ManagerOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenegerPages\ManagerServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenegerPages\ManagerServiceTypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenegerPages\ManagerTovarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MenegerPages\ManagerTypeTovarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ProductsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +229,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceNew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceTimeChanger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServiceUserChanger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

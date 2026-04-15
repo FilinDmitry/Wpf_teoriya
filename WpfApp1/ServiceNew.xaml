@@ -1,16 +1,12 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+﻿<Window x:Class="WpfApp1.ServiceNew"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Косметическая лажа" Height="550" Width="800"
-        >
-
-    
+        Title="ServiceNew" Height="250" Width="500">
     <Grid>
-        <Button Click="Button_Click" Width="60" Height="25" Content="Назад" VerticalAlignment="Top" HorizontalAlignment="Left"></Button>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="pages\ManagerPage.xaml"></Frame>
+        
     </Grid>
 </Window>

@@ -9,6 +9,15 @@
       Title="ManagerPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Панель менеджера" Margin="30, 0, 30, 0" TextAlignment="Center" FontSize="30"></TextBlock>
+            <TextBlock Margin="5" Text="Выбор списка" VerticalAlignment="Center" FontSize="18"></TextBlock>
+            <ComboBox x:Name="ListSelector" Width="200" Height="30" Margin="5" SelectionChanged="ListSelector_SelectionChanged" ></ComboBox>
+        </StackPanel>
+        <Frame x:Name="ManagerFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Source="MenegerPages\ManagerServicepage.xaml"></Frame>
     </Grid>
 </Page>

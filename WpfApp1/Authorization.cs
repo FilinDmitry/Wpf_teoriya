@@ -13,7 +13,7 @@ namespace WpfApp1
     {
         static List<string> list = new List<string>()
             {" " ,"+", "(", ")", "-"};
-        static public User cur_user = Core.Context.User.Where(i => i.ID == 4).First();
+        static public User cur_user = Core.Context.User.Where(i => i.ID == 3).First();
         static public bool is_auth = false;
 
         static public string validchars()
