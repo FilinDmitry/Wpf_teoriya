@@ -20,11 +20,13 @@ namespace WpfApp1
     public partial class ServiceUserChanger : Window
     {
         ServiceDisplayModel displayModel;
+        List<User> users;
         public ServiceUserChanger(ServiceDisplayModel model)
         {
             InitializeComponent();
             displayModel = model;
-            ListBox.ItemsSource = Core.Context.User.Where(i  => i.Role.Name == "Клиент").ToList();
+            users = Core.Context.User.Where(i  => i.Role.Name == "Клиент").ToList();
+            ListBox.ItemsSource = users;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,5 +42,9 @@ namespace WpfApp1
             else { MessageBox.Show("Произошла ошибка"); }
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ListBox.ItemsSource = users.Where(i => i.FIO.ToLower().Contains(Search.Text.ToLower()) || i.Phone.ToLower().Contains(Search.Text.ToLower())).ToList();
+        }
     }
 }

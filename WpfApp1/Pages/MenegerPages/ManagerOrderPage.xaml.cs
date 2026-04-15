@@ -23,6 +23,16 @@ namespace WpfApp1.Pages.MenegerPages
         public ManagerOrderPage()
         {
             InitializeComponent();
+            ListBox.ItemsSource = Core.Context.Order.ToList();
+        }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+
+            Order order = checkBox.DataContext as Order;
+            order.IsComplete = (bool)checkBox.IsChecked;
+            Core.Context.SaveChanges();
         }
     }
 }

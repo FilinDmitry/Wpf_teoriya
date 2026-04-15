@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Windows;
 
 namespace WpfApp1.Pages.MenegerPages
 {
@@ -23,7 +24,7 @@ namespace WpfApp1.Pages.MenegerPages
         public ManagerServicePage()
         {
             InitializeComponent();
-            List<Service> services = Core.Context.Service.ToList();
+            List<Service> services = Core.Context.Service.Where(i => i.Date >= DateTime.Now).ToList();
             DateTime now = DateTime.Now;
             var displayModels = services.Select(u => new ServiceDisplayModel
             {
@@ -59,8 +60,9 @@ namespace WpfApp1.Pages.MenegerPages
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            ServiceNew serviceNew = new ServiceNew();
-            serviceNew.Show();
+            ServiceCreateNewWindow @new = new ServiceCreateNewWindow();
+            @new.Show();
+            
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
