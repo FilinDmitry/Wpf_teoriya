@@ -46,13 +46,13 @@ namespace WpfApp1.Pages
                     ManagerFrame.Navigate(new ManagerTovarPage());
                     break;
                 case "типы товаров":
-                    ManagerFrame.Navigate(new ManagerTypeTovarPage());
+                    ManagerFrame.Navigate(new ManagerTypeTovarPage(1));
                     break;
                 case "производители":
-                    ManagerFrame.Navigate(new ManagerManufacturerPage());
+                    ManagerFrame.Navigate(new ManagerTypeTovarPage(2));
                     break;
                 case "типы услуг":
-                    ManagerFrame.Navigate(new ManagerServiceTypePage());
+                    ManagerFrame.Navigate(new ManagerTypeTovarPage(3));
                     break;
             }
         }

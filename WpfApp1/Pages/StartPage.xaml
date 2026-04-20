@@ -9,6 +9,6 @@
       Title="StartPage">
 
     <Grid>
-        <Button Width="60" Height="25" Content="Вход" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click"></Button>
+        <Button x:Name="Bt"  Width="60" Height="25" Content="Вход" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click"></Button>
     </Grid>
 </Page>

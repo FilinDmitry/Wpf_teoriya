@@ -81,11 +81,11 @@
     <Compile Include="OrderProduct.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MenegerPages\AccountPage.xaml.cs">
+      <DependentUpon>AccountPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AdminCreateNewUserWindow.xaml.cs">
       <DependentUpon>AdminCreateNewUserWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\MenegerPages\ManagerManufacturerPage.xaml.cs">
-      <DependentUpon>ManagerManufacturerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenegerPages\ManagerOrderPage.xaml.cs">
       <DependentUpon>ManagerOrderPage.xaml</DependentUpon>
@@ -93,14 +93,11 @@
     <Compile Include="Pages\MenegerPages\ManagerServicePage.xaml.cs">
       <DependentUpon>ManagerServicePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MenegerPages\ManagerServiceTypePage.xaml.cs">
-      <DependentUpon>ManagerServiceTypePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\MenegerPages\ManagerTovarPage.xaml.cs">
       <DependentUpon>ManagerTovarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MenegerPages\ManagerTypeTovarPage.xaml.cs">
-      <DependentUpon>ManagerTypeTovarPage.xaml</DependentUpon>
+    <Compile Include="Pages\MenegerPages\ManagerTypesRedactorPage.xaml.cs">
+      <DependentUpon>ManagerTypesRedactorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SelectServiceTypeWindow.xaml.cs">
       <DependentUpon>SelectServiceTypeWindow.xaml</DependentUpon>
@@ -190,11 +187,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\AdminCreateNewUserWindow.xaml">
+    <Page Include="Pages\MenegerPages\AccountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MenegerPages\ManagerManufacturerPage.xaml">
+    <Page Include="Windows\AdminCreateNewUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,15 +203,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MenegerPages\ManagerServiceTypePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\MenegerPages\ManagerTovarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MenegerPages\ManagerTypeTovarPage.xaml">
+    <Page Include="Pages\MenegerPages\ManagerTypesRedactorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

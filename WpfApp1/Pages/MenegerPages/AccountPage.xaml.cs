@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace WpfApp1.Pages.MenegerPages
 {
     /// <summary>
-    /// Логика взаимодействия для ManagerManufacturerPage.xaml
+    /// Логика взаимодействия для AccountPage.xaml
     /// </summary>
-    public partial class ManagerManufacturerPage : Page
+    public partial class AccountPage : Page
     {
-        public ManagerManufacturerPage()
+        public AccountPage()
         {
             InitializeComponent();
+            ListBoxService.ItemsSource = Core.Context.Service.Where(i => i.ClientID == Authorization.cur_user.ID).Select(u => new ServiceDisplayModel
+            {
+                service = u
+            }).ToList();
+            ListBoxOrder.ItemsSource = Core.Context.Order.Where(i => i.UserID == Authorization.cur_user.ID).ToList();
         }
     }
 }

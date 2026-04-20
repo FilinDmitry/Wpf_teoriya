@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Pages.MenegerPages;
 
 namespace WpfApp1.Pages
 {
@@ -23,11 +24,23 @@ namespace WpfApp1.Pages
         public StartPage()
         {
             InitializeComponent();
+            if (Authorization.is_auth)
+            {
+                Bt.Content = "Аккаунт";
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Auth());
+            if (!Authorization.is_auth)
+            {
+                NavigationService.Navigate(new Auth());
+            }
+            
+            else
+            {
+                NavigationService.Navigate(new AccountPage());
+            }
         }
     }
 }
