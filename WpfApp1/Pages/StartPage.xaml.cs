@@ -24,10 +24,12 @@ namespace WpfApp1.Pages
         public StartPage()
         {
             InitializeComponent();
+           
             if (Authorization.is_auth)
             {
                 Bt.Content = "Аккаунт";
             }
+            ListBox.ItemsSource = Core.Context.ServiceType.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,6 +43,21 @@ namespace WpfApp1.Pages
             {
                 NavigationService.Navigate(new AccountPage());
             }
+        }
+
+        private void Button_Tovar_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProductsPage());
+        }
+
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ServiceType st = ListBox.SelectedItem as ServiceType;
+            if ( st != null)
+            {
+                NavigationService.Navigate(new ListServicesPage(st));
+            }
+           
         }
     }
 }

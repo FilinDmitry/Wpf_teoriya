@@ -9,6 +9,30 @@
       Title="StartPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
         <Button x:Name="Bt"  Width="60" Height="25" Content="Вход" VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click"></Button>
+        <Button x:Name="Tovari"  Width="80" Height="33" Content="Товары" Grid.Row="1" VerticalAlignment="Top" Margin="0, 10, 5, 0" HorizontalAlignment="Right" Click="Button_Tovar_Click"></Button>
+        <ListBox MouseDoubleClick="ListBox_MouseDoubleClick" x:Name="ListBox" Grid.Row="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="SeaGreen" BorderThickness="2" CornerRadius="5" Padding="3">
+                        <StackPanel>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Margin="5"  Text="{Binding Name}"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </Page>

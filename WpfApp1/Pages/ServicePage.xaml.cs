@@ -20,7 +20,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class ServicePage : Page
     {
-        public ServicePage()
+        public ServicePage(ServiceDisplayModel sdm)
         {
             InitializeComponent();
         }
