@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="ProductWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="20" Grid.Row="1">
+            <TextBlock Padding="2" Text="{Binding product.Name}"/>
+            <TextBlock Padding="2" Text="{Binding Price,StringFormat='Цена со скидкой {0}'}"/>
+            <TextBlock Padding="2" Text="{Binding PriceNoDisc, StringFormat='Цена без скидки {0}'}"/>
+            <TextBlock Padding="2" Text="{Binding product.Rating, StringFormat=Рейтинг: {0}}"/>
+            <TextBlock Padding="2" Text="{Binding product.ProductType.Name, StringFormat=Тип {0}}"></TextBlock>
+            <TextBlock Padding="2" Text="{Binding product.Manufacturer.Name, StringFormat=Производитель: {0}}"></TextBlock>
+            <TextBlock Padding="2" Text="{Binding product.Discount, StringFormat=Скидка {0}%}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding product.Description, StringFormat=Описание: {0}}"></TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

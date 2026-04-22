@@ -37,7 +37,16 @@ namespace WpfApp1.Pages
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             ServiceDisplayModel sdm = ListBox.SelectedItem as ServiceDisplayModel;
-            NavigationService.Navigate(new ServicePage(sdm));
+            if (sdm != null)
+            {
+                if (!Authorization.is_auth)
+                {
+                    MessageBox.Show("Для продолжения необходимо авторизироваться");
+                    NavigationService.Navigate(new Auth());
+                    return;
+                }
+                NavigationService.Navigate(new ServicePage(sdm));
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

@@ -84,6 +84,7 @@
     <Compile Include="Pages\MenegerPages\AccountPage.xaml.cs">
       <DependentUpon>AccountPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProductDisplayModel.cs" />
     <Compile Include="Windows\AdminCreateNewUserWindow.xaml.cs">
       <DependentUpon>AdminCreateNewUserWindow.xaml</DependentUpon>
     </Compile>

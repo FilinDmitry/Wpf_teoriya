@@ -20,9 +20,29 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class ServicePage : Page
     {
+        Service service;
         public ServicePage(ServiceDisplayModel sdm)
         {
             InitializeComponent();
+            DataContext = sdm;
+            service = sdm.service;
+            Oplata.ItemsSource = Core.Context.PaymentType.Select(i => i.Name).ToList();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Oplata.SelectedItem == null)
+            {
+                MessageBox.Show("Выбирите тип оплаты");
+                return;
+            }
+            PaymentType payment = Core.Context.PaymentType.First(i => i.Name == Oplata.SelectedItem.ToString());
+            service.ClientID = Authorization.cur_user.ID;
+            service.Comment = Comment.Text;
+            service.PaymentTypeID = payment.ID;
+            Core.Context.SaveChanges();
+            MessageBox.Show("Вы успешно записаны");
+            NavigationService.Navigate(new StartPage());
         }
     }
 }

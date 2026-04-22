@@ -19,9 +19,10 @@ namespace WpfApp1
     /// </summary>
     public partial class ProductWindow : Window
     {
-        public ProductWindow()
+        public ProductWindow(ProductDisplayModel product)
         {
             InitializeComponent();
+            DataContext = product;
         }
     }
 }

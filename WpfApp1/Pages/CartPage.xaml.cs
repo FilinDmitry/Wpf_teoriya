@@ -20,7 +20,7 @@ namespace WpfApp1.Pages
     /// </summary>
     public partial class CartPage : Page
     {
-        public CartPage()
+        public CartPage(List<ProductDisplayModel> displayModels)
         {
             InitializeComponent();
         }

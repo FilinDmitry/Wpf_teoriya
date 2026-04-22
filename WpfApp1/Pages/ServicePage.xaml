@@ -9,6 +9,23 @@
       Title="ServicePage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="20" Grid.Row="1">
+            <TextBlock  FontSize="20" Margin="5"  Text="{Binding Type}"></TextBlock>
+            <TextBlock FontSize="20" Margin="5" Text="{Binding Date}"></TextBlock>
+            <TextBlock  FontSize="20" Margin="5" Text="{Binding Time}"></TextBlock>
+            <TextBlock  FontSize="20" Margin="5"  Text="{Binding service.User1.FIO, StringFormat='Мастер: {0}'}"></TextBlock>
+            <TextBlock  FontSize="20" Margin="5"  Text="{Binding service.User1.Phone, StringFormat='Телефон мастера: {0}'}"></TextBlock>
+            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5" Text="Комментарий"></TextBlock>
+                <TextBox x:Name="Comment" Width="140" Margin="10"></TextBox>
+            </StackPanel>
+            <ComboBox x:Name="Oplata" Width="150" Margin="5" HorizontalAlignment="Left"></ComboBox>
+            <Button Margin="5" Content="Записатьcя" FontSize="30" HorizontalAlignment="Left" Click="Button_Click"></Button>
+        </StackPanel>
     </Grid>
 </Page>
