@@ -33,7 +33,8 @@ namespace WpfApp1.Pages
         {
             if (products.Count != 0)
             {
-                CreateOrderWindow createOrderWindow = new CreateOrderWindow(products);
+                CreateOrderWindow createOrderWindow = new CreateOrderWindow(products, NavigationService.GetNavigationService(this));
+                createOrderWindow.ShowDialog();
             }
             else
             {

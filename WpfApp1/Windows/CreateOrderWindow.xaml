@@ -8,5 +8,13 @@
         Title="CreateOrderWindow" Height="450" Width="800">
     <Grid>
         
+        <StackPanel Margin="0, 50">
+            <TextBlock Text="Выбирите дату заказа" TextAlignment="Center" FontSize="20"></TextBlock>
+            <Calendar x:Name="Calend"></Calendar>
+            <TextBlock Text="Выбирите способ оплаты" TextAlignment="Center" FontSize="20"></TextBlock>
+            <ComboBox x:Name="Oplata" FontSize="20" Width="200" Margin="5"></ComboBox>
+            
+        </StackPanel>
+        <Button Content="Подтвердить" Height="50" VerticalAlignment="Bottom" Click="Button_Click"></Button>
     </Grid>
 </Window>
