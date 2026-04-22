@@ -9,6 +9,43 @@
       Title="CartPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListBox MouseDoubleClick="ListBox_MouseDoubleClick" x:Name="ListBox" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="{Binding Color}" BorderBrush="SeaGreen" BorderThickness="2" CornerRadius="5" Padding="3">
+                        <StackPanel HorizontalAlignment="Center">
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Padding="2" Text="{Binding product.Name}"/>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <TextBlock Padding="2" Text="{Binding Price}"/>
+                                    <TextBlock TextDecorations="Strikethrough" Padding="2" Text="{Binding PriceNoDisc}"/>
+                                </StackPanel>
+                                <TextBlock Padding="2" Text="{Binding product.Rating, StringFormat=Рейтинг: {0}}"/>
+                            </StackPanel>
+                            <Button Content="Удалить товар" Click="Button_Click"></Button>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="5" x:Name="Counter" Text="{Binding count, StringFormat='Кол = {0}'}"></TextBlock>
+                                <Button Margin="5" Click="Adder_Click" x:Name="Adder" Content="+" Height="20" Width="20"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+
+
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+
         
+        <Button Click="Button_Click_1" Content="Заказать" Grid.Row="2"></Button>
     </Grid>
 </Page>

@@ -9,6 +9,7 @@ namespace WpfApp1
     public class ProductDisplayModel
     {
         public Product product { get; set; }
+        public int count { get; set; } = 1; 
 
         private string Pricer()
         {

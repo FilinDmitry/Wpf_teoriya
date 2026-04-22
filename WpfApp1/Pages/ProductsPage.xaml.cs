@@ -50,7 +50,9 @@ namespace WpfApp1.Pages
 
         private void filter(string Type, string manufacturer, string name)
         {
+            ListBox.ItemsSource = null;
             List<ProductDisplayModel> local_prod = displayModels;
+            
             if (Type != null)
             {
                 local_prod = local_prod.Where(i => i.product.ProductType.Name == Type).ToList();
@@ -86,11 +88,22 @@ namespace WpfApp1.Pages
                 return;
             }
             ProductDisplayModel pdm = button.DataContext as ProductDisplayModel;
+            displayModels.Remove(pdm);
             cart.Add(pdm);
+            filter(CB_Type.SelectedItem?.ToString(), TB_Manufacturer.Text, TB_Name.Text);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            if (!Authorization.is_auth)
+            {
+                MessageBox.Show("Сначала необходимо зарегестрироваться");
+                NavigationService.Navigate(new Auth());
+                return;
+            }
+            if (cart.Count == 0)
+
+            { MessageBox.Show("Сначала добавьте хоть 1 товар"); }
             NavigationService.Navigate(new CartPage(cart));
         }
     }

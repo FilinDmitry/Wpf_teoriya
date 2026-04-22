@@ -100,6 +100,9 @@
     <Compile Include="Pages\MenegerPages\ManagerTypesRedactorPage.xaml.cs">
       <DependentUpon>ManagerTypesRedactorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CreateOrderWindow.xaml.cs">
+      <DependentUpon>CreateOrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SelectServiceTypeWindow.xaml.cs">
       <DependentUpon>SelectServiceTypeWindow.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateOrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
