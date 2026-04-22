@@ -38,9 +38,11 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 0, 40, 0">
+            <DatePicker x:Name="DatePicker" VerticalAlignment="Center" Margin="10" SelectedDateChanged="DatePicker_SelectedDateChanged"></DatePicker>
             <TextBlock VerticalAlignment="Center" Margin="5" FontSize="20" Text="Выбирете мастера: "></TextBlock>
-            <TextBox TextChanged="TextBox_TextChanged" FontSize="16" Width="150" Height="30"></TextBox>
+            <TextBox x:Name="MasterTB" TextChanged="TextBox_TextChanged" FontSize="16" Width="150" Height="30"></TextBox>
         </StackPanel>
     </Grid>
 </Page>

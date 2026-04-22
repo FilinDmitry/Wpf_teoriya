@@ -42,8 +42,27 @@ namespace WpfApp1.Pages
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            ListBox.ItemsSource = serviceDisplays.Where(i => i.service.User1.FIO.ToLower().Contains(textBox.Text.ToLower()));
+            Filter(MasterTB.Text, DatePicker.SelectedDate);
+            
+        }
+
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DatePicker dt = sender as DatePicker;
+            Filter(MasterTB.Text, dt.SelectedDate);
+        }
+        private void Filter(string master, DateTime? date)
+        {
+            List<ServiceDisplayModel> serv = serviceDisplays;
+            if (master != null)
+            {
+               serv = serv.Where(i => i.service.User1.FIO.ToLower().Contains(master.ToLower())).ToList();
+            }
+            if (date != null)
+            { 
+                serv = serv.Where(i => i.service.Date.Date == date).ToList();
+            }
+            ListBox.ItemsSource= serv;
         }
     }
 }
