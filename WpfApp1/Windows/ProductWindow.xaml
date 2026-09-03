@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.ProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="ProductWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="20" Grid.Row="1">
+            <TextBlock Padding="2" Text="{Binding product.Name}"/>
+            <TextBlock Padding="2" Text="{Binding Price,StringFormat='Цена со скидкой {0}'}"/>
+            <TextBlock Padding="2" Text="{Binding PriceNoDisc, StringFormat='Цена без скидки {0}'}"/>
+            <TextBlock Padding="2" Text="{Binding product.Rating, StringFormat=Рейтинг: {0}}"/>
+            <TextBlock Padding="2" Text="{Binding product.ProductType.Name, StringFormat=Тип {0}}"></TextBlock>
+            <TextBlock Padding="2" Text="{Binding product.Manufacturer.Name, StringFormat=Производитель: {0}}"></TextBlock>
+            <TextBlock Padding="2" Text="{Binding product.Discount, StringFormat=Скидка {0}%}"></TextBlock>
+            <TextBlock Padding="2" TextWrapping="Wrap" Text="{Binding product.Description, StringFormat=Описание: {0}}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

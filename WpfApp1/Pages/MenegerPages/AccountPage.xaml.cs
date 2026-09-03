@@ -13,30 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace WpfApp1.Pages.MenegerPages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AccountPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AccountPage : Page
     {
-        public MainWindow()
+        public AccountPage()
         {
             InitializeComponent();
-        }
-
-        
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame != null)
+            ListBoxService.ItemsSource = Core.Context.Service.Where(i => i.ClientID == Authorization.cur_user.ID).Select(u => new ServiceDisplayModel
             {
-                if (MainFrame.CanGoBack)
-                {
-                    MainFrame.GoBack();
-                }
-
-            }
+                service = u
+            }).ToList();
+            ListBoxOrder.ItemsSource = Core.Context.Order.Where(i => i.UserID == Authorization.cur_user.ID).ToList();
         }
     }
 }

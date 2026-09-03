@@ -13,30 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace WpfApp1.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ServicePageForMaster.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ServicePageForMaster : Page
     {
-        public MainWindow()
+        public ServicePageForMaster(ServiceDisplayModel service)
         {
             InitializeComponent();
-        }
+            this.DataContext = service;
 
-        
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame != null)
-            {
-                if (MainFrame.CanGoBack)
-                {
-                    MainFrame.GoBack();
-                }
-
-            }
         }
     }
 }

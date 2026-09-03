@@ -10,33 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfApp1
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ProductWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductWindow : Window
     {
-        public MainWindow()
+        public ProductWindow(ProductDisplayModel product)
         {
             InitializeComponent();
-        }
-
-        
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainFrame != null)
-            {
-                if (MainFrame.CanGoBack)
-                {
-                    MainFrame.GoBack();
-                }
-
-            }
+            DataContext = product;
         }
     }
 }

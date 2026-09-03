@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApp1.ServiceTimeChanger"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="ServiceTimeChanger" Height="250" Width="500">
+    <StackPanel Margin="10">
+        <TextBlock Text="{Binding Type}" Padding="10"></TextBlock>
+        <TextBlock Margin="5"  Text="{Binding service.User.FIO, StringFormat=Клиент: {0}}"></TextBlock>
+        <TextBlock Margin="5"  Text="{Binding service.User1.FIO, StringFormat=Мастер: {0}}"></TextBlock>
+        <StackPanel Margin="5" Orientation="Horizontal">
+            <TextBlock Text="Введите новую дату"></TextBlock>
+            <TextBox x:Name="TB" Padding="2" Text="{Binding service.Date, StringFormat='dd.MM.yy hh:mm'}"/>
+        </StackPanel>
+        <Button Content="Подтвердить" HorizontalAlignment="Center" Click="Button_Click"></Button>
+    </StackPanel>
+</Window>
